@@ -1,6 +1,7 @@
 import sys
 
 from scrapers.scrape_entsoe_posts import main_scrape_entsoe_posts
+from scrapers.scrape_eex_posts import main_scrape_eex_posts
 
 if __name__ == '__main__':
 
@@ -11,10 +12,17 @@ if __name__ == '__main__':
     else:
         source = str(sys.argv[1])
 
-    if source == "entsoe":
+    if source == "entsoe" or source == "all":
         main_scrape_entsoe_posts(
             output_dir_raw="./output/posts_raw/entsoe/",
             output_dir_cleaned="./output/posts_cleaned/entsoe/"
         )
-    else:
+
+    if source == "eex" or source == "all":
+        main_scrape_eex_posts(
+            output_dir_raw="./output/posts_raw/eex/",
+            output_dir_cleaned="./output/posts_cleaned/eex/"
+        )
+
+    if not source in ["entsoe", "eex", "all"]:
         raise ValueError(f"invalid source={source}")

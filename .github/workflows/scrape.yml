@@ -32,7 +32,7 @@ jobs:
         run: pipenv run playwright install
 
       - name: Scrape ENTSOE Data
-        run: pipenv run python run_scrape.py entsoe
+        run: pipenv run python run_scrape.py all
 
       - name: Commit Updated Data
         run: |

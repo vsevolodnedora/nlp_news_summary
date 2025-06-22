@@ -1,0 +1,14 @@
+# EEX Press Release - EEX Group Monthly Volumes – April 2025
+###  05/07/2025  Monthly Volume Report, Monthly Volume Report 
+**Leipzig, 7 May 2025** - EEX Group reports its April monthly volumes with the following highlights:
+  * The **EEX Group Global Power** markets achieved a monthly trading volume of 1,270.1 TWh, marking a +12% Year-on-Year growth. This included a 14% YoY growth on the EEX European Power Derivatives markets, which reached a total of 825.9 TWh. Three-digit growth rates were recorded on the CSEE (+104%) and GB (+303%) power derivatives markets. 
+  * An overall record volume of 821.8 TWh (+42% YoY) was registered on the **Group’s Natural Gas** markets. This increase was both driven by the European Natural Gas Spot markets, totaling 295.9 TWh (+31% YoY) as well as the European Natural Gas Derivatives markets, reaching a record volume total of 493.0 TWh (+50% YoY). New record volumes were reached on the Dutch TTF gas futures market at 307.9 TWh (+44% YoY), as well as on the German THE gas futures market at 109.4 TWh (+112% YoY). Volumes on the Belgian ZTP gas futures tripled to 2,229.1 TWh. 
+  * The **EEX Group Freight** markets registered a 40% Year-on-Year growth, reaching 105,035 contracts, driven by the EEX Freight Futures growth of 38% as well as the EEX Freight Options growth of 65%.
+  * **North American Environmental Futures** at Nodal achieved 71,138 contracts (+46% YoY).
+
+
+Please find the full report in English and German below.
+![EEX Group Global Power Markets 1](https://www.eex.com/en/newsroom/detail?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=14012&cHash=c36b2b6a41512db1bac73e3fcde41b20)
+![EEX Group Global Power Markets 2](https://www.eex.com/en/newsroom/detail?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=14012&cHash=c36b2b6a41512db1bac73e3fcde41b20)
+![EEX Group Global Gas EN](https://www.eex.com/en/newsroom/detail?tx_news_pi1%5Baction%5D=detail&tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Bnews%5D=14012&cHash=c36b2b6a41512db1bac73e3fcde41b20)
+**[EEX Group](https://www.eex-group.com/en/)** builds secure, successful and sustainable commodity markets worldwide – together with its customers. The group offers trading in power, natural gas, environmental products, freight and agriculturals as well as subsequent clearing and registry services, connecting a network of more than 950 trading participants. EEX Group consists of European Energy Exchange (EEX), EPEX SPOT, EEX Asia, Power Exchange Central Europe (PXE), GET Baltic and Nodal Exchange as well as the registry provider Grexel Systems and software companies KB Tech and Lacima. Clearing is provided by EEX Group’s clearing houses European Commodity Clearing (ECC) and Nodal Clear. EEX Group is part of Deutsche Börse Group.
