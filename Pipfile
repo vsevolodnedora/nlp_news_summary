@@ -30,7 +30,6 @@ crawl4ai = "*"
 
 # If you're using a local logger module (`logger.py`), no need to include anything here
 # Otherwise, include a logger library like loguru if that's what you're using:
-# loguru = "*"
 
 [dev-packages]
 
