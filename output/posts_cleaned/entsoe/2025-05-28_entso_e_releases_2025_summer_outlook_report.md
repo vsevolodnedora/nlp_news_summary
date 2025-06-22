@@ -1,0 +1,13 @@
+#  news ENTSO-E releases 2025 Summer Outlook Report
+28 May 2025
+_Brussels, 28 May 2025 – ENTSO-E publishes its assessment of Europe’s resource adequacy for the summer of 2025. The report, which assesses generation, demand, and other flexible resources across the pan-European system, confirms**no systemic adequacy risks** for most parts of Europe, while highlighting residual concerns in some isolated or weakly interconnected regions._
+ENTSO-E’s Summer Outlook report, which is released today, demonstrates the added value of a pan-European scope for adequacy analysis while complementing adequacy assessments carried out on a national and regional level.
+No systemic adequacy risks are identified for the European power system this summer. Specific risks exist in Ireland, Malta, and Cyprus because of planned generation outages, limited import capacity, and low availability of backup resources.
+The report highlights the system changes that TSOs are addressing. This includes renewable (RES) overproduction, driven by significant expansion of over 90 GW, mainly solar PV, added since last summer. Especially during sunny periods with low demand, this can lead to excess electricity.
+While battery storage capacity has doubled to 25 GW since the previous summer and high-carbon generation continues to decline, the need for flexibility solutions – like interconnection, storage, and demand-side response – becomes more essential than ever.
+The Summer Outlook report is designed to inform national and European authorities on system risks. TSOs are closely monitoring identified risks and are prepared to manage the situation. A wide range of processes, implemented in close collaboration across countries, ensure that these risks are addressed effectively.
+**Read the Summer Outlook 2025 report[here](https://eepublicdownloads.entsoe.eu/clean-documents/sdc-documents/seasonal/SOR2025/Report-Summer_Outlook_2025.pdf)**.
+For more information visit our [webpage](https://www.entsoe.eu/outlooks/seasonal/).
+For media enquiries, please contact: media@entsoe.eu
+**About ENTSO-E**
+ENTSO-E, the European Network of Transmission System Operators for Electricity, is the association for the cooperation of the European transmission system operators (TSOs). The 40 member TSOs, representing 36 countries, are responsible for the secure and coordinated operation of Europe’s electricity system, the largest interconnected electrical grid in the world. In addition to its core, historical role in technical cooperation, ENTSO-E is also the common voice of TSOs.

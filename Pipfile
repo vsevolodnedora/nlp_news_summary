@@ -1,0 +1,37 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+asyncio = "*"
+python-dotenv = "*"
+pytz = "*"
+holidays = "*"
+requests = "*"
+pyarrow = "*"
+fastparquet = "*"
+lxml = "*"
+pandas = "*"
+user-agent = "*"
+retry-requests = "*"
+requests-cache = "*"
+tqdm = "*"
+numpy = "*"
+matplotlib = "*"
+joblib = "*"
+statsmodels = "*"
+# LLM
+openai = "*"
+
+# Scrapers
+crawl4ai = "*"
+
+# If you're using a local logger module (`logger.py`), no need to include anything here
+# Otherwise, include a logger library like loguru if that's what you're using:
+# loguru = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"

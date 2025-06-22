@@ -1,0 +1,13 @@
+#  news DSO Entity and ENTSO-E launch Technopedia Platform for stakeholders’ applications, in line with Commission’s Grid Action Plan
+29 April 2025
+**DSO Entity and ENTSO-E unveil today the DSO/TSO Technopedia platform** , a new initiative stemming from the European Commission’s [Action Plan for EU Grids](https://ec.europa.eu/commission/presscorner/api/files/attachment/876888/Factsheet_EU%20Action%20Plan%20for%20Grids.pdf) released on 28 November 2023. This plan outlined a series of measures to accelerate the development of electricity infrastructure, assigning DSO Entity and ENTSO-E with the role of advancing smart grid adoption, boosting network efficiency, and promoting innovative technologies.
+The DSO/TSO Technopedia will play a crucial role in **showcasing existing technologies that support the roll-out of smart grids, helping improve grid efficiency and** **strengthen security of supply across Europe.**
+The platform will feature detailed descriptions of technologies available to system operators, along with use cases and deployments from across the continent. This will allow system operators to explore how others are leveraging various technologies, sharing good practices, and adopting similar solutions in their own grids. Notably, the platform is also open to contributions from stakeholders. They will be able to submit applications on specific use cases, helping expand the collective knowledge base.
+For the 2025 rollout, DSO Entity and ENTSO-E have identified a selection of key technologies that will be the initial areas of focus. All submitted applications will be assessed in line with clearly defined, transparent criteria set out in the accompanying guidance document.
+**The first DSO/TSO Technopedia submission window is now open** for all relevant stakeholders to submit applications on technology use cases. The application template, guidelines and specific technologies covered in this first application window can be found in the dedicated website linked below.
+**Submit your applications by no later than 30 June 2025.**
+The two associations welcome ongoing collaboration, input, and feedback to ensure the DSO/TSO Technopedia platform evolves into the most effective version possible.
+More information – including background, selected technologies, evaluation guidelines, and a 2025 implementation timeline – can be found on the dedicated website, that can be accessed using[ this link.](https://dso-tso-technopedia.eu/)
+If you have any questions, please contact:
+  * DSO Entity’s Secretariat (technopedia@eudsoentity.eu) or
+  * ENTSO-Es secretariat (dsotsotechnopedia@entsoe.eu).

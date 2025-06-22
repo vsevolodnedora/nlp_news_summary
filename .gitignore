@@ -1,3 +1,6 @@
+# large raw posts should not be tracked
+/output/posts_raw/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

@@ -1,0 +1,9 @@
+#  news Report TSO-DSO Challenges & Opportunities for Digital Electricity System
+6 March 2025
+DSO Entity and ENTSO-E published today the report “TSO-DSO Challenges & Opportunities for the Digital EU Electricity System,” a significant milestone in addressing the evolving landscape of grid management and energy transition, the result of work by the Joint Task Force (JTF). As the electricity sector undergoes rapid transformation, collaboration between system operators has never been more critical.
+The report underscores the critical need for digitalisation to enhance grid operation, planning, and customer integration, which is essential for achieving global and European carbon emission reduction targets. Also, it provides a comprehensive compilation of antiipated priority challenges in the transition toward a fully digitalised electricity system.
+Furthermore, it also compiles insights and expectations regarding digital twin solutions, gathered through various representatives from the energy sector (via workshops, surveys, and focus groups). Additionally, it highlights existing gaps, improvement opportunities, and necessary measures to advance digital solutions across Europe’s power systems.
+**What lies ahead: Use Cases and Roadmap**
+In 2025, the JTF will prioritise defining use cases that demonstrate the practical applications of digital twins. Additionally, a structured roadmap will be developed to guide the phased implementation of digitalisation strategies, ensuring that investments align with long-term European energy goals.
+Read the complete report [here](https://eepublicdownloads.blob.core.windows.net/public-cdn-container/clean-documents/Publications/RDC%20publications/DESAP_joint_report_on_common_TSO-DSO_challenges___opportunities_v1.1.pdf)
+* * *

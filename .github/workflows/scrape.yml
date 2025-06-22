@@ -1,0 +1,41 @@
+name: Scrape
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  update_data:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push'
+    permissions:
+      contents: write
+    env:
+      LOG_LEVEL: WARNING
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11.5'
+          cache: 'pipenv'
+
+      - name: Install pipenv
+        run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
+
+      - name: Install Dependencies
+        run: pipenv install
+
+      - name: Scrape ENTSOE Data
+        run: pipenv run python run_scrape.py entsoe
+
+      - name: Commit Updated Data
+        run: |
+          git config --global user.name 'Collector'
+          git config --global user.email 'noreply@nedora.digital'
+          git add database/
+          git commit -m "Add latest news"
+          git pull -r
+          git push
