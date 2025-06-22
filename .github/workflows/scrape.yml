@@ -38,7 +38,7 @@ jobs:
         run: |
           git config --global user.name 'Collector'
           git config --global user.email 'noreply@nedora.digital'
-          git add database/
+          git add output/posts_cleaned/
           git commit -m "Add latest news"
           git pull -r
           git push
