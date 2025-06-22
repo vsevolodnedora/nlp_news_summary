@@ -23,6 +23,9 @@ logger = get_logger(__name__)
 
 async def scrape_entsoe_news(output_dir:str, clean_output_dir:str) -> None:
 
+    os.makedirs(output_dir, exist_ok=True)
+    os.makedirs(clean_output_dir, exist_ok=True)
+
     def url_to_filename(url:str)->str:
         # Remove the base URL prefix
         prefix = "https://www.entsoe.eu/news/"
