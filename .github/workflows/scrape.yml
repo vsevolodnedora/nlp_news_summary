@@ -3,6 +3,8 @@ name: Scrape
 on:
   push:
     branches: ["main"]
+  schedule:
+    - cron: '0 18 * * *'  # Runs at 18:00 UTC daily
 
 jobs:
   update_data:
