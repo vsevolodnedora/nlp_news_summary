@@ -1,0 +1,15 @@
+* 10 April 2025
+  * Directorate-General for Energy
+  * 1 min read
+
+
+# Commission welcomes new ENTSOG report confirming the importance of storage last winter and need to start refilling as soon as possible
+![](https://energy.ec.europa.eu/sites/default/files/styles/oe_theme_medium_no_crop/public/2025-04/ENTSOG2025.png?itok=Xu6xts-g)
+Courtesy of GAZ-SYSTEM
+In its [2025 Summer Supply Outlook report](https://www.entsog.eu/sites/default/files/2025-04/SO0067-25_Report_Summer%20Supply%20Outlook%202025.pdf), published today, the European Network for Transmission System Operators for Gas (ENTSOG) confirmed that **gas storage was particularly important last winter, covering more than 30% of the EU’s gas consumption**. Storages also helped to contain price volatility, as stored gas was cheaper than LNG imports during winter months. Once again, the gas storages significantly contributed to the EU’s overall energy security. 
+The new report states that the **storage levels were at 34%** on 1 April 2025, the end of the winter season and gas year**.** This is lower than in the 2 previous years with warm winters, but in line with average pre-crisis levels. 
+The Summer Supply Outlook report recalls that **it is essential to start refilling storage as early as possible**. Data from Gas Infrastructure Europe (GIE) confirms that there has been a continuous net injection in EU storage since the end of March, which marks the start of the filling season. 
+Under the [EU Gas Storage Regulation](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=uriserv%3AOJ.L_.2022.173.01.0017.01.ENG&toc=OJ%3AL%3A2022%3A173%3ATOC) (EU/2022/1032), the EU set the objective to fill storage to 90% of capacity by 1 November. In the past 2 years, this target was already achieved more than 2 months ahead of deadline. Moreover, to facilitate storage refill and prevent price signal distortion this summer, the Commission adopted a [Recommendation](https://energy.ec.europa.eu/document/download/79576147-29ce-4b9a-9960-693b0f149806_en?filename=C_2025_1481_1_EN_ACT_part1_v1_0.pdf) on 5 March 2025, calling on EU countries to consider market conditions and the available flexibility provisions when deciding on measures to refill storages this summer.
+## Background
+On 5 March, the European Commission proposed to [prolong the current Gas Storage Regulation](https://energy.ec.europa.eu/news/commission-proposes-2-year-extension-eu-gas-storage-regulation-2025-03-05_en) until the end of 2027. A [report on the functioning of the Gas Storage Regulation](https://energy.ec.europa.eu/document/download/f293d175-7d1f-4bb5-9ada-7a60071f0cee_en), published at the same time, highlighted that it has ensured security of supply and lowered risks of supply disruption, thereby allowing the EU to advance efforts to reduce energy dependence on Russia. 
+Today’s ENTSOG Summer Supply Outlook 2025 is accompanied by a Review of the Summer Supply 2024 and complemented with an overview of Winter 2025/26.

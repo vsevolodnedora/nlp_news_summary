@@ -1,0 +1,15 @@
+* 16 May 2025
+  * Directorate-General for Energy
+  * 1 min read
+
+
+# Important step towards establishing the European Network of Network Operators for Hydrogen
+![](https://energy.ec.europa.eu/sites/default/files/styles/oe_theme_medium_no_crop/public/2025-05/hydrogen_900X600%20smaller.jpg?itok=cqYg8jbz)
+©AdobeStock/Yingyaipumi
+The Commission has today published its [Opinion](https://energy.ec.europa.eu/document/download/df461f8e-f158-4ea0-a070-a10d6d69133d_en) (C/2025/2004) on the statutory documents of the [European Network of Network Operators for Hydrogen (ENNOH)](https://ennoh.eu/) – the independent association representing future hydrogen transmission network operators at EU level. Detailing the Commission opinion on the draft articles of association, rules of procedure and list of members of ENNOH, this document is an important step in the process of establishing ENNOH. In its findings, the Commission flags the need to allow operators to start cooperating as soon as possible through ENNOH, while ensuring a framework that is in line with the EU legislation. This echoes the earlier opinion from the [Agency for the Cooperation of Energy Regulators](https://www.acer.europa.eu/sites/default/files/documents/Official_documents/Acts_of_the_Agency/Opinions/Opinions/ACER_Opinion_10-2024_ENNOH_Statutory_documents.pdf) (ACER). 
+Following today’s publication, it will now be up to the future hydrogen transmission network operators to adopt and publish, by early July 2025, the final statutory documents, taking into account the Commission’s and ACER’s opinions.
+## Background
+The [Hydrogen and Gas Market Decarbonisation Package](https://energy.ec.europa.eu/topics/markets-and-consumers/hydrogen-and-decarbonised-gas-market_en), in force since June 2024, mandates the establishment of a new independent EU association of hydrogen transmission network operators, ENNOH. 
+In line with the process of establishing ENNOH set out in the [Gas Regulation](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:L_202401789) (EU/2024/1789), the future hydrogen transmission network operators submitted in August 2024 draft statutory documents to the Commission and ACER, for their opinion. ACER adopted and published its [opinion](https://www.acer.europa.eu/sites/default/files/documents/Official_documents/Acts_of_the_Agency/Opinions/Opinions/ACER_Opinion_10-2024_ENNOH_Statutory_documents.pdf) on 18 December 2024, following a public stakeholder consultation. 
+Under the TEN-E Regulation, ENNOH will contribute to the development of the Hydrogen Ten Year Network Development Plan and will take over this task entirely from the European Network of Transmission System Operators for Gas (ENTSOG) as of 1 January 2027. 
+ENNOH will also significantly contribute to the establishment of harmonised technical and operational rules to ensure the efficient and safe operation of an interconnected hydrogen system across the EU (hydrogen network codes).

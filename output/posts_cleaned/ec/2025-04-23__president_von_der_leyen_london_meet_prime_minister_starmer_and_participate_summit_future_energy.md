@@ -1,0 +1,11 @@
+* 23 April 2025
+  * Directorate-General for Energy
+  * 1 min read
+
+
+# President von der Leyen in London to meet Prime Minister Starmer and participate in Summit on the Future of Energy Security with Commissioner Jørgensen
+![Participation of Ursula von der Leyen, President of the European Commission, in the London Summit](https://energy.ec.europa.eu/sites/default/files/styles/oe_theme_medium_no_crop/avportal/P-066567/00-09.jpg?itok=lTso_g43)
+Tomorrow, President Ursula von der Leyen will travel to London. First, she will meet with British Prime Minister Keir Starmer to discuss EU-UK cooperation on global issues, bilateral relations and the upcoming first-ever EU-UK Summit, currently scheduled for May this year.
+Then, the President will participate in the [Summit on the Future of Energy Security](https://www.iea.org/events/summit-on-the-future-of-energy-security), organised by the International Energy Agency (IEA) and hosted by the United Kingdom. The summit will discuss geopolitical and economic factors affecting energy security at international level and will address solutions such as the growth of clean energy technologies and their supply chains.
+During the summit, President von der Leyen will deliver a speech, in which she will highlight Europe's efforts in boosting reliable, affordable and sustainable energy, and the role of international partnerships in this area. Watch the President's speech live on [EBS](https://audiovisual.ec.europa.eu/en/) at 15:40 CEST.
+Commissioner for Energy and Housing, Dan Jørgensen, will also participate in the Summit by joining a series of [panel discussions and side events](https://commission.europa.eu/about/organisation/college-commissioners/calendar-items-president-and-commissioners_en?f%5B0%5D=commissioner_dynamic_commissioner_dynamic%3Ahttp%3A//publications.europa.eu/resource/authority/political-leader/COM_00006AAAF26A) on clean energy and transitioning away from fossil fuels. The Commissioner will also meet UK Secretary of State for Energy Security and Net Zero, Ed Miliband, the Ukrainian Energy Minister, German Galushchenko and the Egyptian Minister of Petroleum and Natural Resources, Karim Badawi.

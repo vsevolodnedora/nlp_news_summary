@@ -3,6 +3,7 @@ import sys
 from scrapers.scrape_entsoe_posts import main_scrape_entsoe_posts
 from scrapers.scrape_eex_posts import main_scrape_eex_posts
 from scrapers.scrape_acer_posts import main_scrape_acer_posts
+from scrapers.scrape_ec_posts import main_scrape_ec_posts
 
 if __name__ == '__main__':
 
@@ -31,5 +32,11 @@ if __name__ == '__main__':
             output_dir_cleaned="./output/posts_cleaned/acer/"
         )
 
-    if not source in ["entsoe", "eex", "acer", "all"]:
+    if source == "ec" or source == "all":
+        main_scrape_ec_posts(
+            output_dir_raw="./output/posts_raw/ec/",
+            output_dir_cleaned="./output/posts_cleaned/ec/"
+        )
+
+    if not source in ["entsoe", "eex", "acer", "ec", "all"]:
         raise ValueError(f"invalid source={source}")

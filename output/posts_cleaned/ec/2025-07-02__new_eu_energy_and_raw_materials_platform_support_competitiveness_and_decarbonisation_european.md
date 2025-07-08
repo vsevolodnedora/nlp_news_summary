@@ -1,0 +1,16 @@
+* 2 July 2025
+  * Directorate-General for Energy
+  * 2 min read
+
+
+# New EU Energy and Raw Materials Platform to support the competitiveness and decarbonisation of European industry 
+![](https://energy.ec.europa.eu/sites/default/files/styles/oe_theme_medium_no_crop/public/2025-07/Energy_Platform_News.jpg?itok=8zyAmiZM)
+In a strategic move to strengthen the competitiveness of Europe’s industry and leverage the Union market towards more security of supply, diversification and decarbonisation, the Commission today launched **the Hydrogen Mechanism under the** **EU Energy and Raw Materials Platform.** The online platform will host different mechanisms covering **hydrogen, raw materials, natural gas and biomethane** , with the possibility to cover other products in the future. It aims to empower European companies to efficiently source energy and raw materials. 
+Today’s launch marks the entry into operation of the first mechanism under the platform, the [Hydrogen Mechanism](https://energy-platform.ec.europa.eu/hydrogen), designed to support the market development of renewable and low-carbon hydrogen and its derivatives (ammonia, methanol, electro-sustainable aviation fuel ‘eSAF’). Stakeholders can now register on the Platform and subscribe to the EU Hydrogen Mechanism. The first round of matching demand and supply is planned for September 2025. 
+Commissioner for Energy and Housing, Dan Jørgensen said: 
+> 'With the Hydrogen Mechanism launched today, we empower the European industry to seize competitive opportunities while advancing towards greater security of supply and decarbonisation. This is only the beginning of our work under the EU Energy and Raw Materials Platform, which shows that Europe is not just adapting to the future, it is actively shaping it.'
+The Raw Materials Mechanism and the Gas Mechanism will be launched in the coming months.
+## Background
+Hydrogen plays an important role in decarbonising industrial processes and industries for which reducing carbon emissions is both urgent and hard to achieve. Hydrogen and its derivatives such as ammonia, methanol and certain sustainable aviation fuels are therefore essential to support the EU’s commitment to reach climate neutrality by 2050 and in its objective to become independent from Russian fossil fuels by the end of 2027.
+The [Regulation on the internal markets for renewable gas, natural gas and hydrogen](https://eur-lex.europa.eu/eli/reg/2024/1789/oj/eng) (EU/2024/1789) mandates the Commission to set up and operate a mechanism under the [European Hydrogen Bank](https://energy.ec.europa.eu/topics/eus-energy-system/hydrogen/european-hydrogen-bank/mechanism-support-market-development-hydrogen_en) to support the market development of hydrogen for a limited duration until the end of 2029. 
+The Hydrogen Mechanism aims to empower market participants by matching and aggregating demand and supply, help to identify needs related to the development of infrastructure and making it easier to access information on financial solutions.

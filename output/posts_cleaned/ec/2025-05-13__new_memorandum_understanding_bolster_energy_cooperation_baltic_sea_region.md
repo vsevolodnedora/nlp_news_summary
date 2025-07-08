@@ -1,0 +1,17 @@
+* 13 May 2025
+  * Directorate-General for Energy
+  * 2 min read
+
+
+# New Memorandum of Understanding to bolster energy cooperation in the Baltic Sea Region
+![](https://energy.ec.europa.eu/sites/default/files/styles/oe_theme_medium_no_crop/public/2025-05/DSC_4600.JPG?itok=gEBgv_sO)
+In the margins of the informal meeting of EU energy ministers in Warsaw, Commissioner for Energy and Housing Dan Jørgensen and energy ministers of the [Baltic Energy Market Interconnection Plan](https://energy.ec.europa.eu/topics/infrastructure/high-level-groups/baltic-energy-market-interconnection-plan_en) (BEMIP) High-Level Group have signed a new [Memorandum of Understanding](https://circabc.europa.eu/ui/group/8f5f9424-a7ef-4dbf-b914-1af1d12ff5d2/library/813ded98-a8c1-4f2b-ab09-6625fbaf0b08/details?download=true) (MoU).
+This landmark MoU marks a milestone in the region's efforts to create a more unified, efficient, and sustainable energy market while ensuring energy security.
+Before signing the MoU, BEMIP energy ministers and Commissioner Jørgensen discussed pressing energy security matters for the region, including in the Baltic Sea. The discussion took place in the context of implementation of the [Action Plan on Cable Security ](https://circabc.europa.eu/ui/group/8f5f9424-a7ef-4dbf-b914-1af1d12ff5d2/library/813ded98-a8c1-4f2b-ab09-6625fbaf0b08/details?download=true)adopted in February 2025, with a focus on **prevention, detection, response & recovery, and deterrence.**
+Commissioner for Energy and Housing Dan Jørgensen said:
+> 'I welcome the MoU signed by BEMIP members. It will accelerate regional cooperation on interconnectors enhancing our energy security and resilience and step up joint work to protect our critical energy infrastructure, including undersea cables. This is even more vital in the current geopolitical circumstances, when boosting energy independence and security is an absolute must.'
+## Background
+The BEMIP High-Level Group was established in October 2008 and is composed of the European Commission and 8 EU countries: Denmark, Estonia, Finland, Germany, Latvia, Lithuania, Poland and Sweden - with Norway as observer. Since its creation, BEMIP seeks to end the energy isolation of the Baltic Sea Region and to integrate it fully into the EU energy markets.
+Further efforts are ongoing in the region to ensure energy security and the security of energy infrastructure, complete the remaining projects linked to the synchronisation of the 3 Baltic States with European networks, increase transmission capacity in the remote Nordic area, develop a regional decarbonised gas market, work towards the decarbonisation of the gas systems in the region and make the most of the region's energy efficiency and renewable energy potential, both onshore and offshore. 
+The first MoU on the BEMIP initiative was signed on 17 June 2009 and focused on electricity and gas markets, infrastructure and power generation.
+On 8 June 2015, a new MoU was signed extending the initiative's scope to security of supply, energy efficiency, renewable energy and the integration of the Baltic States' electricity network into the continental European network, including their synchronous operation.

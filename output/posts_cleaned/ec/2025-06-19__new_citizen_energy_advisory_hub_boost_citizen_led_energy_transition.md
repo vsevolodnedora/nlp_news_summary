@@ -1,0 +1,17 @@
+* 19 June 2025
+  * Directorate-General for Energy
+  * 2 min read
+
+
+# New Citizen Energy Advisory Hub to boost a citizen-led energy transition
+![](https://energy.ec.europa.eu/sites/default/files/styles/oe_theme_medium_no_crop/public/2025-06/CEAH-X%20%28Twitter%29-card-1600x900.jpg?itok=GscOpxTQ)
+The European Commission is launching the Citizen Energy Advisory Hub (CEAH), a pioneering initiative designed to promote a bottom-up approach to the energy transition, enhance citizen participation and strengthen the social dimension across EU countries.
+This 3-year project has been established in alignment with the EU’s climate and energy targets for 2030 and the goal of becoming climate-neutral by 2050. It also reflects aspects of the [Affordable Energy Action Plan](https://energy.ec.europa.eu/strategy/affordable-energy_en), published in February, and anticipates known elements of the Citizens Energy Package, due for presentation end of the year. As Europe moves towards a more decentralised and decarbonised energy system, the Advisory Hub will serve as a key resource to help local communities, citizens, municipalities, NGOs and small businesses control their energy bills by consuming their own renewable energy and reducing or shifting their energy demand.
+By aiding progress towards more affordable energy, demand response, improved energy efficiency and access to renewable energy across the EU, CEAH’s activities will accelerate the widespread implementation of EU legislation. It should also help EU countries to create the right conditions for sustainable energy projects that benefit their citizens and communities. It will create dialogues, boost citizen engagement in sustainable energy projects and build capacity for different stakeholders, including vulnerable households and those experiencing energy poverty. This is epitomised by the foreseen provision of direct technical assistance to 120 selected citizens and/or local actors - to help them plan, develop or scale up sustainable energy projects. Other activities will include developing resources, providing networking opportunities and creating local dialogue with citizens around the energy transition.
+CEAH will work with other EU initiatives to carve out clear pathways for citizens and local actors to receive the relevant support, empowering them to contribute to and benefit from the clean energy transition.
+## Chatting on Citizen Energy
+To kick-start the work, CEAH will host a 90-minute [webinar on 25 June “Chatting on Citizen Energy](https://energy.ec.europa.eu/events/webinar-chatting-citizen-energy-2025-06-25_en)”. It will introduce the initiative’s activities and highlight how it will support citizens and local actors in developing sustainable energy projects. 
+The event is part of the [Sustainable Energy Days](https://sustainable-energy-week.ec.europa.eu/sustainable-energy-days_en) and the registration is open until 24 June. 
+## Stay informed via the CEAH newsletter
+Citizens are invited to [sign up for the CEAH newsletter](https://ec.europa.eu/newsroom/ener/user-subscriptions/8286/create) to receive further information about upcoming activities from the Advisory Hub.
+The quarterly newsletters will provide updates about the initiative, CEAH events, and other citizen energy news, as well as access to guidance and resources, such as case studies, best practice reports, and factsheets.
