@@ -21,7 +21,7 @@ from crawl4ai.deep_crawling.scorers import (
 from logger import get_logger
 logger = get_logger(__name__)
 
-async def scrape_entsoe_news(output_dir:str, clean_output_dir:str) -> None:
+async def scrape_entsoe_news(output_dir:str, clean_output_dir:str, root_url:str) -> None:
 
     os.makedirs(output_dir, exist_ok=True)
     os.makedirs(clean_output_dir, exist_ok=True)
@@ -64,7 +64,9 @@ async def scrape_entsoe_news(output_dir:str, clean_output_dir:str) -> None:
         )
 
         # collect all results from the webpage
-        results = await crawler.arun(url="https://www.entsoe.eu/news-events/", config=config)
+        results = await crawler.arun(url=root_url, config=config)
+        if len(results) == 1:
+            logger.warning(f"Only one result found for {root_url}. Suspected limit.")
 
         logger.info(f"Crawled {len(results)} pages matching '*news*'")
         new_articles = []
@@ -135,9 +137,11 @@ def clean_posts(RAW_DIR:str, CLEANED_DIR:str):
             f.write(snippet)
         logger.info(f"Cleaned and saved: {filename}")
 
-def main_scrape_entsoe_posts(output_dir_raw:str, output_dir_cleaned:str):
+def main_scrape_entsoe_posts(output_dir_raw:str, output_dir_cleaned:str, root_url:str|None=None) -> None:
+    if root_url is None:
+        root_url = "https://www.entsoe.eu/news-events/"
     # scrape news posts from ENTSO-E into a folder with raw posts
-    asyncio.run(scrape_entsoe_news(output_dir=output_dir_raw, clean_output_dir=output_dir_cleaned))
+    asyncio.run(scrape_entsoe_news(output_dir=output_dir_raw, clean_output_dir=output_dir_cleaned, root_url=root_url))
     # Clean posts raw posts and save clean versions into new foler
     clean_posts(RAW_DIR=output_dir_raw, CLEANED_DIR=output_dir_cleaned)
 

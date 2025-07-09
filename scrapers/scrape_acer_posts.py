@@ -22,7 +22,7 @@ from crawl4ai.deep_crawling.scorers import (
 from logger import get_logger
 logger = get_logger(__name__)
 
-async def scrape_acer_news(output_dir:str, clean_output_dir:str) -> None:
+async def scrape_acer_news(root_url:str, output_dir:str, clean_output_dir:str) -> None:
 
     os.makedirs(output_dir, exist_ok=True)
     os.makedirs(clean_output_dir, exist_ok=True)
@@ -66,7 +66,9 @@ async def scrape_acer_news(output_dir:str, clean_output_dir:str) -> None:
         )
 
         # collect all results from the webpage
-        results = await crawler.arun(url="https://www.acer.europa.eu/news-and-events/news", config=config)
+        results = await crawler.arun(url=root_url, config=config)
+        if len(results) == 1:
+            logger.warning(f"Only one result found for {root_url}. Suspected limit.")
 
         logger.info(f"Crawled {len(results)} pages matching '*news*'")
         new_articles = []
@@ -152,9 +154,11 @@ def process_acer_press_releases(input_dir: str, output_dir: str) -> None:
         # Log the processed file
         logger.info(f"Processed {file_path.name} (date {formatted_date})")
 
-def main_scrape_acer_posts(output_dir_raw:str, output_dir_cleaned:str):
+def main_scrape_acer_posts(output_dir_raw:str, output_dir_cleaned:str, root_url:str|None=None):
+    if root_url is None:
+        root_url = "https://www.acer.europa.eu/news-and-events/news"
     # scrape news posts from ENTSO-E into a folder with raw posts
-    asyncio.run(scrape_acer_news(output_dir=output_dir_raw, clean_output_dir=output_dir_cleaned))
+    asyncio.run(scrape_acer_news(root_url=root_url, output_dir=output_dir_raw, clean_output_dir=output_dir_cleaned))
     # Process posts raw posts and save clean versions into new foler
     process_acer_press_releases(input_dir=output_dir_raw, output_dir=output_dir_cleaned)
 

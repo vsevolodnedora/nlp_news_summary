@@ -21,7 +21,7 @@ from crawl4ai.deep_crawling.scorers import (
 from logger import get_logger
 logger = get_logger(__name__)
 
-async def scrape_ec_news(root_url:str, output_dir:str, clean_output_dir:str) -> None:
+async def scrape_icis_news(root_url:str, output_dir:str, clean_output_dir:str) -> None:
 
     os.makedirs(output_dir, exist_ok=True)
     os.makedirs(clean_output_dir, exist_ok=True)
@@ -31,17 +31,17 @@ async def scrape_ec_news(root_url:str, output_dir:str, clean_output_dir:str) -> 
         # prefix = "https://energy.ec.europa.eu/news/"
         # if url.startswith(prefix):
         #     url = url[len(prefix):]
-        url = url.split("/")[-1]
 
         # Extract the title and date from the URL
-        match = re.match(r"(.+)-(\d{4}-\d{2}-\d{2})_en", url)
+        match = re.match(r".*/news/(\d{4})/(\d{2})/(\d{2})/\d+/([\w-]+)", url)
         if not match:
             raise ValueError("URL format is unexpected.")
 
-        title_part = match.group(1)
-        date_part = match.group(2)
+        year, month, day = match.group(1), match.group(2), match.group(3)
+        date_part = f"{year}-{month}-{day}"  # e.g., 2025-07-07
 
         # Replace hyphens with underscores in the title for readability
+        title_part = url.split("/")[-1]
         title_part = title_part.replace("-", "_")
 
         # Combine date and title for the filename
@@ -54,18 +54,18 @@ async def scrape_ec_news(root_url:str, output_dir:str, clean_output_dir:str) -> 
         # Create one filter for each required pattern
         url_filter_news = URLPatternFilter(patterns=["*/news/*"])
         # url_filter_2025 = URLPatternFilter(patterns=["*2025*"])
-        url_filter_en = URLPatternFilter(patterns=["*_en"])
+        # url_filter_en = URLPatternFilter(patterns=["*2025"])
 
         # Chain them so all must pass (AND logic)
         filter_chain = FilterChain([
             url_filter_news,
             # url_filter_2025,
-            url_filter_en,
+            # url_filter_en,
         ])
 
         config = CrawlerRunConfig(
             deep_crawl_strategy=BFSDeepCrawlStrategy(
-                max_depth=3,
+                max_depth=2,
                 include_external=False,
                 filter_chain=filter_chain,  # Single filter
             ),
@@ -78,12 +78,13 @@ async def scrape_ec_news(root_url:str, output_dir:str, clean_output_dir:str) -> 
         results = await crawler.arun(url=root_url, config=config)
         if len(results) == 1:
             logger.warning(f"Only one result found for {root_url}. Suspected limit.")
+
         # date_pattern = re.compile(r"https?://[^ ]*/\d{4}-\d{2}-\d{2}[^ ]*") # to remove non-articles entries
 
         logger.info(f"Crawled {len(results)} pages matching '*news*'")
         new_articles = []
         for result in results:  # Show first 3 results
-            if fnmatch.fnmatch(result.url, '*news*') and "news_en" not in result.url:
+            if fnmatch.fnmatch(result.url, '*news*') and "2025" in result.url and not "news_id" in result.url:
                 # date_match = re.search(r"\d{4}-\d{2}-\d{2}", result.url)
                 # if date_match is None:
                 #     continue
@@ -132,16 +133,10 @@ def clean_posts(RAW_DIR:str, CLEANED_DIR:str):
 
         # Find the extraction boundaries
         start_markers = [
-            "  * News announcement",
-            "  * News article",
-            "  * Statement"
+            "[Home](https://www.icis.com/explore)",
         ]
         end_markers = [
-            "## Related links",
-            "## **Related links**",
-            "## Related Links",
-            "## **Source list for the article data**",
-            "Share this page "
+            "## Related news",
         ]
 
         start_idx = None
@@ -180,19 +175,18 @@ def clean_posts(RAW_DIR:str, CLEANED_DIR:str):
             f.write(snippet)
         logger.info(f"Cleaned and saved: {filename}")
 
-def main_scrape_ec_posts(output_dir_raw:str, output_dir_cleaned:str,root_url:str|None=None):
+def main_scrape_icis_posts(output_dir_raw:str, output_dir_cleaned:str,root_url:str|None=None):
     if root_url is None:
-        root_url = "https://energy.ec.europa.eu/news_en" # default path to latest news
+        root_url = "https://www.icis.com/explore/resources/news/?page_number=1" # default path to latest news
     # scrape news posts from ENTSO-E into a folder with raw posts
-    asyncio.run(scrape_ec_news(root_url=root_url, output_dir=output_dir_raw, clean_output_dir=output_dir_cleaned))
+    asyncio.run(scrape_icis_news(root_url=root_url, output_dir=output_dir_raw, clean_output_dir=output_dir_cleaned))
     # Clean posts raw posts and save clean versions into new foler
     clean_posts(RAW_DIR=output_dir_raw, CLEANED_DIR=output_dir_cleaned)
 
 # Execute the tutorial when run directly
 if __name__ == "__main__":
-    main_scrape_ec_posts(
-        output_dir_raw="../output/posts_raw/ec/",
-        output_dir_cleaned="../output/posts_cleaned/ec/",
-        root_url="https://energy.ec.europa.eu/news_en",
-        # root_url="https://energy.ec.europa.eu/news_en?page=10",
+    main_scrape_icis_posts(
+        output_dir_raw="../output/posts_raw/icis/",
+        output_dir_cleaned="../output/posts_cleaned/icis/",
+        root_url="https://www.icis.com/explore/resources/news/?page_number=2", # page number has no effect
     )

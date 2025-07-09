@@ -71,7 +71,7 @@ def invert_date_format(date_str):
     # Rearrange and return in MM-DD-YYYY format
     return f"{month}-{day}-{year}"
 
-async def scrape_eex_news(output_dir:str, clean_output_dir:str) -> None:
+async def scrape_eex_news(output_dir:str, clean_output_dir:str, root_url:str) -> None:
     """
     https://www.eex.com/en/newsroom/news?tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5BcurrentPage%5D=2&tx_news_pi1%5Bsearch%5D%5BfilteredCategories%5D=&tx_news_pi1%5Bsearch%5D%5BfromDate%5D=&tx_news_pi1%5Bsearch%5D%5Bsubject%5D=&tx_news_pi1%5Bsearch%5D%5BtoDate%5D=&cHash=83e307337837c6f5bd5e40a530acad7a
     :param date_int:
@@ -100,7 +100,9 @@ async def scrape_eex_news(output_dir:str, clean_output_dir:str) -> None:
         )
 
         # collect all results from the webpage
-        results = await crawler.arun(url="https://www.eex.com/en/newsroom/", config=config)
+        results = await crawler.arun(url=root_url, config=config)
+        if len(results) == 1:
+            logger.warning(f"Only one result found for {root_url}. Suspected limit.")
 
         logger.info(f"Crawled {len(results)} pages matching '*_news_*'")
         new_articles = []
@@ -191,7 +193,7 @@ def process_eex_press_releases(input_dir: str, output_dir: str) -> None:
         if end_index is None:
             end_index = next(
                 (i for i, line in enumerate(lines)
-                 if line.strip().startswith("**_Contacts:_**") or line.strip().startswith("**Contact**")
+                 if line.strip().startswith("**_Contacts:_**") or line.strip().startswith("**Contact**") or line.strip().startswith("**KONTAKT**")
                  ),
                 None
             )
@@ -209,9 +211,11 @@ def process_eex_press_releases(input_dir: str, output_dir: str) -> None:
         # Log the processed file
         logger.info(f"Processed {file_path.name} (date {formatted_date})")
 
-def main_scrape_eex_posts(output_dir_raw:str, output_dir_cleaned:str):
+def main_scrape_eex_posts(output_dir_raw:str, output_dir_cleaned:str, root_url:str|None=None) -> None:
+    if root_url is None:
+        root_url = "https://www.eex.com/en/newsroom/"
     # scrape news posts from ENTSO-E into a folder with raw posts
-    asyncio.run(scrape_eex_news(output_dir=output_dir_raw, clean_output_dir=output_dir_cleaned))
+    asyncio.run(scrape_eex_news(output_dir=output_dir_raw, clean_output_dir=output_dir_cleaned,root_url=root_url))
     # Clean posts raw posts and save clean versions into new foler
     process_eex_press_releases(input_dir=output_dir_raw, output_dir=output_dir_cleaned)
 
