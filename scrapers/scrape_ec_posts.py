@@ -132,6 +132,7 @@ def clean_posts(RAW_DIR:str, CLEANED_DIR:str):
 
         # Find the extraction boundaries
         start_markers = [
+            "  * News blog",
             "  * News announcement",
             "  * News article",
             "  * Statement"
