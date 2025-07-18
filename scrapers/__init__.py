@@ -3,3 +3,4 @@ from .scrape_eex_posts import main_scrape_eex_posts
 from .scrape_acer_posts import main_scrape_acer_posts
 from .scrape_ec_posts import main_scrape_ec_posts
 from .scrape_icis_posts import main_scrape_icis_posts
+from .utils_scrape import cut_article_text_from_raw_pages

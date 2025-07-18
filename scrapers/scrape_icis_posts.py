@@ -18,6 +18,8 @@ from crawl4ai.deep_crawling.scorers import (
     KeywordRelevanceScorer,
 )
 
+from .utils_scrape import cut_article_text_from_raw_pages
+
 from logger import get_logger
 logger = get_logger(__name__)
 
@@ -103,85 +105,22 @@ async def scrape_icis_news(root_url:str, output_dir:str, clean_output_dir:str) -
                     logger.debug(f"Article already processed: {fpath}")
         logger.info(f"Finished saving {len(new_articles)} new articles out of {len(results)} articles")
 
-def clean_posts(RAW_DIR:str, CLEANED_DIR:str):
-    """
-    Loop through markdown files in RAW_DIR, extract content between 'Button' and 'Share this article',
-    and save to CLEANED_DIR with the same filename if not already present.
-    """
-    # Ensure the cleaned directory exists
-    os.makedirs(CLEANED_DIR, exist_ok=True)
-
-    if not os.path.isdir(RAW_DIR):
-        raise ValueError(f"RAW_DIR {RAW_DIR} does not exist.")
-
-    # Iterate over files in the raw directory
-    for filename in os.listdir(RAW_DIR):
-        raw_path = os.path.join(RAW_DIR, filename)
-        cleaned_path = os.path.join(CLEANED_DIR, filename)
-
-        # Process only markdown files starting with a date
-        if not filename.endswith('.md') or not filename[:10].count('-') == 2:
-            continue
-
-        # Skip if already cleaned
-        if os.path.exists(cleaned_path):
-            continue
-
-        # Read raw content
-        with open(raw_path, 'r', encoding='utf-8') as f:
-            text = f.read()
-
-        # Find the extraction boundaries
-        start_markers = [
-            "[Home](https://www.icis.com/explore)",
-        ]
-        end_markers = [
-            "## Related news",
-        ]
-
-        start_idx = None
-        for start_marker in start_markers:
-            start_idx_ = text.find(start_marker)
-            if start_idx_ == -1 or not start_idx_:
-                continue
-                # continue
-            else:
-                start_idx = start_idx_ + len(start_marker)
-                break
-        if not start_idx or start_idx == -1 or start_idx == len(text)-1:
-            raise ValueError(f"Start marker not found in {filename}, skipping.")
-
-        end_idx = None
-        for end_marker in end_markers:
-            end_idx_ = text.find(end_marker)
-            if end_idx_ == -1 or not end_idx_:
-                continue
-            else:
-                end_idx = end_idx_
-                break
-        if not end_idx or end_idx == -1 or end_idx == len(text)-1:
-            raise ValueError(f"End marker not found in {filename}, skipping.")
-
-        if start_idx > end_idx:
-            raise ValueError(f"Start marker {start_idx} is before end marker {end_idx}.")
-
-        # Extract and clean up the snippet
-        snippet = text[start_idx:end_idx].strip()
-        if len(snippet) == 0:
-            raise ValueError(f"snippet is empty, skipping.")
-
-        # Write the cleaned snippet
-        with open(cleaned_path, 'w', encoding='utf-8') as f:
-            f.write(snippet)
-        logger.info(f"Cleaned and saved: {filename}")
-
 def main_scrape_icis_posts(output_dir_raw:str, output_dir_cleaned:str,root_url:str|None=None):
     if root_url is None:
         root_url = "https://www.icis.com/explore/resources/news/?page_number=1" # default path to latest news
     # scrape news posts from ENTSO-E into a folder with raw posts
     asyncio.run(scrape_icis_news(root_url=root_url, output_dir=output_dir_raw, clean_output_dir=output_dir_cleaned))
     # Clean posts raw posts and save clean versions into new foler
-    clean_posts(RAW_DIR=output_dir_raw, CLEANED_DIR=output_dir_cleaned)
+    cut_article_text_from_raw_pages(
+        RAW_DIR=output_dir_raw,
+        CLEANED_DIR=output_dir_cleaned,
+        start_markers = [
+            "[Home](https://www.icis.com/explore)",
+        ],
+        end_markers = [
+            "## Related news",
+        ]
+    )
 
 # Execute the tutorial when run directly
 if __name__ == "__main__":

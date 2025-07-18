@@ -114,7 +114,7 @@ async def scrape_eex_news(output_dir:str, clean_output_dir:str, root_url:str) ->
                 date = extract_date_from_markdown(result.markdown.raw_markdown)
 
                 if date is None:
-                    logger.info(f"Skipping {result.url}. Could not extract date from markdown.")
+                    logger.debug(f"Skipping scraped markdown from {result.url}. Could not extract date from markdown.")
                     continue
 
                 new_articles.append(result.url)

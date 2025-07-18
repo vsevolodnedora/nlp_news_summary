@@ -1,0 +1,12 @@
+28 April Blackout in Spain and Portugal: Expert Panel releases new information
+16 July 2025
+During its fourth meeting on 15 July, the Expert Panel established to investigate the 28 April 2025 blackout in Spain and Portugal continued its analysis of the available data on the incident. Despite initial challenges in collecting data from several DSOs and Generation companies in Spain, the Expert Panel can now confirm that all parties have provided data. The experts are currently assessing the completeness and quality of the latest data received.
+Based on the data available so far, the Expert Panel can provide additional information on its ongoing investigation, such as a more detailed description of the forced oscillations observed around 12:05 in Southern Spain and of the counter-measures taken to mitigate them. The Expert Panel can also provide new preliminary information related to the generation trips that took place just before the blackout. The new facts established by the Expert Panel were added to the ENTSO-E dedicated webpage which serves as an information portal for stakeholders and the public throughout the investigation.
+The Expert Panel is looking particularly at the cascading series of generation disconnections and voltage increases as the most probable trigger for the blackout. Such cascading voltage increases have never before been linked to a blackout in any part of the European power system. If confirmed, this high-voltage blackout mode will require a thorough analysis and investigation by all power system experts of the ENTSO-E community.
+The exceptional character of this incident highlights the need to improve the resilience of the power system in case of cascading voltage increases. ENTSO-E sees at least two important lines to consider:
+  * enhancing voltage control management procedures and capabilities of all active actors of the electricity system to prevent such major voltage-related incidents in the future;
+  * assessing how the system defence plans can better protect the European power system against this new type of phenomena.
+
+
+A dedicated workshop will be held on 18 July, as an opportunity for the Expert Panel to engage with European stakeholders.
+Read more [here](https://www.entsoe.eu/publications/blackout/28-april-2025-iberian-blackout/).

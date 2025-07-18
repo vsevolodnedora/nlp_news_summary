@@ -11,7 +11,7 @@ if __name__ == '__main__':
     print("launching run_scrape.py")
 
     if len(sys.argv) != 2:
-        source = "entsoe"
+        source = "all"
     else:
         source = str(sys.argv[1])
 
