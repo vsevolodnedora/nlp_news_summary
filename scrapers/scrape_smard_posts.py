@@ -29,8 +29,6 @@ from crawl4ai.deep_crawling.scorers import (
     KeywordRelevanceScorer,
 )
 
-from utils_scrape import cut_article_text_from_raw_pages
-
 from logger import get_logger
 logger = get_logger(__name__)
 
