@@ -1,0 +1,18 @@
+
+
+#  Bundesnetzagentur schlägt Sen­kung der Kos­ten für Strom­netz vor 
+Präsident Müller: ""Netznutzer sollen 1,5 Milliarden Euro sparen""
+Ausgabejahr 2025  
+Erscheinungsdatum 23.04.2025  
+
+Die Bundesnetzagentur hat heute den Entwurf einer Festlegung zur derzeitigen Vergütung für dezentrale Einspeisung (sog. vermiedene Netzentgelte) zur Konsultation gestellt. Sie plant ein Abschmelzen der Vergütung an dezentrale Anlagen. Dadurch werden die Kosten für das Stromnetz gesenkt.
+""Wir schlagen eine Entlastung der Verbraucherinnen und Verbraucher und der Unternehmen in Höhe von insgesamt 1,5 Milliarden Euro über drei Jahre vor"", sagt Klaus Müller, Präsident der Bundesnetzagentur. ""Eine Subvention von Kraftwerken durch sogenannte vermiedene Netzentgelte zu Lasten der Verbraucherinnen und Verbraucher ist nicht mehr zeitgemäß.""
+## Festlegungsentwurf
+Die Bundesnetzagentur sieht eine gestaffelte Abschmelzung der Auszahlungen von Entgelten für die dezentrale Einspeisung vor. Beginnend am 1. Januar 2026 sollen die Entgelte jährlich um 25 Prozent abgesenkt werden. Ab 2029 sollen keine Entgelte für dezentrale Einspeisung mehr ausgezahlt werden. Dies spart den Netznutzern in den Jahren 2026 bis 2028 in Summe ca. 1,5 Mrd. Euro.
+Um den Betreibern von dezentralen Erzeugungsanlagen ausreichend Zeit zur weiteren Planung einzuräumen, hat die Bundesnetzagentur dabei statt einer sofortigen Abschaffung den schrittweisen Ansatz gewählt. 
+## Hintergrund „vermiedene Netzentgelte“
+Bei der Vergütung für dezentrale Erzeugung nach § 18 StromNEV handelt es sich um eine Zahlung von den Netzbetreibern unter anderem an konventionelle Erzeugungsanlagen, die an Verteilernetze angeschlossen sind. Solar- und Windanlagen fallen nicht unter die Regelungen. Diese sog. vermiedenen Netzentgelte werden von den Stromverbraucherinnen und Stromverbrauchern über die allgemeinen Netzentgelte getragen und belasten diese mit jährlich rund 1 Milliarde Euro. Im bundesweiten Schnitt machen die vermiedenen Netzentgelte ungefähr drei Prozent der Netzkosten aus.
+Die Vergütung für dezentrale Erzeugung wurden vor über 25 Jahren in der Annahme eingeführt, lokal erzeugter Strom würde auch lokal verbraucht und somit die Gesamtnetzkosten senken, da die übergeordneten Netze nicht genutzt werden müssten. Diese Annahme stimmt immer weniger. Auch dezentral erzeugter Strom wird zunehmend über längere Strecken in die Verbrauchszentren transportiert. Zusätzlich müssen auch nachgelagerte Netze so ausgebaut sein, dass eine Region aus den vorgelagerten Netzen versorgt werden kann, etwa wenn dezentral angeschlossene Erzeugungsanlagen nicht verfügbar sind.
+Die bestehende Regelung zu den sog. vermiedenen Netzentgelten läuft durch die Aufhebung der Stromnetzentgeltverordnung zum 31. Dezember 2028 aus. Durch die Festlegung gibt die Bundesnetzagentur den Anlagenbetreibern Planungssicherheit, indem sie frühzeitig signalisiert, dass es keine Verlängerung der Regelung geben wird und zugleich ein berechenbarer Abbaupfad geschaffen wird. 
+## Weiteres Verfahren
+Der Entwurf der Festlegung ist unter [www.bundesnetzagentur.de/1057122](https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/DE/2025/DE/Beschlusskammern/1_GZ/GBK-GZ/2025/GBK-25-02-1%231_verm_NE/GBK-25-02-1%231_Verfahrenseinleitung.html?nn=659906 "08/2025 \(Öffnet neues Fenster\)") veröffentlicht. Stellungnahmen zu dem konsultierten Entwurf können bis zum 23.05.2025 abgegeben werden.

@@ -1,0 +1,19 @@
+
+
+#  KI-Ser­vice Desk der Bundesnetzagentur ge­star­tet 
+Dr. Karsten Wildberger: "„Wollen unsere Unternehmen bei KI-Einsatz bestmöglich unterstützen“"
+Ausgabejahr 2025  
+Erscheinungsdatum 03.07.2025  
+
+Bundesdigitalminister Dr. Karsten Wildberger stellt heute bei einer KI-Konferenz in Frankfurt ein neues Beratungsangebot vor: den KI-Service Desk bei der Bundesnetzagentur. Ziel des Angebots ist es, über die neuen europäischen Anforderungen beim Einsatz und bei der Entwicklung von künstlicher Intelligenz praxisorientiert zu informieren. Auf diese Weise trägt der KI-Service Desk zu mehr Rechtssicherheit bei der Umsetzung der KI-Verordnung bei. Das Angebot richtet sich an vor allem an Unternehmen, insbesondere kleine und mittlere Unternehmen und Startups sowie Behörden und Organisationen. 
+**Bundesdigitalminister Dr. Karsten Wildberger:**   
+"„Unternehmen brauchen klare und verlässliche Rahmenbedingungen, um innovative KI-Lösungen zu entwickeln und erfolgreich einzusetzen. Wir wollen sie dabei bestmöglich unterstützen. Mit dem neuen KI-Service Desk schaffen wir eine zentrale Anlaufstelle, die Unternehmen hilft, die komplexen Anforderungen der europäischen KI-Verordnung effizient und praxisnah zu erfüllen. Das ist auch ein Signal, wie wir uns eine nationale KI-Aufsicht vorstellen: wirtschafts- und innovationsfreundlich, mit schlanken, schnellen Strukturen und klarer Orientierung für Unternehmen. So setzt sich Deutschland bei der Entwicklung und dem Einsatz verantwortungsvoller KI-Technologien in Europa an die Spitze.“"
+**Klaus Müller, Präsident der Bundesnetzagentur:**  
+"„Wir wollen das Potenzial der künstlichen Intelligenz in den Mittelpunkt stellen. Unser KI-Service Desk gibt Orientierung bei der Umsetzung der europäischen Regeln. Wir schaffen eine verlässliche, zentrale Stelle für alle, die Hilfe bei den neuen Regeln der KI-Verordnung benötigen. So unterstützen wir Unternehmen, KI verantwortungsvoll zu entwickeln und zu nutzen.“"
+## Anwendernahe Informationen, interaktives Prüf-Werkzeug
+Der KI-Service Desk bietet Informationen für Unternehmen, Behörden und Organisationen bei Fragen rund um die KI-Verordnung – ganz praxisnah. So stellt der KI-Service Desk einen interaktiven Compliance Kompass zur Verfügung. Mit diesem Tool können Organisationen leicht und schnell prüfen, ob und in welchem Umfang die KI-Verordnung für ihre eingesetzten KI-Systeme Anwendung findet. Es liefert Hinweise dazu, ob es sich um ein reguliertes KI-System handelt, ob Transparenzverpflichtungen bestehen und ob das KI-System als Hochrisiko KI-System oder verbotene Praxis eingestuft werden könnte. 
+Darüber hinaus stellt der KI-Service Desk praxisnahe Informationen und anschauliche Beispiele bereit, um die Vorgaben der KI-Verordnung besser einordnen zu können. So bietet er unter anderem Orientierungen zu der bereits geltenden Regelung zur KI-Kompetenz. Danach sollten alle Organisationen, die KI-Systeme nutzen, bereitstellen oder entwickeln über ein ausreichendes Maß an KI-Kompetenz verfügen. Hierzu informiert der KI-Service Desk über kostenfreie Schulungsangebote für Mitarbeiterinnen und Mitarbeiter.
+## Zur KI-Verordnung
+Die europäische KI-Verordnung ist am 2. August 2024 in Kraft getreten und regelt einen sicheren und vertrauenswürdigen Einsatz von künstlicher Intelligenz in der EU. Zugleich fördert sie Innovation, indem sie Rahmenbedingungen für die Entwicklung und den Einsatz von KI schafft.
+Die Bundesnetzagentur soll nach bisherigen Plänen eine zentrale Rolle in der Umsetzung der KI-Verordnung in Deutschland übernehmen und führt bereits vorbereitende Tätigkeiten durch.
+Die Informationsplattform des KI-Service Desks findet sich unter [www.bundesnetzagentur.de/ki](https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/DE/2025/ki.html?nn=659906 "ki \(Öffnet neues Fenster\)"). Das Angebot wird kontinuierlich ausgebaut.

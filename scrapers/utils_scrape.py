@@ -4,7 +4,7 @@ import logging
 from logger import get_logger
 logger = get_logger(__name__)
 
-def cut_article_text_from_raw_pages(RAW_DIR:str, CLEANED_DIR:str, start_markers:list[str], end_markers:list[str]):
+def cut_article_text_from_raw_pages(RAW_DIR:str, CLEANED_DIR:str, start_markers:list[str], end_markers:list[str], skip_start_lines:int=0,skip_end_lines:int=0):
     """
     Loop through markdown files in RAW_DIR, extract content between 'Button' and 'Share this article',
     and save to CLEANED_DIR with the same filename if not already present.
@@ -72,6 +72,15 @@ def cut_article_text_from_raw_pages(RAW_DIR:str, CLEANED_DIR:str, start_markers:
             raise ValueError(f"snippet is empty, skipping.")
 
         # Write the cleaned snippet
-        with open(cleaned_path, 'w', encoding='utf-8') as f:
-            f.write(snippet)
-        logger.info(f"Cleaned and saved: {filename}")
+        if skip_start_lines > 0:
+            # Write the cleaned snippet (excluding the first line)
+            lines = snippet.splitlines()
+            if len(lines) > 1:
+                with open(cleaned_path, 'w', encoding='utf-8') as f:
+                    f.write('\n'.join(lines[skip_start_lines:]))
+            else:
+                raise ValueError(f"Only one line in snippet, nothing to write after skipping first line.")
+        else:
+            with open(cleaned_path, 'w', encoding='utf-8') as f:
+                f.write(snippet)
+            logger.info(f"Cleaned and saved: {filename}")
