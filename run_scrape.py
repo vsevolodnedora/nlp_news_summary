@@ -66,5 +66,5 @@ if __name__ == '__main__':
             output_dir_cleaned="./output/posts_cleaned/agora/"
         )
 
-    if not source in ["entsoe", "eex", "acer", "ec", "icis", "bnetza", "smard", "agora" "all"]:
+    if not source in ["entsoe", "eex", "acer", "ec", "icis", "bnetza", "smard", "agora", "all"]:
         raise ValueError(f"invalid source={source}")
