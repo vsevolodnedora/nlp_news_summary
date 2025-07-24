@@ -7,6 +7,7 @@ from scrapers.scrape_ec_posts import main_scrape_ec_posts
 from scrapers.scrape_icis_posts import main_scrape_icis_posts
 from scrapers.scrape_smard_posts import main_scrape_smard_posts
 from scrapers.scrape_bnetza_posts import main_scrape_bnetza_posts
+from scrapers.scrape_agora_posts import main_scrape_agora_posts
 
 if __name__ == '__main__':
 
@@ -59,5 +60,11 @@ if __name__ == '__main__':
             output_dir_cleaned="./output/posts_cleaned/smard/"
         )
 
-    if not source in ["entsoe", "eex", "acer", "ec", "icis", "bnetza", "smard", "all"]:
+    if source == "agora" or source == "all":
+        main_scrape_agora_posts(
+            output_dir_raw="./output/posts_raw/agora/",
+            output_dir_cleaned="./output/posts_cleaned/agora/"
+        )
+
+    if not source in ["entsoe", "eex", "acer", "ec", "icis", "bnetza", "smard", "agora" "all"]:
         raise ValueError(f"invalid source={source}")

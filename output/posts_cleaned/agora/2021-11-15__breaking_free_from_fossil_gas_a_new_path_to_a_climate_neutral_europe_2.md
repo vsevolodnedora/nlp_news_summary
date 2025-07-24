@@ -1,0 +1,14 @@
+##  Event Recording 
+**We need your consent.**
+By loading this video you consent to the processing of your data by the external service provider YouTube. See our ​[privacy policy](https://www.agora-energiewende.org/privacy-policy)​ for details.
+Store my consent on this device.
+Accept and load content
+With the REPowerEU plan, the EU has set the goal of eliminating its dependence on Russian fossil fuel imports well before 2030, signalling the end of deceptively cheap pipeline gas supplies from Russia. But despite REPowerEU’s focus on the need to reduce fossil gas consumption and diversify fossil gas supplies in the 2030 perspective, the EU has not gone as far as to explicitly draw a pathway out of fossil gas.
+In the context of the ongoing legislative processes on gas-market legislation and ahead of upcoming debates on the EU's 2040 climate ambitions, there is a growing urgency to make sure no investments are made into future technological lock-ins and potentially stranded investments that could compromise the achievement of the climate targets. A fundamental rethinking of the projected role of fossil gas as a "bridge fuel" to a clean economy is imperative in order to prepare for a structured substitution and phase-out process.
+In a new report, Agora Energiewende outlines a vision for a complete fossil gas phase-out pathway for the EU, covering the energy, buildings and industry sectors based on modelling work carried out by Artelys, TEP Energy and the Wuppertal Institute. In a series of webinars, we will present the key findings and policy implications of the report and provide a deeper look at the sectoral and national results.
+Together with TEP Energy, this fourth session in the series covered buildings and district heating in the EU-27, providing more detailed insights on how energy supply and demand must evolve in these sectors towards 2050 to enable a transition away from fossil gas. A special focus was placed on the role of building renovations, heat pumps and district heating in the building sector, as well as on the transformation of district heating generation away from fossil fuels.
+The webinar followed three earlier webinars presenting the [overall results](https://www.agora-energiewende.de/en/events/breaking-free-from-fossil-gas/) (4 May 2023) as well as taking deep dives into the [power sector and energy supply](https://www.agora-energiewende.de/en/events/breaking-free-from-fossil-gas-2/) (24 May 2023) and into [industry and refineries](https://www.agora-energiewende.de/en/events/breaking-free-from-fossil-gas-3/) (20 June 2023). To view a recording of these events please click the according link in the “all content” section below.
+**Presentation**  
+The slides can be found in the download section below.
+**Recording**  
+We have recorded the event. The recording can be found above.
