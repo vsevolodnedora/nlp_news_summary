@@ -1,0 +1,12 @@
+* 25 July 2025
+  * Directorate-General for Energy
+  * 1 min read
+
+
+# Renewable Energy Directive – Commission guidance on battery-related data sharing
+![](https://energy.ec.europa.eu/sites/default/files/styles/oe_theme_medium_no_crop/public/2025-07/AdobeStock_547866056%20%28003%29.jpeg?itok=jVZbGhED)
+©AdobeStock/Halfpoint 
+A [Commission notice on battery-related data sharing](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=OJ:C_202504104) (C/2025/4907) under the revised Renewable Energy Directive has been published today aimed at helping EU countries implement Article 20a, paragraph 3 of the directive. Aimed at giving more transparency and supporting the energy transition - these provisions relate to real-time, cost-free sharing of electric vehicle battery data with users and authorised third parties, covering elements such as the state of charge, health of the battery and location. The aim of this document is to make it easier for EU countries to adopt a uniform approach to the requirements. 
+The overall aim of the data sharing obligations is to improve transparency. In turn, this will support functionalities such as smart and bidirectional charging, and enable better integration of these batteries with energy systems. It entails making data accessible via Over-the-Air through existing points, or when plugged into recharging points, using cables or WIFI. 
+Once in place, the system should enable and facilitate new, useful services for electric vehicle owners or users — like apps that offer smarter driving— thanks to access to real time battery data for free. Ultimately this will lead to notable benefits for consumers such as simpler road planning, optimised charging and improved battery performance monitoring. 
+This notice follows a series of [recommendations and guidance notes](https://energy.ec.europa.eu/topics/renewable-energy/renewable-energy-directive-targets-and-rules/renewable-energy-directive_en#recommendations-and-guidance-noteshttps://energy.ec.europa.eu/topics/renewable-energy/renewable-energy-directive-targets-and-rules/renewable-energy-directive_en) on different elements of the Renewable Energy Directive published by the Commission in September 2024 and July 2025.
