@@ -1,0 +1,15 @@
+23 May 2025, 13:06
+| 
+Germany
+# Mix of trains, buses, bikes needed to lure people away from cars in rural towns – govt report
+## 
+Clean Energy Wire
+Germany's rural areas should introduce an integrated combination of public transport services to entice people to choose sustainable mobility instead of private cars, [a report](https://www.bmv.de/SharedDocs/DE/Publikationen/G/nachhaltig-mobil-in-laendlichen-raeumen.html) by the transport ministry said. The limited availability of public transport, long distances between shops and workplaces, and dispersed demand make offering attractive public transport services more of a challenge. As a result, most people choose to drive, causing an increase in car traffic.
+"In rural regions, the car is an important means of transport and the road is a major transport route," [said](https://www.bmv.de/SharedDocs/DE/Pressemitteilungen/2025/026-schnieder-laendliche-mobilitaet.html) transport minister Patrick Schnieder. "At the same time, we are creating the conditions for complementary, networked and intelligent mobility services."
+The report, intended as a guideline for local authorities, looked at successful examples from various German regions to make sustainable mobility more attractive to citizens. It found that introducing many alternatives to cars, as opposed to a single new offering, and integrating them so users can complete a journey using multiple modes of transport, is the most successful approach to best meet the specific mobility needs of different residents in rural areas.
+This includes, for example, strong regional rail offerings, together with traditional local public transport services, and complementary services like a well-developed network of cycle paths, car sharing services, and park and ride services. Offers should "be comparable to car travel in terms of accessibility, reliability, availability, speed and safety, or at least not too far removed from it", the authors wrote.
+People in rural areas especially say they do not feel well connected to public transport, or are [dissatisfied with the irregularity](https://www.cleanenergywire.org/news/one-three-people-germany-dissatisfied-local-public-transport-survey) of services. In fact, [a report](https://www.cleanenergywire.org/news/quarter-germans-lack-adequate-access-public-transportation-report) by [Greenpeace](https://www.cleanenergywire.org/experts/greenpeace-germany) found that while 78 percent of people in major cities benefit from good or very good public transport access, this figure is just 11 percent in sparsely populated rural districts, where more than half of the people are cut off from public transport.
+"In rural areas, the car remains indispensable for almost all road users," the latest 'Mobility in Germany' report commissioned by the transport ministry [found](https://www.cleanenergywire.org/news/car-dominance-decreasing-german-cities-use-bicycles-and-footpaths). The sector remains Germany's "problem child” when it comes to climate action, as emissions have not decreased significantly since the early 1990s.
+13 May 2025, 13:23
+27 Mar 2025, 13:12
+25 Nov 2024, 13:23

@@ -1,0 +1,13 @@
+15 Jul 2025, 13:05
+| 
+Germany
+# Laying of undersea cable for gas drilling project in northern Germany temporarily halted
+## 
+Clean Energy Wire
+A court has [temporarily halted](https://verwaltungsgericht-oldenburg.niedersachsen.de/aktuelles/vg-oldenburg-gibt-eilantrag-gegen-naturschutzrechtliche-befreiungen-zur-verlegung-eines-seekabels-zur-gasforderplattform-n05-a-statt-243325.html) the laying of an undersea cable meant to provide a gas extraction project near the German island of Borkum, in the North Sea, with wind power. The Oldenburg Administrative Court argued that the power cable which would connect the drilling platform with a nearby wind farm could cause permanent damage to a protected biotope.
+The court granted [a request](https://www.duh.de/presse/pressemitteilungen/pressemitteilung/baustopp-vor-borkum-nach-sieg-vor-gericht-deutsche-umwelthilfe-schuetzt-im-eilverfahren-einzigartige/) by [DUH](https://www.cleanenergywire.org/experts/duh-environmental-action-germany) for an immediate halt to construction of the cable, which was scheduled to begin on 18 July. The NGO said the cable would put one of Germany's last and largest stone reefs at risk. The court said that laying the sea cable in the protected area would have a long-term impact on the natural environment which could potentially be irreversible, while the disadvantages of delaying the project were only temporary and not irreversible.
+Furthermore, the court said that the power supply to the platform did not need to come from the wind farm and associated cable as there were options to operate the platform with gas generators, for example. One-Dyas, the company behind the project, can appeal the ruling.
+Domestic oil and gas production play only a minor role in Germany's energy supply, which [relies on large volumes of fossil fuel imports](https://www.cleanenergywire.org/factsheets/germanys-dependence-imported-fossil-fuels). At the start of the month, the new coalition government [greenlit](https://www.cleanenergywire.org/news/germany-agrees-joint-gas-extraction-project-netherlands-wadden-sea) the project with the Netherlands to exploit natural gas resources in the North Sea. The agreement implements a proposal from the coalition treaty between the conservative Christian Democrats ([CDU](https://www.cleanenergywire.org/experts/cdu-christian-democratic-union)) and the Social Democrats ([SPD](https://www.cleanenergywire.org/experts/spd-social-democratic-party)) to tap into the potential of domestic gas extraction, said the economy ministry in a statement. The Dutch government had already given consent for the project which has been criticised for its impact on the ecologically sensitive Wadden Sea region.
+02 Jul 2025, 13:28
+08 Aug 2024, 14:03
+14 Aug 2024, 13:32

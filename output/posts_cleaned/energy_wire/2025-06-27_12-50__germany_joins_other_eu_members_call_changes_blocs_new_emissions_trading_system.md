@@ -1,0 +1,16 @@
+27 Jun 2025, 12:50
+| 
+EU
+# Germany joins other EU members to call for changes to bloc’s new emissions trading system
+[Carbon market](https://www.cleanenergywire.org/topics/Carbon+market) [EU](https://www.cleanenergywire.org/topics/EU)
+## 
+Tagesspiegel Background
+More than a dozen EU member states, including Germany, have called on the European Commission to change its plans for the introduction of a carbon price on transport and heating fuels from 2027 to prevent price spikes, reports newsletter Tagesspiegel Background. An alliance of environmental and social welfare organisations [said](https://www.klima-allianz.de/presse/meldung/ets-2-braucht-sozialen-kompass-verbaende-fordern-gerechten-emissionshandel-und-legen-5-punkte-plan-vor) the EU’s second emission trading system [ETS](https://www.cleanenergywire.org/glossary/letter_e#ets) 2 must be designed more fairly. 
+Signatories of the letter addressed to the Commission include Austria, Italy, Poland, Lithuania, Romania and Slovakia, according to the report. “We support the paper's intention to achieve the greatest possible support for [ETS](https://www.cleanenergywire.org/glossary/letter_e#ets) 2 in the EU and to avoid price jumps,” Germany’s environment ministry told the publication.
+Among other demands, the member states call for
+The letter also calls for the market stability reserve (MSR) to be designed as flexibly as possible. The [ETS](https://www.cleanenergywire.org/glossary/letter_e#ets) 2 stipulates the release of additional allowances onto the market if prices rise above 45 euros per tonne of CO2. But the signatories warn that protective measures against rapid price increases could be “insufficient”, thus risking “significant negative social impacts”.
+The alliance of environmental and social welfare organisations called for a top-up of the EU’s [Social Climate Fund](https://climate.ec.europa.eu/eu-action/eu-emissions-trading-system-eu-ets/social-climate-fund_en). “For [emissions trading](https://www.cleanenergywire.org/glossary/letter_e#emissions_trading) to be effective and accepted by the public, it must be accompanied by social measures from the outset,” said Stefanie Langkamp, policy director at [Climate-Alliance](https://www.cleanenergywire.org/experts/climate-alliance-germany) Germany network. Among other measures, the group also called for a flat-rate public transport ticket for people on low incomes, as well as targeted subsidies for the renovation of social housing.
+The EU Commission is set to table its proposal for a new 2040 EU climate target next week. As part of its overall climate policy framework, the European Union [decided](https://www.cleanenergywire.org/factsheets/understanding-european-unions-emissions-trading-system) to introduce a second [emissions trading](https://www.cleanenergywire.org/glossary/letter_e#emissions_trading) system for the transport and building sectors alongside its successful system for energy and industry. Germany already has [a national carbon price for transport and buildings](https://www.cleanenergywire.org/factsheets/germanys-planned-carbon-pricing-system-transport-and-buildings), which will be aligned with the EU system.
+02 May 2025, 13:25
+23 Jun 2025, 12:00
+05 Jun 2025, 13:18

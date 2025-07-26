@@ -1,0 +1,14 @@
+14 Jul 2025, 13:36
+| 
+EU
+# Rhine river could warm drastically by 2100 hitting ecosystems, economy – report
+## 
+Clean Energy Wire
+Water temperatures in one of Europe's major rivers, the Rhine, could rise significantly by the end of the century, with severe consequences for ecosystems and the economy, according to a [joint report](https://www.bafg.de/DE/Service/Presse/_doc/2025/250709_Rheinerwaermung.html) by Germany's Federal Institute of Hydrology (BfG) and the Dutch research institute Deltares. "The Rhine is warming significantly as a result of climate change," the authors concluded.
+According to the new simulations, the Rhine could warm by between 1.1 and 1.8 °C by the middle of the century, and the annual average temperature could be 2.9 to 4.2 °C higher by 2100, compared to the reference period 1990 to 2010. By that time, there could be about 50 days per year during which the main Rhine current reaches especially high temperatures of 25-28°C. The southern sections of the Rhine, from Switzerland to the German city of Karlsruhe, will be particularly affected, the authors said.
+As a result, aquatic habitats and moorlands face increasing pressures, such as lower water oxygen levels, a higher susceptibility to disease, or the spread of invasive species. Authorities may be forced to impose water use restrictions, which could lead to conflicts between users such as industry or agriculture. "It is therefore essential to step up the work already underway in the countries to strive for economical and sensible water use in consultation with the users who depend on this shared resource," the authors said.
+The Rhine and its tributaries, which reach into nine countries, [are the source of drinking water](https://www.cleanenergywire.org/news/race-climate-proof-europes-water-resources) for some 30 million people, power over 20 [hydropower](https://www.cleanenergywire.org/glossary/letter_h#hydropower) plants, and provide cooling water for many industry and energy facilities. The Rhine is by far the most important shipping route in the continent: about two thirds of European waterway transport pass through it.
+However, large parts of the river have [suffered from low-water levels](https://www.cleanenergywire.org/news/race-climate-proof-europes-water-resources) during continuous drought years since 2018, severely restricting inland navigation, with costly consequences for the manufacturing, chemicals and power industries. Low water level events are usually accompanied by higher water temperatures. Increasing periods of drought and a reduction in meltwater from snow and glaciers, coupled with surging demand from human activities, are set to increase the stress on water resources across the continent.
+31 Aug 2023, 10:00
+14 May 2025, 13:11
+14 Feb 2020, 13:14

@@ -1,0 +1,14 @@
+27 Jun 2025, 12:41
+| 
+Germany
+# Climate-proofing Germany's buildings to cost at least €137 billion over next decade - report
+## 
+Clean Energy Wire
+Germany’s house owners will have to spend at least 137 billion euros by 2035 to climate-proof their houses and buildings, [a report](https://www.zdb.de/meldungen/prognos-studie-zeigt-klimaanpassung-am-gebaeude-ist-schluessel-zu-zukunftssicherheit-und-wachstum-in-der-bauwirtschaft) by consultancy [Prognos](https://www.cleanenergywire.org/experts/prognos) commissioned by building materials trade association BDB and construction industry association ZDB found. If temperatures rise by four degrees instead of two degrees, the costs for protecting properties against extreme weather events will rise to as much as 237 billion euros, the report said.
+Investments for the prevention of damage caused by heavy rainfall in new and existing buildings will amount to between 65 and 76 billion euros, depending on the scenario. Heat protection will cost between 44 and 107 billion euros, says the report, which is based on the assumption that 11.2 million buildings in Germany are not adequately prepared for rising temperatures.
+“Preventive heat protection will become an increasingly important factor in the quality of housing in the future,” write the authors, who say that Germany’s pace of adaptation remains “far too slow”. Depending on how rapidly climate change progresses, current adaptation rates will have to double or even quintuple.
+“Climate adaptation in the building sector is no longer an abstract task for the future – it is a concrete reality and part of everyday practice in the building materials industry," said Katharina Metzger, who heads the building materials association.
+The industry groups stress that the investments needed for climate adaptation constitute an opportunity for the building sector. “Climate adaptation is more than just a reactive protection concept – it is an economic driver for the entire construction value chain, opening up new markets, business models and employment opportunities,” said construction industry association head Wolfgang Schubert-Raab.
+Along with the rest of the world, Germany is already experiencing the effects of climate change, yet a lack of financial and human resources [slows the implementation](https://www.cleanenergywire.org/news/vote25-climate-adaptation-financing-must-find-new-footing-next-german-legislative-period) of preventive measures. Heavy rainfall and flooding alone [caused insured damages](https://www.cleanenergywire.org/news/heavy-rains-and-floods-cost-german-insurers-one-billion-euros-extra-last-year) worth 2.6 billion euros in Germany last year, around one billion euros more than the long-term average.
+16 Jan 2025, 12:00
+11 Mar 2024, 10:00

@@ -1,0 +1,15 @@
+23 Apr 2025, 13:42
+| 
+Germany
+# German supermarkets face big gap between climate ambitions and real action – think tank
+## 
+Clean Energy Wire
+Large food retailers in Germany have a long way to go to make good on their sustainability promises, according to a [report](https://www.thequestionmark.org/download/superlist-report-de-environment-2025-v1.0.en.pdf) by Dutch think tank Questionmark. While the six supermarkets analysed in the report – Aldi Nord, Aldi Süd, Edeka, Lidl, Kaufland and Rewe – acknowledge they play a role in supporting sustainable agriculture and environmentally-responsible consumption, and have begun reporting their carbon emissions, they have not yet drawn up detailed roadmaps to reach net zero, the think tank concluded.
+"While supermarkets’ (new) strategies are a promising acknowledgment of their responsibility, in practice they do not use their influence yet to promote a plant-rich diet and sustainable agriculture," the report states. "While supermarkets often hold products with sustainability certificates, they keep offering the unsustainable version as the standard."
+Showing the most responsibility, discounter Lidl ranked the highest in its total sustainability score and performance on individual topics. For example, it is the first and only supermarket with a specific target to reduce the share of animal-based protein, aiming for a split in sales of 60 percent plant-based and 40 percent animal-based protein sources in 2050. Alongside Edeka and Kaufland, Lidl offers plant-based alternatives for the same price as animal-based products. Aldi Nord was at the bottom of the list.
+Aldi Süd, Edeka, Kaufland, Lidl and Rewe all have a net zero target and include interim targets, but none have published a detailed roadmap with effective measures on how they plan to achieve these on time, the report found. Additionally, most supermarkets are publicly committed to eliminating deforestation from their supply chains, yet have no action plan to achieve this.
+The report, which covered supermarkets' climate plans, protein transition (from animal to plant-based), and sustainable agriculture practices, recommended improvements in policies, initiatives, advertising leaflets and product ranges. Among other measures, the authors called on retailers to set up concrete action plans to reach net zero, to increase the promotion of plant-based proteins in advertising leaflets, and to report on the origin, cultivation and transport method of fresh produce.
+"German supermarkets are among the largest in Europe. Combined with their influential position in the food system, they shoulder significant responsibility to lead the transition towards a sustainable food system," said Charlotte Linnebank, general director at Questionmark. Germans buy over 70 percent of their food in supermarkets, according to the report.
+20 Mar 2023, 09:30
+16 Jan 2025, 13:15
+12 Aug 2022, 11:58

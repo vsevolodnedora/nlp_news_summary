@@ -1,0 +1,15 @@
+31 Jan 2025, 11:50
+| 
+Germany
+# Most of 440,000 objections to wind power in German state stem from core protest group – report
+## 
+SWR
+A group of about 6,660 people are behind a slew of over 440,000 letters objecting to plans for wind farm developments in 40 areas in the Neckar-Alb region of Baden-Württemberg, according to [reporting](https://www.swr.de/swraktuell/baden-wuerttemberg/tuebingen/buergerinitiative-gegen-windkraft-viele-einsprueche-wenig-menschen-100.html) from national broadcaster SWR. The letters, 280,000 of which can now be viewed online, were collected by a group called “Gegenwind Neckar-Alb” (Against wind Neckar-Alb). On average, 65 objections were submitted per person.
+In April 2024, members of the group gave over all of the houndreds of thousands of letters which they had gathered online to the regional association designating land for wind farms. Of these letters 280,000 were handed over in printed form, and a further 160,000 on a CD. The regional association said it cost 104,000 euros to digitise the printed letters.
+“The extent to which the 40 areas previously planned for wind power will be reduced or disappear completely depends on how relevant the objections are,” Dirk Seidemann, the regional association’s director, said in an interview with SWR. “What counts for us are arguments and not the number of times they come in.”
+Of the 6,650 people who sent letters, nearly 6,000 were sent from addresses in the towns of Reutlingen, Tübingen and Zollernalb. The person responsible for submitting the most letters (536), did so from an address in the Sauerland region of the state North-Rhine Westphalia.
+Baden-Württemberg’s government gave the regional association the responsibility for designating at least 1.8 percent of land in Neckar-Alb to wind farm development by the end of September this year. “We only define the areas. It's up to others to implement them,” regional association president Eugen Höschele ([CDU](https://www.cleanenergywire.org/experts/cdu-christian-democratic-union)) said. A revised version of the sub-regional wind power plan will be presented in the first half of the year, after which residents can submit comments once again.
+2024 was a “[record year](https://www.cleanenergywire.org/news/industry-groups-hopeful-after-2024-record-year-onshore-wind-power-germany)” for [onshore wind](https://www.cleanenergywire.org/glossary/letter_o#onshore_wind) power in Germany, with turbines of a combined capacity of 14 gigawatts (GW) given a licence to operate. Wind power made up 33 percent of [Germany’s electricity mix last year](https://www.ise.fraunhofer.de/de/presse-und-medien/presseinformationen/2025/oeffentliche-stromerzeugung-2024-deutscher-strommix-so-sauber-wie-nie.html), and is set to [rise further](https://www.cleanenergywire.org/news/industry-groups-hopeful-after-2024-record-year-onshore-wind-power-germany) in the coming months.
+15 Jan 2025, 13:11
+11 Dec 2024, 12:52
+15 Aug 2024, 12:20

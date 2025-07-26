@@ -1,0 +1,15 @@
+15 Jan 2025, 13:09
+| 
+Germany
+# Electrical companies warn Germany's energy transition must not become bargaining chip in election 
+## 
+Clean Energy Wire
+Electrical and IT companies in Germany have called on Germany's parties to not discredit the energy transition in the federal election campaign leading up to the vote on 23 February. Clear and stable framework conditions are crucial to support economic growth and maintain the country’s position as Europe’s economic powerhouse, said the Central Association of German Electrical and Information Technology Trades (ZVEH) [in a position paper](https://www.zveh.de/news/detailansicht/positionspapier-der-e-handwerke-zur-bundestagswahl-2025.html).
+"We need a clear commitment to the energy transition, its consistent continuation, and the creation of planning security," said association head Stefan Ehinger.
+The association, which represents nearly 50,000 electrical trade businesses with about 525,000 employees, argued that the energy transition and economic success are interconnected rather than contradictory. Specifically, it warned against unsettling homeowners by discussing a reform of the country’s controversial [heating law](https://www.cleanenergywire.org/factsheets/qa-germany-debates-phaseout-fossil-fuel-heating-systems), which the outgoing government agreed on following a heated debate.
+“The debate surrounding the heating law has led to uncertainty among citizens. The fact that consideration is now being given to cancelling the reform is counterproductive and will hold back investments in modern climate protection technologies”, the association warned.
+The opposition conservative alliance of the [CDU](https://www.cleanenergywire.org/experts/cdu-christian-democratic-union)/[CSU](https://www.cleanenergywire.org/experts/csu-christian-social-union) under top candidate Friedrich Merz, who currently looks most likely to succeed Social Democrat ([SPD](https://www.cleanenergywire.org/experts/spd-social-democratic-party)) chancellor Olaf Scholz, have said in their [election manifesto](https://www.cleanenergywire.org/news/german-parties-energy-and-climate-policy-positions-2025-general-election) they plan to abolish the heating law. The pro-business Free Democrats ([FDP](https://www.cleanenergywire.org/experts/fdp-free-democratic-party)), the right-wing Alternative for Germany ([AfD](https://www.cleanenergywire.org/experts/afd-alternative-germany)), and the nationalist-left party Sahra Wagenknecht Alliance ([BSW](https://www.cleanenergywire.org/experts/bsw-sahra-wagenknecht-alliance)) have also stated in their manifestos they plan to reverse the law that is aimed at ensuring Germany complies with European climate targets in the buildings sector. Twenty years before the country's target year for climate neutrality in 2045, four out of five residential buildings in the the country are still heated with fossil energy sources, a recent analysis found. 
+11 Sep 2023, 13:31
+[Factsheet](https://www.cleanenergywire.org/news/german-parties-energy-and-climate-policy-positions-2025-general-election)
+10 Feb 2025, 13:03
+10 Jan 2025, 13:18

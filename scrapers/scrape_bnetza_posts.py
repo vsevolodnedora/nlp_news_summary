@@ -108,7 +108,6 @@ async def scrape_bnetza_news(root_url: str, output_dir: str, clean_output_dir: s
                 scraping_strategy=LXMLWebScrapingStrategy(),
                 cache_mode=CacheMode.BYPASS,
                 verbose=True,
-
             )
 
             results = await crawler.arun(url=url, config=config)

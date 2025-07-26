@@ -1,0 +1,15 @@
+04 Feb 2025, 13:41
+| 
+Global
+# Fossil fuel subsidies in G7 countries grow despite reduction pledges – report
+[Fossil fuels](https://www.cleanenergywire.org/topics/Fossil+fuels)
+## 
+Clean Energy Wire
+The G7 group of industrialised nations failed on a 2016 pledge to phase out "inefficient fossil fuel subsidies" by 2025, according to a [report commissioned by NGO Greenpeace Germany.](https://www.greenpeace.de/publikationen/20250130-greenpeace-studie-g7-subventionen.pdf) Instead, the total volume of fossil fuel subsidies rose 15 percent from 1.18 trillion dollars in 2016 to 1.36 trillion dollars in 2023, according to the analysis of International Monetary Fund (IMF) data carried out by economic think tank Forum Ökologisch-Soziale Marktwirtschaft ([FÖS](https://www.cleanenergywire.org/experts/fos-green-budget-germany)).
+Of the G7 states, Canada was the only one to reduce fossil fuel subsidies with an 11 percent decrease since 2016. In 2023, the U.S. spent the most on subsidies, followed by Japan and Germany, said the report. 
+[Greenpeace](https://www.cleanenergywire.org/experts/greenpeace-germany) Germany said lower energy consumption during the COVID-19 pandemic saw a "temporary" reduction in subsidies, but spiking energy prices following Russia's invasion of Ukraine increased support for coal, oil and gas in G7 countries. In Germany, “[price brakes](https://www.cleanenergywire.org/news/german-finance-minister-earmarks-83-billion-euro-energy-price-brakes-report)” for gas and electricity, [lower VAT on gas](https://www.cleanenergywire.org/news/german-government-raise-vat-natural-gas-after-reduction-during-energy-crisis), as well as [relief for industry](https://www.cleanenergywire.org/news/germany-agrees-200-billion-euro-defence-shield-against-soaring-energy-prices), made up 38 percent of 2023 fossil fuel subsidies. Some of those temporary measures are still in place, said the report. 
+Eliminating fossil fuel subsidies is a "crucial step" toward reducing [greenhouse gas](https://www.cleanenergywire.org/glossary/letter_g#greenhouse_gas) emissions and fulfilling climate targets, said [Greenpeace](https://www.cleanenergywire.org/experts/greenpeace-germany) Germany.
+In 2023, Germany's [Council of Experts on Climate Change](https://www.cleanenergywire.org/news/germany-could-face-costly-eu-target-miss-govt-overestimates-its-climate-programme-expert-council) advised abolishing "climate-damaging subsidies", among other measures. Another 2023 [report by FÖS](https://www.cleanenergywire.org/news/report-calls-reduction-environmentally-harmful-subsidies-germany) criticised Germany's government for failing to reduce subsidies it described as "superfluous, ineffective and harmful to the climate and the environment", adding that failure to do so was hindering the green transition. 
+29 Aug 2023, 13:33
+31 Aug 2023, 13:53
+20 Aug 2024, 13:26

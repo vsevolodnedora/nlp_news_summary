@@ -6,7 +6,8 @@ logger = get_logger(__name__)
 
 def cut_article_text_from_raw_pages(
         RAW_DIR:str, CLEANED_DIR:str, start_markers:list[str], end_markers:list[str],
-        skip_start_lines:int=0,skip_end_lines:int=0,max_lines:int|None=None
+        skip_start_lines:int=0,skip_end_lines:int=0,max_lines:int|None=None,
+        custom_black_list_starters:list[str]|None = None,
 ):
     """
     Loop through markdown files in RAW_DIR, extract content between 'Button' and 'Share this article',
@@ -24,7 +25,7 @@ def cut_article_text_from_raw_pages(
         raise ValueError(f"RAW_DIR {RAW_DIR} does not exist.")
 
     # Iterate over files in the raw directory
-    for filename in os.listdir(RAW_DIR):
+    for i_file, filename in enumerate(sorted(os.listdir(RAW_DIR))):
         raw_path = os.path.join(RAW_DIR, filename)
         cleaned_path = os.path.join(CLEANED_DIR, filename)
 
@@ -78,6 +79,15 @@ def cut_article_text_from_raw_pages(
         num_lines = snippet.count('\n') + 1  # Count lines in the markdown
         if max_lines is not None and num_lines > max_lines:
             logger.warn(f"File '{filename}' has {num_lines} lines, which exceeds the max_lines limit of {max_lines}.")
+
+        # remove lines from the file
+        if not custom_black_list_starters is None:
+            current_lines = snippet.split('\n')
+            selected_Lines = []
+            for line in current_lines:
+                if not any([line.startswith(element) for element in custom_black_list_starters]):
+                    selected_Lines.append(line)
+            snippet = '\n'.join(selected_Lines)
 
         # Write the cleaned snippet
         if skip_start_lines > 0:

@@ -1,0 +1,12 @@
+05 Feb 2025, 12:13
+| 
+Germany
+# German government and industry consider return of Nord Stream pipeline – media report
+## 
+Handelsblatt
+The German government and industry players are considering using parts of the contentious [Nord Stream 2](https://www.cleanenergywire.org/glossary/letter_n#nord_stream_2) gas pipeline connecting Russia and Germany through the Baltic Sea for hydrogen deliveries from Finland in the future, [reported Handelsblatt](https://www.handelsblatt.com/politik/deutschland/energieversorgung-nord-stream-2-koennte-ein-ueberraschendes-comeback-vor-sich-haben/100105460.html) based on industry “insider” sources. Several government spokespeople, however, told Handelsblatt that no talks had been conducted on using the pipeline and there were no plans to revive the project.
+The [controversial ](https://www.cleanenergywire.org/factsheets/gas-pipeline-nord-stream-2-links-germany-russia-splits-europe)[gas pipeline](https://www.cleanenergywire.org/factsheets/gas-pipeline-nord-stream-2-links-germany-russia-splits-europe) has become a symbol of Germany’s energy policy failures, after Russia withheld gas deliveries to Europe in order to stifle European action in support of Ukraine. Construction of the pipeline was completed in 2021, but the war – and an act of sabotage which damaged one of the two lines – has meant chances of it going into operation are virtually zero, especially because Germany and other member states have decided to wean themselves off Russian fossil fuel supplies.
+However, parts of the pipeline could be used for a link to transport green hydrogen from Finland to Germany in the future, reported Handelsblatt. Sources from the consortium planning a hydrogen pipeline project between the countries in the Baltic Sea – the Baltic Sea Hydrogen Collector – told the newspaper that it made little sense that [Nord Stream 2](https://www.cleanenergywire.org/glossary/letter_n#nord_stream_2) rotted at the bottom of the sea.
+A Swiss court has postponed the decision on liquidating the insolvent [Nord Stream 2](https://www.cleanenergywire.org/glossary/letter_n#nord_stream_2) AG to 9 May, giving everyone involved more time to influence the future of the project, including investor and state-owned German energy company [Uniper](https://www.cleanenergywire.org/experts/uniper-se), wrote Handelsblatt.
+19 May 2025, 10:20
+05 Jun 2024, 13:34

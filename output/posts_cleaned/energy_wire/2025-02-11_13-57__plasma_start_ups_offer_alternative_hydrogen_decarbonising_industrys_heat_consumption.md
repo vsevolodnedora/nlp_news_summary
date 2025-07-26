@@ -1,0 +1,13 @@
+11 Feb 2025, 13:57
+| 
+Germany
+# Plasma start-ups offer alternative to hydrogen for decarbonising industry's heat consumption 
+## 
+Handelsblatt
+Plasma technologies could open new options for decarbonising heat supply in industrial processes, offering an alternative to the use of green hydrogen, newspaper Handelsblatt [reported](https://www.handelsblatt.com/unternehmen/industrie/energie-plasma-koennte-kohle-und-wasserstoff-in-der-industrie-ersetzen/100105559.html). Swedish company SaltX has come up with a process that uses plasma in the production of cement, a technology that could help lower emissions across many industrial sectors. The company has already entered a partnership with SMA Mineral to produce climate-neutral limestone. Corey Blackman, technical expert at SaltX, told Handelsblatt that using plasma to produce cement reduces emissions by 40 percent and is around 30 percent more efficient than conventional processes. German chemicals and pharmaceuticals producer Bayer, meanwhile, has entered into a partnership with plasma start-up IonKraft.
+Plasma is created by heating gases like nitrogen, carbon dioxide or argon to very high temperatures. The resulting electrical flame – called a plasma torch – can reach temperatures of several thousand degrees Celsius, enough heat for any industrial process. Plasma torches are already used on a small scale, for example in waste management or for cutting and welding in the metal industry. Other suggested uses of plasma on a large scale are to produce steel or other building materials.
+Finding ways to decarbonise industrial processes is required for the energy transition. “The processes are necessary to produce the cement for the concrete foundations of wind turbines, the steel for the towers of wind turbines and the silicon for solar cells,” Antoine Koen, analyst at the think tank Future Cleantech Architects, told Handelsblatt.
+Hydrogen has been touted as one of the key technologies to help move heavy industry away from fossil fuels, yet the German government’s own National Hydrogen Strategy suggests the country can only meet one-sixth of demand by domestic production by 2030, reports Handelsblatt. The steel industry [expressed concerns this week](https://www.cleanenergywire.org/news/german-steel-industry-calls-delay-green-hydrogen-switch) that hydrogen will be more expensive than originally thought and have asked to postpone deadlines for transitioning to the climate-neutral gas.
+10 Feb 2025, 13:21
+14 Jan 2025, 13:08
+29 Jan 2025, 11:18

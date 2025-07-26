@@ -1,0 +1,15 @@
+22 Jul 2025, 13:15
+| 
+Germany
+# Germany’s rail investment reaches record levels, lags behind neighbours
+## 
+Clean Energy Wire
+Germany’s rail infrastructure investments rose to a record 198 euros per capita in 2024, a 74 percent increase compared to 2023, [according to](https://www.allianz-pro-schiene.de/presse/pressemitteilungen/pro-kopf-investitionen-verstetigen/) lobby group Pro Rail Alliance and consultancy SCI Verkehr. This places Germany in the upper-middle tier among European countries – it still trails behind nations such as Norway (294 euros per capita), and neighbouring countries Austria (352 euros), Switzerland (480 euros) and Luxembourg (587 euros).
+Maintaining and expanding the rail network is a prerequisite for the government’s target of shifting freight and passenger traffic off roads and onto trains, which are much more climate friendly. Germany’s transport sector is often referred to as the energy transition’s “problem child” because emissions have remained broadly stable for decades.
+Despite the surge, Dirk Flege, managing director of Allianz pro Schiene, warned that increased funding alone is insufficient: “Reducing the investment backlog is not a sprint but a marathon,” he said. He stressed the need for consistent, multi-year budget allocations instead of one-off infusions through special funds, and called for the swift establishment of the coalition government's promised rail infrastructure fund to ensure enduring financial support.
+Analyst Maria Leenen of SCI Verkehr pointed out that Germany still lags behind its Alpine neighbours in systematic planning. She pointed to Switzerland and Austria as examples where stable, multi-year funding is complemented by clear targets and strict governance.
+Germany’s national railway operator [Deutsche Bahn](https://www.cleanenergywire.org/experts/deutsche-bahn) [has laid claims](https://www.cleanenergywire.org/news/deutsche-bahn-demands-eu150bln-planned-infrastructure-fund-railway-upgrades) to almost one third of the entire [500-billion-euro infrastructure fund](https://www.cleanenergywire.org/factsheets/qa-germanys-eu500-bln-infrastructure-fund-whats-it-climate-and-energy) planned by the country’s prospective new government. In addition to regular government railway funding, up to 150 billion euros of the fund will be required to modernise and expand Germany’s railway system over the next ten years, according to internal company documents [seen by dpa](https://www.spiegel.de/wirtschaft/deutsche-bahn-bedarf-von-150-milliarden-euro-fuer-infrastruktur-bis-2034-a-164b002f-62cd-4a48-8fab-ef485bf8f0f1).
+The chairwoman of the CEO Alliance for Climate and Economy, Sabine Nallinger, [told](https://www.cleanenergywire.org/news/german-government-must-leverage-opportunities-green-procurement-business-initiative) Clean Energy Wire that the country’s massive railway modernisation project was an ideal opportunity to boost the uptake of climate-friendly industrial products like green steel and cement, by quickly introducing binding climate criteria for public procurement.
+13 Mar 2025, 13:39
+21 Mar 2025, 11:14
+21 Jul 2025, 11:00

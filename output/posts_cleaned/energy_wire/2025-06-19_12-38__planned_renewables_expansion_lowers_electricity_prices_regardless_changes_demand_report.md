@@ -1,0 +1,13 @@
+19 Jun 2025, 12:38
+| 
+Germany
+# Planned renewables expansion lowers electricity prices regardless of changes in demand - report
+## 
+Clean Energy Wire
+The currently planned expansion of wind and solar energy by 2030 in Germany will lead to lower electricity prices regardless of changes in demand in the same time period, [found a report](https://www.agora-energiewende.de/fileadmin/Projekte/2025/2025-07_DE_EE_2030/Aurora_Apr25_Agora_Renewable_targets_and_demand_Report_as_sent.pdf) drafted by consulting firm [Aurora Energy Research](https://www.cleanenergywire.org/experts/aurora-energy-research) and commissioned by energy think tank [Agora Energiewende](https://www.cleanenergywire.org/experts/agora-energiewende).
+If the current rate of expansion continues, the average wholesale electricity price will be around 20 euros per megawatt-hour lower than if expansion slows - in both scenarios with lower and stronger demand development, said the report. However, a slowdown in the expansion of renewable energies would bring higher prices for all electricity customers and jeopardise further electrification in industry, transport and the building sector, the report found.
+Electricity demand in Germany is growing slower than expected, due to lagging electrification in key sectors like mobility and heating. This has sparked a debate over whether to slow down the buildout of renewable energies as well. The new government [has said](https://www.cleanenergywire.org/factsheets/what-germanys-aspiring-coalition-government-agreement-means-climate-and-energy) it aims to re-assess by summer 2025 the country's future electricity demand, the status of energy security, grid expansion, renewables expansion, digitalisation, and the hydrogen ramp-up as a basis for further plans. Economy and climate minister, Katherina Reiche from the [CDU](https://www.cleanenergywire.org/experts/cdu-christian-democratic-union), has [called for a “reality check”](https://www.cleanenergywire.org/news/germanys-new-energy-minister-calls-reality-check-costs-and-risks-renewables) of the costs and risks of renewables.
+The heads of the northern German states [have recently called on](https://www.cleanenergywire.org/news/german-govt-must-swiftly-implement-electricity-price-reduction-measures-northern-states) the government to swiftly implement measures to reduce electricity costs. However, the new government’s [plan to introduce a subsidised electricity price for industry](https://www.cleanenergywire.org/news/germanys-plan-industrial-electricity-price-faces-steep-eu-challenges-leaked-govt-report) could be scuppered by European law.
+21 Jan 2025, 12:35
+17 Apr 2025, 13:46
+20 Dec 2024, 12:59

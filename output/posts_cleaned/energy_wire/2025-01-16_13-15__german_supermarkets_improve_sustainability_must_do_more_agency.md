@@ -1,0 +1,16 @@
+16 Jan 2025, 13:15
+| 
+Germany
+# German supermarkets improve sustainability but must do more – agency
+## 
+Clean Energy Wire
+The largest German supermarket chains have increased their efforts to become more sustainable, but still don’t do justice to their central role in the transformation of the food system, according to a report commissioned by the country’s environment agency ([UBA](https://www.cleanenergywire.org/experts/uba-federal-environment-agency)). “Companies could better use their influence and ability to manoeuvre to steer the food system towards sustainability,” the [UBA said](https://www.umweltbundesamt.de/presse/pressemitteilungen/nachhaltigkeit-im-supermarkt-handel-kann-noch-mehr).
+Germany’s food retail market is dominated by eight supermarket chains, including the internationally known ALDI and Lidl, that make up 75 percent of total market share. The [300-page UBA report](https://www.umweltbundesamt.de/sites/default/files/medien/11850/publikationen/07_2025_texte_supermaerkte.pdf) evaluates their sustainability performance in the areas of environment, social responsibility and animal welfare.
+“Compared to 2020, the overall results in the area of environmental protection have generally improved,” noted the report, but added that “by and large, the food retail industry is still not doing enough to fulfil its role as a gatekeeper” in critical points of the food system, given its considerable influence on the entire value chain, as well as on consumption.
+“Retail has a major influence on agriculture and the purchasing behaviour of the population,” said [UBA](https://www.cleanenergywire.org/experts/uba-federal-environment-agency) head Dirk Messner. “The likelihood of one company being imitated by others after leading the way is relatively high due to growing public pressure and the competitive situation.”
+The report said that voluntary company commitments and recent policy initiatives such as Germany’s [supply chain law](https://www.cleanenergywire.org/news/german-govt-agrees-supply-chain-law-including-environmental-obligations), which focuses on human rights and environmental protection, are having a clear impact. “For example, individual companies have announced their intention to completely dispense with food imported by air in future,” the [UBA](https://www.cleanenergywire.org/experts/uba-federal-environment-agency) said. “Although air-freighted products only makes up a small proportion of the product range, these emit 170 times more [greenhouse gases](https://www.cleanenergywire.org/glossary/letter_g#greenhouse_gases) than transport by ship.”
+Messner said it was key that food retailers not only focus on their own [greenhouse gas](https://www.cleanenergywire.org/glossary/letter_g#greenhouse_gas) emissions, but also on those of their entire value chain. However, he called on the supermarket chains to pair stricter environmental and climate requirements with appropriate financial compensation to enable producers to operate profitably. “Simply ‘passing on’ the requirements will only lead to even greater resentment among farmers,” Messner warned.
+20 Mar 2023, 09:30
+28 May 2021, 13:46
+[Charlotte Nijhuis](https://www.cleanenergywire.org/about-us-clew-team)
+02 Aug 2023, 13:13

@@ -1,0 +1,16 @@
+14 Feb 2025, 13:20
+| 
+Germany
+# Fridays for Future pre-election climate protest in Berlin attracts far fewer participants than in 2021
+[Society](https://www.cleanenergywire.org/topics/Society) [Elections & Politics](https://www.cleanenergywire.org/topics/Elections+%26+Politics)
+## 
+Clean Energy Wire
+A climate strike in Berlin by the youth movement Fridays for Future ([FfF](https://www.cleanenergywire.org/experts/fridays-future-germany)) ahead of Germany’s snap election at the end of next week ended up attracting far fewer participants than similar protests before the previous election in 2021. Police, who had originally anticipated around 1,000 participants, told Clean Energy Wire first estimates suggested around 2,000 to 3,000 protesters, compared to about [20,000](https://taz.de/Globaler-Klimastreik-am-Freitag/!5803389/) people taking part in the demonstration in Germany's capital in 2021. 
+The lower turnout underlined how the movement has struggled to mobilise support during this election campaign compared to 2021, when climate issues played a key role in pre-election debates. [FfF](https://www.cleanenergywire.org/experts/fridays-future-germany) said it wanted to bring the climate crisis back into the spotlight with the nation-wide protests taking place simultaneously in many locations across Germany.
+“We are on the streets in over 140 locations, demanding clarity from the next government in the fight against the climate catastrophe and the protection of our democratic freedoms,” [said](https://x.com/Luisamneubauer/status/1890316311130980836) Luisa Neubauer, the most prominent leader of the [FfF](https://www.cleanenergywire.org/experts/fridays-future-germany) movement. “Whoever moves into the chancellor's office must deliver.”
+[FfF](https://www.cleanenergywire.org/experts/fridays-future-germany) spokesperson Frieda Egeling said even though the impacts of the climate crisis had become much more evident since 2021, "we also have to deal with multiple crises now." The protest showed that many people still believed that it was very important "to take care of the climate crisis and that it's talked about," she added.
+[FfF](https://www.cleanenergywire.org/experts/fridays-future-germany) called on the next goverment to introduce a mobility and heating guarantee for all citizens, as well as a fund for climate adaptation and disaster relief, among other demands. In its attempts to stay relevant, the movement has increasingly taken social aspects into view in recent years, in addition to climate issues, for example by organising joint demonstrations with labour unions. 
+Most Germans continue to see [climate change as a threat](https://www.cleanenergywire.org/news/germans-say-energy-transition-costs-not-fairly-distributed-lack-trust-key-actors-survey) and support a socially just energy transition, according to surveys. But as [decarbonisation](https://www.cleanenergywire.org/glossary/letter_d#decarbonisation) costs for citizens have shifted into view during the current legislative period, for example during Germany’s controversy over the transition to climate-neutral heating, parties have shied away from making climate action a central campaign issue.
+06 Feb 2025, 13:21
+06 Dec 2024, 12:56
+14 Aug 2023, 13:00

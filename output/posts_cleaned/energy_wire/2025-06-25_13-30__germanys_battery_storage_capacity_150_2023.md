@@ -1,0 +1,13 @@
+25 Jun 2025, 13:30
+| 
+Germany
+# Germany’s battery storage capacity up 150% since 2023
+## 
+pv magazine
+Total battery [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) capacity in Germany has grown 150 percent in the past two years to approximately 20 gigawatt hours (GWh), according to estimates by Hamburg-based CO2-neutral energy start-up 1KOMMA5° based on figures from RWTH Aachen University’s [Battery Charts](https://battery-charts.rwth-aachen.de/main-page/) data platform. Most of that is linked to photovoltaic ([PV](https://www.cleanenergywire.org/glossary/letter_p#pv)) solar power installations, with home [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) systems accounting for some 80 percent of the capacity, or 16.5 GWh, [pv magazine reported](https://www.pv-magazine.de/2025/06/20/batteriespeicherkapazitaet-in-deutschland-seit-2023-um-150-prozent-gestiegen/). Commercial and large-scale [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) units make up the rest.
+In May 2023, total battery capacity in Germany was just 8 GWh. The country added 403 MWh of capacity per month this year – a ten-fold increase compared to 2019.
+Last year, some [600,000 new stationary battery storage systems](https://www.cleanenergywire.org/news/german-battery-storage-capacity-increases-50-2024-report) were installed across Germany. "The battery expansion was largely driven by people who, in addition to [PV](https://www.cleanenergywire.org/glossary/letter_p#pv) systems, wall boxes and heat pumps, also install [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) to increase heir systems' efficiency," said 1KOMMA5° co-founder and CPO, Jannik Schall.
+The currently installed battery [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) systems can cover the electricity needs of a city with around 150,000 inhabitants for about six days, 1KOMMA5° noted.
+The company urged the country’s network agency [BNetzA](https://www.cleanenergywire.org/experts/federal-network-agency-electricity-gas-telecommunications-post-and-railway-0) to improve grid fee regulations so that batteries’ potential can be utilised, adding that more than one million electric cars on the country’s roads should also be used to improve grid stability, which could save the government and consumers billions of euros.
+15 Jan 2025, 13:06
+21 Nov 2024, 13:07

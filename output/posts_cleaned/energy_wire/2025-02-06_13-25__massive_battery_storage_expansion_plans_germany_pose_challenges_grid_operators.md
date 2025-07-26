@@ -1,0 +1,13 @@
+06 Feb 2025, 13:25
+| 
+Germany
+# Massive battery storage expansion plans in Germany pose challenges for grid operators
+## 
+Handelsblatt
+The surging interest of potential operators of large-scale battery [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) units that seek connections to Germany’s transmission grid could put network operators in a difficult situation, [reported business daily Handelsblatt](https://www.handelsblatt.com/politik/deutschland/energiewende-batteriespeicher-boom-alarmiert-netzbetreiber-und-experten/100103888.html). Large-scale battery projects with a combined capacity of 226 gigawatts (GW) are seeking to be connected to Germany’s transmission grid, fanning industry speculation that the country’s electricity system could be facing [a “battery tsunami.”](https://www.cleanenergywire.org/news/battery-tsunami-projects-totalling-226-gigawatts-seek-connection-approval-germany) The grid [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) boom is driven mainly by rapidly dropping battery prices and the possibility of using them for profiting from electricity price fluctuations.
+Leonhard Birnbaum, CEO of the country’s largest [distribution grid](https://www.cleanenergywire.org/glossary/letter_d#distribution_grid) operator E.ON, criticised the fact that applications are often submitted without regard to the specific grid situation. For [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) to be able to contribute to grid stability, units would have to be placed at the right locations. However, applicants had no incentive to consider the grid compatibility of their projects, Birnbaum added. “That presents us with immense problems.” He added that companies were using many projects as test balloons. “The potential [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) operators simply want to see what their chances are of being connected to the grid. That unnecessarily ties up resources for us,” said Birnbaum.
+Economist Veronika Grimm said current plans far exceeded demand and would lead to an overcapacity problem, which would eventually have to be paid “by someone via levies or taxes.” She instead called for a greater focus on new gas power plants to secure supply.
+However, Jens Michael Wegmann, chief technology officer at [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) company GESI said the gap between supply and demand would “remain enormous for the foreseeable future,” as permit procedures usually drag on for a long time, and often resulted in lower capacity or no permit at all.
+15 Jan 2025, 13:06
+31 Jan 2025, 11:49
+14 Jan 2025, 13:06

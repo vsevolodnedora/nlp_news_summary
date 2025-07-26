@@ -1,0 +1,11 @@
+03 Jul 2025, 13:21
+| 
+Germany
+# Onshore wind power auction again oversubscribed in Germany, record in PV storage bids
+## 
+Clean Energy Wire
+The latest round of [onshore wind](https://www.cleanenergywire.org/glossary/letter_o#onshore_wind) power auctions in Germany has resulted in a clear oversubscription and falling guaranteed remuneration levels, the country’s network agency [BNetzA](https://www.cleanenergywire.org/experts/federal-network-agency-electricity-gas-telecommunications-post-and-railway-0) has [said](https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/DE/2025/20250703_Onshore_Inno.html?nn=659670). Bidders submitted projects with a total volume of 4,972 megawatts (MW) to the auction with a set volume of 3,443 MW. “The auction for [onshore wind](https://www.cleanenergywire.org/glossary/letter_o#onshore_wind) turbines continues to see a high turnout,” commented [BNetzA](https://www.cleanenergywire.org/experts/federal-network-agency-electricity-gas-telecommunications-post-and-railway-0) head Klaus Müller, adding that this would result in lower support requirements. The average support level was 6.83 cents per kilowatt hour in the auction that ended on 1 May. The states with the most successful bids were North Rhine-Westphalia (1,002 MW), Lower Saxony (960 MW), and Hesse (379 MW). 
+Müller added that there was a new record in bids for a parallel innovation auction, which required bids that combine energy generation with [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) options. “The volume of bids was more than 2,000 MW for the first time. This shows that there is an unwavering interest in the market in the various forms of renewable energy generation,” he argued. The auctioned volume was merely 486 MW. All bids were made for [PV](https://www.cleanenergywire.org/glossary/letter_p#pv) and [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) combinations and received an average support of 6.15 ct/kWh.
+24 Apr 2025, 13:25
+17 Apr 2025, 13:41
+31 Jan 2025, 10:00

@@ -1,0 +1,13 @@
+24 Apr 2025, 13:16
+| 
+Germany
+# Number of sunshine hours in Germany up significantly in recent years – meteorological service 
+## 
+Tagesspiegel 
+The number of sunshine hours registered in Germany has constantly been on the rise over the past few decades, data by Germany’s Meteorological Service ([DWD](https://www.cleanenergywire.org/experts/dwd-germanys-national-meteorological-service)) has shown. Between 2011 and 2024, spring sunshine hours increased 19 percent compared to the 1961-1990 reference period, newspaper Tagesspiegel [reported](https://www.tagesspiegel.de/wissen/deutschland-wird-immer-sonniger-das-ist-schon-eine-enorme-zunahme-13529728.html). Over an entire year, the increase was eight percent (121 hours) between 1991 and 2020 compared to the reference period. In the period 2011-2024, the number of sunshine hours was 13 percent higher.
+“That’s an enormous increase,” said meteorologist Marcus Beyer. One reason for the increasing amount of sunshine is the growing incidence of high-pressure areas that block weather movements with fewer clouds and less precipitation. The [warming climate in Germany](https://www.cleanenergywire.org/news/2024-hottest-year-record-germany-meteorological-service), where average temperatures have increased 1.7 degrees Celsius since 1881, is also contributing to this trend, the [DWD](https://www.cleanenergywire.org/experts/dwd-germanys-national-meteorological-service) added.
+The latest weather data from 2025 appears to confirm this trend: March this year was the second sunniest since the beginning of records, only outshone by March 2022. At the same time, the period between the beginning of February and mid-April 2025 also was [the driest in the country since 1931](https://www.cleanenergywire.org/news/2025-ushered-drought-across-germany-and-europe-weather-service), the [DWD](https://www.cleanenergywire.org/experts/dwd-germanys-national-meteorological-service) found. While sun time increases were strongest in southwestern Germany, the country’s northeast was sunniest in spring, with the Berlin capital region becoming the sunniest in the country in recent years.
+More sunshine hours are increasing the potential output of the country’s [more than five million solar PV installations](https://www.cleanenergywire.org/news/number-pv-arrays-germany-passes-5-million-milestone), meteorologist Beyer said. “One can assume that the additional electricity output is not insignificant,” he added. Depending on the sunshine duration in May, solar [PV](https://www.cleanenergywire.org/glossary/letter_p#pv) operators might look at one of the most productive spring periods since the beginning of records, he added.
+20 Dec 2024, 13:07
+18 Dec 2024, 13:06
+07 Apr 2025, 13:13

@@ -1,0 +1,13 @@
+13 May 2025, 13:18
+| 
+Germany
+# Network agency considers making electricity producers pay as part of German grid fee reform
+## 
+Clean Energy Wire
+Germany’s Federal Network Agency ([BNetzA](https://www.cleanenergywire.org/experts/federal-network-agency-electricity-gas-telecommunications-post-and-railway-0)) [has called](https://www.bundesnetzagentur.de/SharedDocs/Pressemitteilungen/DE/2025/20250512_AgNes.html?nn=659670) for a wider reform of the system of fees that finance the country’s electricity grid and is considering an option where electricity producers pay, in a possible shakeup to the current framework built on payments by end consumers.
+In [a discussion paper](https://www.bundesnetzagentur.de/DE/Beschlusskammern/1_GZ/GBK-GZ/2025/GBK-25-01-1%233_AgNeS/Downloads/Diskussionspapier.pdf?__blob=publicationFile&v=4) outlining different options, the agency said that there is currently no fee on the feed-in of electricity into the grid, unlike in other European countries or when it comes to the gas pipeline network. The key driver of grid development needs and costs was the expansion of renewable energy, said the agency. “Consumption is charged with fees even though it is not the main cost driver,” it added.
+The electricity grid fee system must undergo reform for several reasons [BNetzA](https://www.cleanenergywire.org/experts/federal-network-agency-electricity-gas-telecommunications-post-and-railway-0) president Klaus Müller said. “The number of users who pay the full amount of fees is constantly decreasing – while costs are rising at the same time,” he said. The system was also lacking incentives that reward flexible behaviour, as well as effective signals as to how and where electricity generators can be operated cost-effectively in order to avoid an unnecessarily expensive expansion of the grids.
+Germany’s electricity system is increasingly shifting to fluctuating renewable energy sources as its main power generation technology, which is creating challenges for the country’s grid operators. Previously, conventional power plants ran flexibly to meet demand. Now, a change of weather can result in a sudden influx of electricity in a more decentralised grid, which must be expanded, modernised and adapted. However, in Germany and across the EU, planned grid investment are [falling short](https://www.cleanenergywire.org/news/planned-electricity-grid-investments-fall-short-expansion-needs-eu-court-auditors) of expansion needs.
+12 Mar 2025, 13:20
+29 Apr 2025, 13:31
+01 Apr 2025, 17:38

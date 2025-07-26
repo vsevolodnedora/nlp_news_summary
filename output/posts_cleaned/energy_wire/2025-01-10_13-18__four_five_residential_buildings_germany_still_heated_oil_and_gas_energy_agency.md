@@ -1,0 +1,13 @@
+10 Jan 2025, 13:18
+| 
+Germany
+# Four in five residential buildings in Germany still heated with oil and gas – energy agency
+## 
+Clean Energy Wire
+Climate-friendly heating technologies may now be predominant in new builds in Germany but the country’s existing buildings continue to rely on fossil fuels, [shows a report](https://www.dena.de/infocenter/dena-gebaeudereport-2025-waermewende-entschlossen-fortsetzen/) by the German Energy Agency ([dena](https://www.cleanenergywire.org/experts/dena-german-energy-agency)).
+“Of the almost 20 million residential buildings, 79 percent are still heated with oil and gas, and renewable energies have so far played too small a role in existing buildings,” said [dena](https://www.cleanenergywire.org/experts/dena-german-energy-agency) chairperson Corinna Enders. Politics, business and society had to work together to further the heating transition, she said.
+In 2023, 65 percent of newly completed residential buildings had a heat pump as their primary heating system, a year-on-year increase of 8 percentage points, said the report. One in five new residential building was still equipped with a gas heating system. Heat pumps were also the most prevalent heating system in new non-residential buildings (34.4%).
+While 2023 was a record year for sales of non-fossil heating systems, [dena](https://www.cleanenergywire.org/experts/dena-german-energy-agency) said this would not be the case for 2024. Final data for 2024 is not yet available in the [dena](https://www.cleanenergywire.org/experts/dena-german-energy-agency) report but the German Heat Pump Association (BWP) [had projected](https://www.cleanenergywire.org/news/germanys-heat-pump-industry-calls-investment-security-boost-sales-and-meet-climate-targets) late last year that year-on-year sales would almost halve compared to 2023.
+Around 15 percent of Germany's CO2 emissions come from heating buildings, meaning the vast majority of the country's [40 million homes must switch to climate-neutral heating technology](https://www.cleanenergywire.org/dossiers/boiler-room-revolution-europe-kickstarts-shift-climate-friendly-heating) – such as heat pumps – if it is to reach its 2045 net-zero emissions target. But a buildings energy law designed to promote this transition has been the subject of fierce debate due to the high cost of installing heat pumps. After months of wrangling, the coalition government reached a [compromise in 2023](https://www.cleanenergywire.org/factsheets/qa-germany-debates-phaseout-fossil-fuel-heating-systems), passing a less ambitious law.
+03 May 2024, 13:30
+11 Sep 2023, 13:31

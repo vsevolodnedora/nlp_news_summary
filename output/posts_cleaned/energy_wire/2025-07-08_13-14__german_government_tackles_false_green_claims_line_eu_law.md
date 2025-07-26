@@ -1,0 +1,14 @@
+08 Jul 2025, 13:14
+| 
+EU
+# German government tackles false green claims in line with EU law
+## 
+Clean Energy Wire
+The German government [has proposed](https://www.bmjv.de/SharedDocs/Pressemitteilungen/DE/2025/0707_UWG.html) legislative changes to forbid companies from making environmental claims such as “green” or “climate friendly” about their products unless they can demonstrate that they are. The amendments would translate [EU law](https://energy.ec.europa.eu/news/new-eu-rules-empower-consumers-green-transition-enter-force-2024-03-27_en) into national legislation.
+“‘Climate-friendly,’ ‘biodegradable,’ or ‘CO2-neutral’ – advertising claims like these sound positive, but it is often unclear what exactly they mean,” said justice minister Stefanie Hubig. “We want to change that.”
+In the future, general environmental claims about a product will only be permitted if they can be substantiated. Advertising claims about future environmental performance, such as ‘all our packaging will be fully recyclable by 2030’, must be accompanied by “a realistic, publicly available implementation plan.” Advertising a product with a CO2 offsetting statement such as ‘climate neutral’ will be prohibited if the ‘climate neutrality’ of the product is achieved through the purchase of CO2 certificates.
+Companies across the globe [have raced to declare themselves and their products "climate neutral"](https://www.cleanenergywire.org/dossiers/clew-focus-climate-neutral-products-and-companies-greenwashing-or-sign-hope), but most claims still rely on [questionable commitments](https://www.cleanenergywire.org/news/germany-suspects-serious-environmental-crime-chinese-co2-reduction-projects-env-minister) to compensate continued emissions elsewhere on the planet, inviting accusations that this trend is nothing but greenwashing.
+In March 2024, new EU rules to empower consumers with greater product transparency [entered into force](https://energy.ec.europa.eu/news/new-eu-rules-empower-consumers-green-transition-enter-force-2024-03-27_en), and member states have until 2026 to transpose the relevant directive into national law. In addition, the EU [has been working on the green claims directive](https://www.cleanenergywire.org/factsheets/qa-how-eu-aims-reign-false-green-claims-products), which was supposed to introduce rules on how to make a green claim the right way, providing additional information on what methodologies should be used to substantiate it and which information must be provided to the consumer. However, media recently [reported](https://www.politico.eu/article/von-der-leyen-greenwashing-deforestation/) that it is unclear whether the law will be passed.
+08 May 2023, 11:00
+28 May 2025, 13:25
+08 Sep 2022, 12:02

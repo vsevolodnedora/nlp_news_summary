@@ -1,0 +1,12 @@
+13 Dec 2024, 13:56
+| 
+Germany
+# Germany on course for 54 percent renewable power production share in 2024 – UBA
+## 
+Clean Energy Wire
+About 54 percent of [gross power production](https://www.cleanenergywire.org/glossary/letter_p#gross_power_production) in Germany is set to come from renewables in 2024, figures [published](https://www.umweltbundesamt.de/presse/pressemitteilungen/mehr-strom-aus-erneuerbaren-energien) by the Federal Environment Agency ([UBA](https://www.cleanenergywire.org/experts/uba-federal-environment-agency)) have shown. With an output of about 285 terawatt (TWh) hours from renewables, this would mean an increase of about 4 percent compared to the previous year, when the renewable share was 52.5 percent. “Despite a positive trend in electricity production, we generally still have to do more,” said [UBA](https://www.cleanenergywire.org/experts/uba-federal-environment-agency) head Dirk Messner, citing the aim of sourcing 80 percent of power demand from renewables by 2030. “Since further electrification in heating and transport will push electricity demand up, the expansion of renewables has to be sped up in the next years to meet this target,” Messner said.
+Wind power generated 141 TWh, with capacity increasing roughly 3 gigawatts (GW) this year to a total of 72 GW. It is supposed to grow to 115 GW by 2030 onshore and 30 GW offshore, with latest auction figures suggesting a positive trend in expansion is well under way. The output of solar [PV](https://www.cleanenergywire.org/glossary/letter_p#pv) installations grew by 16 percent to a total of 74 TWh. 16 GW of new solar capacity was installed throughout 2024, taking the total installed capacity to about 98 GW.
+Wind and solar power contributed around three quarters of the renewable energy output, with the remainder coming from biomass, hydro power and geothermal plants, which achieved a combined 2 percent production increase this year. However, the use of renewable energy for heating increased by less than one percent during the same period, the [UBA](https://www.cleanenergywire.org/experts/uba-federal-environment-agency) said. Due to a lower use of [biofuels](https://www.cleanenergywire.org/glossary/letter_b#biofuels) in transport, the share of renewables in this sector even decreased in 2024, the agency added.
+01 Jul 2024, 13:38
+03 Jun 2024, 14:20
+11 Dec 2024, 12:52

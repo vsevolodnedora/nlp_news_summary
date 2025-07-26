@@ -1,0 +1,12 @@
+21 Feb 2025, 13:38
+| 
+Germany
+# Clear majority in Germany continues to support energy transition but concerns are on the rise
+## 
+Der Spiegel
+Most German citizens still believe the energy transition is indispensable - but worries about its negative impact on the economy are increasing, news magazine Der Spiegel [reports](https://www.spiegel.de/wirtschaft/energiewende-mehrheit-der-deutschen-unterstuetzt-klimaneutralitaet-a-98caca33-31d9-4904-9684-36d98eb63359) based on a survey by pollster Allensbach. Sixty percent of respondents said they consider the climate friendly transformation of the country’s energy system as necessary, while only 15 percent said they do not believe so. However, 35 percent said that [decarbonisation](https://www.cleanenergywire.org/glossary/letter_d#decarbonisation) and other energy transition measures bear more risks than opportunities for Germany, while only 26 percent said the opposite is the case. For 27 percent of respondents, the effects were balancing out each other.
+According to the pollster, concerns about the energy transition’s risks have doubled since the beginning of Russia’s war on Ukraine in 2022, which exacerbated Germany’s and Europe’s energy crisis at the time. At the same time, the share of those who say they believe the transition will diminish the country’s competitiveness has more than doubled, from 17 to 36 percent. Nearly 80 percent said they expect substantial burdens for citizens and the economy. Of those who expect renewable energy installations to be built in their region, one third said they reject the construction of wind turbines and other infrastructure, and 43 percent said they would support re-entering nuclear power production. Less than one in four respondents (22%) said they believe that German companies will play a leading role in renewable energy industries, compared to nearly half (47%) still in 2016, the institute found.
+Despite Germany being hit by devastating extreme weather damages and record temperature increase in recent years, the share of respondents who worry greatly about global warming dropped from 51 percent in 2019 to 36 percent in the latest survey. Forty-one percent said they worry only a little about climate change, while 20 percent have no concerns at all. The drop in levels of climate concern has been fuelled by the war on Ukraine, making issues like security, economic growth, or migration more important, Allensbach said. 
+12 Feb 2025, 13:39
+30 Jan 2025, 13:32
+27 Nov 2024, 13:00

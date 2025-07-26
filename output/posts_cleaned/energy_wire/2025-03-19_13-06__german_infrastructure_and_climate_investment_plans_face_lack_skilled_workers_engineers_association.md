@@ -1,0 +1,12 @@
+19 Mar 2025, 13:06
+| 
+Germany
+# German infrastructure and climate investment plans face lack of skilled workers – engineers' association
+## 
+n-tv
+There are not enough skilled workers to carry out infrastructure modernisation improvements set out in Germany's historic investment agreement, the Association of German Engineers (VDI) warned. The implementation of the 500-billion-euro special fund for infrastructure and climate neutrality, which was agreed in parliament yesterday (18 March), is at risk from a shortage of tens of thousands of engineering and IT professionals, VDI director Adrian Willig [told broadcaster n-tv](https://www.n-tv.de/wirtschaft/Ingenieursverband-Zu-wenige-Fachkraefte-fuer-Infrastrukturpaket-article25636580.html). "We need more engineering capacity to implement the huge investment package in specific projects that will take several years to be realised," Willig said.
+Germany is already facing a shortage of skilled workers – with [thousands of unfilled vacancies](https://www.cleanenergywire.org/news/electricians-engineers-most-needed-professions-german-energy-transition-workforce-analysis) especially in electrical engineering in 2024 – to implement projects related to the energy transition. Willig called for a change in direction in the technical education of children, improvements in digital equipment in schools, and the introduction of technology classes across all school levels. "Technical education in schools is the basis for encouraging more young people to take up engineering studies," he said.
+Germany's parliament [agreed on a special fund](https://www.cleanenergywire.org/factsheets/qa-germanys-eu500-bln-infrastructure-fund-whats-it-climate-and-energy) worth 500 billion euros for infrastructure projects to bolster civil protection, transport, hospitals, energy, education, science, research and development, care and digitalisation over a period of twelve years. Despite [CDU](https://www.cleanenergywire.org/experts/cdu-christian-democratic-union) leader and likely next chancellor Friedrich Merz's promises that the fund would cover both infrastructure investments and those to get to climate neutrality by 2045 – and to specifically dedicate 100 billion to the Climate and Transformation Fund – details on what the funding will be used for are still unclear.
+14 Mar 2025, 13:10
+25 Feb 2025, 13:40
+02 Apr 2025, 10:09

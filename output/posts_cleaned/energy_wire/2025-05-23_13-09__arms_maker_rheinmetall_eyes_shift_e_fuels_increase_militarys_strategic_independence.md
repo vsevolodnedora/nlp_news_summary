@@ -1,0 +1,14 @@
+23 May 2025, 13:09
+| 
+Germany
+# Arms maker Rheinmetall eyes shift to e-fuels to increase military’s strategic independence
+## 
+Handelsblatt
+Germany’s leading arms manufacturer Rheinmetall is looking to convert a large part of its fuel supply to renewable energy-based e-fuels. At an industry summit hosted by business daily Handelsblatt, Rheinmetall manager Shena Britzen [said](https://www.handelsblatt.com/unternehmen/energie/ruestungsindustrie-deshalb-setzt-rheinmetall-auf-e-fuels/100129723.html) the company was "consciously choosing a renewable energy path" because this represented a reliably available fuel supply independent of third parties. Green e-fuels can be produced locally with wind turbines or solar panels, meaning producers do not rely on the power grid or on international markets. This allows military planners significantly greater strategic independence. 
+Britzen said the shift to e-fuels was part of a broader campaign to deter Russian aggression, for which ensuring adequate fuel supply for European troops is a key element. The arms industry manager said the goal was to establish a secure fuel supply within the next five years, with the objective of providing about 20 million litres of e-fuels per year. The e-fuels should come from electrolysis-based production facilities scattered across Europe, with each providing an annual output of up to 7,000 tonnes at a price of about 2.5 euros per kilogram, the manager added.
+Converting fuel supply to e-fuels would also lead to a significant cut in emissions by the military. Handelsblatt cites the "[Climate Crossfire](https://www.tni.org/en/publication/climate-crossfire)" analysis, which stated that the German military, the Bundeswehr, emitted about 9.5 million tonnes of [greenhouse gases](https://www.cleanenergywire.org/glossary/letter_g#greenhouse_gases) in 2023, the equivalent of 1.5 percent of the country's total emissions.
+Germany, like most European countries, is massively increasing its military spending in response to Russia’s 2022 invasion of Ukraine. The new German coalition government pushed a reform package through parliament even before entering office that effectively removes the country’s spending limit on defence, as it moves to [bolster the Bundeswehr's role](https://www.theguardian.com/world/2025/may/22/germany-anti-russian-defence-nato-lithuania-friedrich-merz) in European and NATO security infrastructure.
+Rheinmetall is set to be one of the new policy’s biggest beneficiaries, with CEO Armin Papperger recently gauging the volume of new contracts for weapon systems and other products and services at [up to 400 billion euros by 2030](https://www.reuters.com/business/aerospace-defense/rheinmetall-forecasts-2025-sales-jump-ukraine-war-us-decoupling-2025-03-12/).
+14 Feb 2023, 13:12
+18 Mar 2024, 12:57
+02 Apr 2025, 13:15

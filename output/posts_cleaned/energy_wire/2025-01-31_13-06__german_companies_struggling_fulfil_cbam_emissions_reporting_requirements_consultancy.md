@@ -1,0 +1,16 @@
+31 Jan 2025, 13:06
+| 
+Germany
+# German companies struggling to fulfil CBAM emissions reporting requirements – consultancy
+[Carbon market](https://www.cleanenergywire.org/topics/Carbon+market) [Business](https://www.cleanenergywire.org/topics/Business) [EU](https://www.cleanenergywire.org/topics/EU)
+## 
+Clean Energy Wire
+Around three quarters of German companies are not able or only partially able to report emissions data from their suppliers outside of the EU, with two-thirds fearing that this requirement is hurting their competitiveness, a [survey](https://www.deloitte.com/de/de/about/press-room/Deutsche-Unternehmen-k-nnen-CBAM-Anforderungen-kaum-erf-llen-.html) from consultancy Deloitte has found. This obligation came into force as the first step in implementation of the EU’s carbon border adjustment mechanism (CBAM), which requires importers of certain products, like steel or fertiliser, to pay a fee if their product has a higher carbon footprint than their counterparts produced in the bloc. 
+Only six percent of companies surveyed said they were able to report the actual emissions of their non-EU suppliers, with a majority (53%) saying they could not do so, and a further 21 percent reporting they could partially do so. The companies, who were surveyed last autumn, cite the biggest barriers to CBAM reporting requirements as insufficient availability of data (20%), lack of transparency of the costs and risks (16%), and a lack of knowledge about CBAM (11.5%).
+“CBAM presents companies with massive challenges in dealing with their suppliers. At the same time, the transition phase for the introduction of CBAM ends at the end of the year,” said Michael Schäfer, partner at Deloitte. “The pressure to set up the necessary monitoring and reporting systems in companies is increasing significantly.”
+One quarter (26%) of companies believe CBAM will be positive for business. A further 29 percent of respondents see CBAM as an opportunity to change their supply chain, with 43 percent conversely saying they do not think this was the case.
+Companies also have difficulties verifying the accuracy or plausibility of suppliers' emission values. While 20 percent of respondents try to do this by consulting comparative values and 12 percent compare the data with the EU template for submitting emissions data, the majority of companies surveyed have not yet found an effective way to check this.
+The mechanism is part of the [bloc’s plan](https://www.cleanenergywire.org/factsheets/emission-reduction-panacea-or-recipe-trade-war-eus-carbon-border-tax-debate) to reach carbon neutrality by the mid-century. It is intended to prevent [carbon leakage](https://www.cleanenergywire.org/glossary/letter_c#carbon_leakage) from the bloc — where emissions from industrial activity is offshored, which would appear to reduce Europe’s emissions. It is projected to raise up to 9 billion euros by 2030, much of which is expected to be used to fund further climate mitigation measures.
+18 Aug 2023, 14:06
+02 Oct 2023, 13:38
+02 Feb 2023, 09:26

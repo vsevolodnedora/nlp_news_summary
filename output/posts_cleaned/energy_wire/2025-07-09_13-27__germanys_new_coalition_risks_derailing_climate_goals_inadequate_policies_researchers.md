@@ -1,0 +1,16 @@
+09 Jul 2025, 13:27
+| 
+Germany
+# Germany’s new coalition risks derailing climate goals with "inadequate" policies - researchers
+## 
+Clean Energy Wire
+Germany’s new coalition government could derail the country’s climate targets and reduce emissions less than previously expected, [according to the Climate Action Tracker (CAT).](https://climateactiontracker.org/countries/germany/)
+CAT, an independent scientific group that tracks government climate action against the [Paris Agreement](https://www.cleanenergywire.org/glossary/letter_p#paris_agreement), said the [coalition agreement](https://www.cleanenergywire.org/dossiers/new-german-government-charts-cautious-climate-course-europes-largest-economy) between the [Christian Democratic Union (CDU)](https://www.cleanenergywire.org/experts/csu-christian-social-union) and [Social Democrats (SPD)](https://www.cleanenergywire.org/experts/spd-social-democratic-party) would “deprioritise and undermine climate policy across the board.” 
+The researchers said the new government's plans generally were "inadequate" with a view to legally binding emissions reduction targets. This included the decision to introduce 20 gigawatts (GW) of [gas-fired power capacity by 2030](https://www.cleanenergywire.org/news/southern-germany-receive-two-thirds-new-gas-power-plant-capacity-economy-minister-says) — double the previous government’s plans — and to approve [new gas field developments in the North Sea](https://www.cleanenergywire.org/news/southern-germany-receive-two-thirds-new-gas-power-plant-capacity-economy-minister-says). CAT warned these moves risk locking in future carbon emissions.
+While Germany’s share of renewables in the electricity supply remains high, CAT said policies, including to [review and possibly reduce](https://www.cleanenergywire.org/news/critics-warn-germanys-energy-transition-reality-check-designed-slow-renewables) land area reserved for wind energy could slow expansion.
+The group also criticised transport policy, such as the [rollback of electric vehicle sales targets](https://www.cleanenergywire.org/news/germany-far-2030-electric-vehicle-target-registered-fleet-hits-165-million) and increased aviation subsidies, saying it sent mixed signals. It flagged the planned repeal of the Buildings Energy Act, which aims to replace oil and gas heating with renewables, as a [setback for low-carbon technologies](https://www.cleanenergywire.org/news/german-homeowners-still-opt-gas-boilers-over-heat-pumps-when-changing-heating-systems).
+The coalition agreement does not raise Germany’s 2030 emissions reduction ambition, the researchers said. Meanwhile, forests, once a key carbon sink in Germany’s climate plans, [have become a net source of emissions](https://www.cleanenergywire.org/news/years-drought-have-turned-german-pine-forest-co2-source-study), further complicating the path to climate neutrality by 2045.
+Still, CAT noted Germany has a strong legally binding climate framework at home that is backed by EU regulation. It pointed to continued [coal phase-out](https://www.cleanenergywire.org/glossary/letter_c#coal_phase-out) efforts, strong solar growth, and support for zero-carbon industrial investments as “positive policy developments”. 
+07 May 2025, 13:30
+22 Apr 2025, 12:38
+01 Jul 2025, 13:31

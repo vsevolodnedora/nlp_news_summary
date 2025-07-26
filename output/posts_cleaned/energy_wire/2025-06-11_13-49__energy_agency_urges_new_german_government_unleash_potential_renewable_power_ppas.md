@@ -1,0 +1,11 @@
+11 Jun 2025, 13:49
+| 
+Germany
+# Energy agency urges new German government to unleash potential of renewable power PPAs
+## 
+Clean Energy Wire
+Germany must unleash the potential of power purchase agreements (PPAs) to raise private capital for the fast expansion of its renewable energy system, the national energy agency [dena](https://www.cleanenergywire.org/experts/dena-german-energy-agency) has [said](https://www.dena.de/infocenter/ppas-staerken-marktdesign-transparenz-und-neue-bezugsmodelle/). “PPAs are key for a cost-efficient energy transition,” said [dena](https://www.cleanenergywire.org/experts/dena-german-energy-agency) head Corinna Enders. PPAs – often long-term agreements directly between an electricity producer and a consumer like a company – would provide businesses with planning security and reduce the state’s costs for renewables expansion, she argued. The new German government should use this opportunity now and [create favourable conditions to expand the use of PPAs](https://www.cleanenergywire.org/news/new-german-govt-must-make-ppas-central-energy-transition-energy-agency), Enders said. Achim Dercks, vice leader of the German Chamber for Industry and Commerce ([DIHK](https://www.cleanenergywire.org/experts/association-german-chambers-commerce-and-industry)), said that PPAs could greatly reduce the energy bills of companies. “This makes them a valuable tool for the successful implementation of company climate targets”, especially for energy-intensive ones, Dercks said.
+Through an improved market design, greater transparency and new revenue models, the use of PPAs could be strengthened across the country, [dena](https://www.cleanenergywire.org/experts/dena-german-energy-agency) said. State guarantees could minimise investor risks, while a pooling of contracts would also open the format to smaller businesses. Moreover, companies using a high share of renewables should be rewarded for their “system-friendly integration” of new energy sources, an approach that should be considered in the debate about a special industry power price.
+16 Apr 2024, 13:06
+11 Nov 2024, 10:30
+17 Apr 2025, 13:46

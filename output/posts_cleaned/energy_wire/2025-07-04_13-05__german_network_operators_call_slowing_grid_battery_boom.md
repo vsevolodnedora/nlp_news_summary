@@ -1,0 +1,13 @@
+04 Jul 2025, 13:05
+| 
+Germany
+# Network operators call for slowing Germany's grid battery boom
+## 
+Handelsblatt
+A boom in large-scale battery [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) systems is pushing Germany's power grid operators to their limits, with some calling on lawmakers to intervene to "stem the flood" of grid connection applications, [reports](http://handelsblatt.com/politik/deutschland/energie-zahl-der-batteriespeicher-waechst-rasant-gesetzgeber-soll-eingreifen/100138423.html) newspaperHandelsblatt. The "number of connection requests for large-scale battery [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) far exceeds realistic demand and available grid capacity," Tim Meyerjürgens, head of transmission system operator [TenneT Germany,](https://www.cleanenergywire.org/experts/tennet) told the business daily. 
+Battery [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) systems are a [key technology](https://www.cleanenergywire.org/dossiers/energy-storage-and-energiewende) in a renewable energy system, providing flexibility, grid stability, and the ability to bridge periods of low power generation. But battery [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) systems are taking up connection capacity, and other grid users waiting to link to the grid – such as industrial companies or data centres – may have to be put on hold.
+Grid operators received some 530 applications with a capacity of 204 gigawatts (GW) in the first four months of 2025. That far exceeds Germany's assumed battery [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) capacity of 50 GW in 2045, wrote Handelsblatt. One of the main problems is the "first come, first served" principle, which means grid operators have to process applications for connections in the order they were received and without assessing whether the location of a [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) facility is appropriate or whether it is likely to be realised.
+At the same time, some [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) projects are considered to be "zombie projects", with developers only interested in submitting an application as quickly as possible, without having finalised issues such as financing. Grid operators told Handelsblatt that projects should be prioritised according to their contribution to grid security, how far their planning has progressed, and whether they are in the right location in the grid, for instance. 
+25 Jun 2025, 13:30
+15 Jan 2025, 13:06
+26 Feb 2025, 13:18

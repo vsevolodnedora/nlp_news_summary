@@ -1,0 +1,14 @@
+30 Jan 2025, 13:32
+| 
+Germany
+# Germany expects economic stagnation in 2025 as coalition collapse stalls reforms 
+## 
+Clean Energy Wire
+Germany's economy ministry expects the country's GDP to rise 0.3 percent in 2025, according to its [annual report](https://www.bmwk.de/Redaktion/DE/Pressemitteilungen/2025/20250129-jahreswirtschaftsbericht-2025.html). A report from autumn put growth at 1.1 percent, however, the [break-up of the coalition government](https://www.cleanenergywire.org/factsheets/qa-what-does-german-coalition-government-breakup-mean-climate-and-energy) meant that measures in the ['growth initiative'](https://www.cleanenergywire.org/news/govt-adopts-germanys-2025-budget-uncertainties-about-climate-funding-remain) meant to stimulate the economy could not be implemented to a large extent, economy minister Robert Habeck said.
+The dispute over how to revive Germany's stagnating economy contributed to the collapse of the coalition government in November. "The German economy is in a difficult starting position at the beginning of 2025," he said. "The global crises of recent years have hit our industry- and export-oriented economy particularly hard." In particular a shortage of skilled workers, excessive bureaucracy and low private and public investment were indicators of Germany's fundamental structural problems, Habeck added.
+The expansion of power grids and renewables, which had [reached record levels in 2024](https://www.cleanenergywire.org/news/germany-course-54-percent-renewable-power-production-share-2024-uba), as well as the build-up of [Germany's liquefied natural gas (LNG) terminals](https://www.cleanenergywire.org/factsheets/liquefied-gas-does-lng-have-place-germanys-energy-future) should serve as examples of reduced bureaucracy and accelerated planning procedures for other sectors, the ministry wrote.
+Energy industry association [BDEW](https://www.cleanenergywire.org/experts/bdew-german-association-energy-and-water-industries) said the crises in the past years had particularly affected the [competitiveness of German industry](https://www.cleanenergywire.org/news/vote25-next-german-government-must-reconcile-industrial-decarbonisation-and-competitiveness). "The measures mentioned in the report to reduce bureaucracy are not nearly sufficient," said [BDEW](https://www.cleanenergywire.org/experts/bdew-german-association-energy-and-water-industries) head Kerstin Andreae. She added that steps to reduce energy costs were also dearly needed.
+In contrast to many other major economies, Germany's economic performance slightly shrank for the second year in a row in 2024. The country will head to the polls on 23 February, with economic recovery being a top priority for voters following the topic of migration, according to [polls](https://www.infratest-dimap.de/umfragen-analysen/bundesweit/ard-deutschlandtrend/2025/januar/).
+29 Jan 2025, 11:18
+26 Sep 2024, 13:03
+11 Sep 2024, 13:00

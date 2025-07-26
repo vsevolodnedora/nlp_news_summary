@@ -1,0 +1,13 @@
+04 Jul 2025, 12:48
+| 
+Germany
+# German ports and shipping get €400 mio for climate-friendly modernisation
+## 
+Clean Energy Wire
+Germany plans to invest 400 million euros in climate-friendly shipping and ports over the next four years as part of its Climate and Transformation Fund (CTF). “The requirements for the shipping industry have massively changed in the past years,” the transport ministry [said](https://www.bmv.de/SharedDocs/DE/Pressemitteilungen/2025/033-schnieder-modernisierungsmillionen-fuer-schifffahrt.html?nn=76092), arguing that the effects of the energy transition force the country’s shipping sector to adapt to remain competitive internationally.
+“A modern shipping industry with corresponding infrastructure is the backbone of the German economy,” said transport minister Patrick Schnieder from the conservative Christian Democratic Union ([CDU](https://www.cleanenergywire.org/experts/cdu-christian-democratic-union)). Financial support from the federal government and the states is needed to assist the industry in withstanding the pressure caused by transitioning away from fossil fuels. “The millions spent on modernisation are an important step in this regard,” the minister added.
+According to the ministry, the money earmarked under the CTF will help with the implementation of Germany’s National Ports Strategy as well as the National Action Plan for Climate Friendly Shipping and fund land-based power supply for ships as well as [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) facilities for alternative fuels. Moreover, it aims to increase water-based public transport, freight transport options, and climate neutral shipping lanes.
+The additional funds will be primarily directed at Germany’s five coastal states – Hamburg, Lower Saxonny, Bremen, Schleswig-Holstein, and Mecklenburg-Western Pomerania, [said ](https://www.bundeswirtschaftsministerium.de/Redaktion/DE/Pressemitteilungen/2025/07/20250703-zitat-400-millionen-euro-fuer-klimafreundliche-schifffahrt-und-haefen.html)Christoph Ploß, the government’s coordinator for the maritime economy. “This shows that the ports and shipping play a significant role in the government’s plans for the supply, competitiveness, and resilience of the whole country,” Ploß argued, adding that the goal was to turn harbours into “energy hubs.” The funding will, in part, come from additional revenue the state is making since the shipping sector has been included in the EU’s [emissions trading](https://www.cleanenergywire.org/glossary/letter_e#emissions_trading) system [ETS](https://www.cleanenergywire.org/glossary/letter_e#ets), he added. 
+30 May 2025, 12:37
+15 Sep 2023, 11:55
+18 Nov 2022, 13:23

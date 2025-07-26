@@ -1,0 +1,14 @@
+27 Feb 2025, 13:15
+| 
+Germany
+# Germany forecast to continue to be net emitter past climate neutrality deadline – report
+## 
+Handelsblatt / Clean Energy Wire
+Germany could continue to emit [greenhouse gases](https://www.cleanenergywire.org/glossary/letter_g#greenhouse_gases) past its 2045 deadline to become climate neutral, with Norwegian certification company DNV forecasting emission reductions of 89 percent compared to 1990 by then. Germany would then reduce emissions by 95 percent by 2050, according to DNV's [Energy Transition Outlook](https://www.dnv.de/news/deutschland-auf-gutem-weg-zur-energie-unabhaengigkeit/). The [decarbonisation](https://www.cleanenergywire.org/glossary/letter_d#decarbonisation) of the country's buildings sector is set to remain a major hurdle as Germany moves toward climate neutrality, the report found. The progress in decarbonising the country's 20 million residential buildings by installing heat pumps, insulating, replacing windows and equipping roofs with solar panels is likely to remain too slow, the DNV said.
+"It is proving extremely difficult to intervene directly in the boiler room through policy. In addition, the capacity of tradespeople is limited," the report's lead author, Claas Hülsen, [told business daily Handelsblatt](https://www.handelsblatt.com/politik/deutschland/studie-keine-klimaneutralitaet-bis-2045-aber-deutliche-fortschritte/100109490.html). He expects that the renovation rate in Germany will not rise over one percent, even in the long run.
+Moreover, the DNV expects one fifth of all households to continue to be heated with fossil fuels beyond Germany's deadline to become climate neutral in 2045. "Natural gas will not completely disappear from the heating sector by 2050," said Hülsen. "In regions with high-density housing and existing heating networks, [decarbonisation](https://www.cleanenergywire.org/glossary/letter_d#decarbonisation) can be quickly advanced. Elsewhere, the situation looks considerably more difficult." Germany has missed its [emission reduction targets](https://www.cleanenergywire.org/factsheets/germanys-greenhouse-gas-emissions-and-climate-targets) in the building sector since they were introduced.
+All in all, the authors expect positive developments in the electric mobility sector, as well as for industrial energy prices compared to the European level. However, massive investments in the energy system to the tune of 3.3 trillion Euros in the next 25 years are needed for the success of the energy transition, the DNV added.
+Still, as debt reduction and rising defence spending take precedence, the gap to climate neutrality is unlikely to be closed by 2050 for cost reasons. "For the time being, we will have to accept a residual amount of CO2 emissions," Hülsen said.
+21 Feb 2025, 13:35
+05 Feb 2025, 13:30
+04 Jul 2025, 10:05

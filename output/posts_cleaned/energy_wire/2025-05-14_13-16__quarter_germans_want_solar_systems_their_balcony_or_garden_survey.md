@@ -1,0 +1,13 @@
+14 May 2025, 13:16
+| 
+Germany
+# A quarter of Germans want solar systems on their balcony or garden – survey
+## 
+Clean Energy Wire
+A quarter of people in Germany either already have or plan to install a mini solar module on their balcony or in their garden, found [a survey](https://www.verivox.de/presse/beliebte-balkonkraftwerke-ein-viertel-der-bundesbuerger-will-mini-solaranlage-1121152/) by comparison portal Verivox. Around nine percent of those surveyed already had a system installed, with a further 17 percent planning to buy one. Compared to [results from 2024](https://www.cleanenergywire.org/news/almost-third-german-residents-want-plug-solar-system-survey), interest dropped five percentage points from the 22 percent of people surveyed who said they had plans to acquire a plug-in solar unit. Actual ownership increased by one percentage point compared to the previous year.
+A balcony photovoltaic system, also known as a balcony power plant, with an output of 800 watts can supply around 760 kilowatt hours (kWh) of electricity per year. For a system of this size, a consumer would pay between 400 and 800 euros, depending on whether it is for a balcony or a garden. Verivox calculated that, based on an electricity price of 34.7 cents per kWh, it would take between 2.5 and five years for the photovoltaic system to pay for itself. Total savings could amount to 3,160 euros if the system ran for 20 years.
+“Balcony power plants are often worthwhile even if the ideal conditions are not achieved, for example because the orientation is not ideal or some of the electricity produced cannot be consumed,” said Thorsten Stock, energy expert at Verivox.
+In 2024, Germany simplified the registration of solar installations on balconies, which the industry [said is at least partially responsible](https://www.cleanenergywire.org/news/germany-doubles-number-solar-balcony-power-plants-start-2024-agency) for why the number of them almost doubled from the start to the end of 2024. Solar systems on balconies [make up just under one percent](https://www.cleanenergywire.org/news/number-pv-arrays-germany-passes-5-million-milestone) of total solar power capacity in Germany. The technology is a key technology in Germany's efforts to decarbonise its energy supply. The country aims to install 215 gigawatts (GW) of solar capacity by 2030.
+07 Apr 2025, 13:13
+21 Oct 2024, 14:18
+20 Nov 2024, 13:16

@@ -1,0 +1,15 @@
+03 Mar 2025, 13:43
+| 
+Germany
+# Military experts warn of security risks through planned Chinese wind turbines off German coast
+## 
+Handelsblatt 
+The planned installation of 16 Chinese wind turbines off the German coast should be prevented on the grounds of public safety, [business daily Handelsblatt reported](https://www.handelsblatt.com/unternehmen/energie/windraeder-aus-china-militaerexperten-warnen-vor-spionage/100109846.html) based on an advisory paper from the German Institute for Defence and Strategic Studies (GIDS).
+The analysis, commissioned by the defence ministry, warned of potential blackmail and said all legal options must be used to prevent plans to build the wind farm off the coast of Borkum in northwestern Germany. Hamburg-based asset manager Luxcara awarded the contract to a Chinese manufacturer.
+"Unlike millions of solar panels, which today come almost exclusively from China, a single [offshore wind](https://www.cleanenergywire.org/glossary/letter_o#offshore_wind) farm with the capacity of an entire power plant in a strategically significant location is a much greater target for manipulation of the energy supply – and also for espionage," the business daily reported. The warning comes as wind farm operators increasingly turn to Chinese manufacturers amid [tightening global supply chains](https://www.cleanenergywire.org/factsheets/german-onshore-wind-power-output-business-and-perspectives).
+Luxcara has pushed back against claims from military circles that the farm could pose a danger to national security. "We take the discussions about possible risks from non-European technologies very seriously and are aware of our responsibility," a spokeswoman told Handelsblatt. She added that very specific security precautions were being implemented for the installed information technology. In addition, the manufacturer, Ming Yang, will not have direct access to system controls during operation, the company said. Control, management, data connections and servicing will be carried out in Germany.
+All of the installation’s critical components will be supplied by European manufacturers, Luxcara stressed. Furthermore, the wind turbine would be continuously checked by independent experts in compliance with the "highest IT and data security requirements," and all critical components are subject to safety tests before commissioning.
+Nevertheless, GIDS warned of possible espionage through sensors, which could potentially track naval ships, submarines and aircraft. It also added that it could not be ruled out that the critical infrastructure would be unavailable in the event of a crisis or conflict. The European Commission has also expressed concerns over security and a growing dependence on China. However, due to limited production capacities in [offshore wind](https://www.cleanenergywire.org/glossary/letter_o#offshore_wind) supply chains worldwide, German wind farm operators are forced to turn to Chinese manufacturers.
+10 Sep 2024, 13:28
+07 Aug 2024, 13:37
+27 Jan 2023, 11:00

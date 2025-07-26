@@ -1,0 +1,13 @@
+18 Jun 2025, 13:57
+| 
+Germany
+# Lower energy cost main reason drivers switch to fully electric cars - survey
+## 
+Clean Energy Wire 
+More drivers have switched to fully electric cars because of lower energy costs than a desire to protect the climate, found a survey by energy company E.ON. Of the 1,000 drivers surveyed, 59 percent said lower costs motivated their switch to an electric vehicle, while 53 percent said they made the change on climate protection grounds. Lower costs of maintenance, taxes and parking have also played a role, with 43 percent of respondents citing these as reasons for going electric.
+Around half of the respondents feared that the range of an electric car would be too short before they bought one, though those concerns disappeared after the purchase. “Uncertainties and reservations about [electromobility](https://www.cleanenergywire.org/glossary/letter_e#electromobility) are often felt by those who have not yet had the opportunity to test an e-car for themselves,” said Jens Michael Peters, managing director for energy solutions and [e-mobility](https://www.cleanenergywire.org/glossary/letter_e#e-mobility) at E.ON Germany. “The high registration figures for e-cars in the first half of 2025, and our surveys, demonstrate [e-mobility](https://www.cleanenergywire.org/glossary/letter_e#e-mobility) in practice and show growing acceptance and trust.”
+The survey also found that families were at the forefront of combining electric vehicles with a home solar energy system. Around 82 percent of e-car drivers with children in their home already own a photovoltaic system, with a further nine percent planning to purchase one in the next three years. A higher proportion of families, 64 percent, switched to an electric vehicle for cost reasons than the average respondent.
+Following [a 27 percent reduction in sales of](https://www.cleanenergywire.org/news/manufacturers-struggle-continues-electric-car-sales-remain-weak-germany) new battery electric cars (BEV) in Germany in 2024, the country is far from meeting the previous government's target of having 15 million EVs on its roads by 2030. At the start of June, the [German car industry called for](https://www.cleanenergywire.org/news/german-car-industry-calls-reversal-eu-2035-combustion-engine-ban) the EU’s 2035 ban on the sale of new combustion engine vehicles to be reversed.
+03 Jun 2025, 12:36
+04 Mar 2025, 13:28
+14 Apr 2025, 13:01

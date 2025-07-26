@@ -1,0 +1,12 @@
+06 Mar 2025, 13:20
+| 
+Germany
+# Deep lithium deposits in Germany could cover country's demand for decades - report
+## 
+Clean Energy Wire
+Deep bodies of water in northern Germany have been found to contain large amounts of lithium that could be used to help produce batteries for the energy transition, according to [a report](https://nachrichten.idw-online.de/2025/03/06/ausreichend-lithium-in-deutschland-verfuegbar?groupcolor=4) by the Fraunhofer Research Institution for Energy Infrastructures and Geothermal Systems. The authors found that there is a possible range of deposits between 0.39 megatonnes (Mt) and as much as 26.51 Mt of lithium contained in these waters, with the most likely estimate gauging the available amount at 4.3 Mt. To add perspective: the German Mineral Resources Agency (DERA) predicted that the country will need up to 0.17 Mt of lithium in 2030.
+Researchers have previously detected lithium content of up to 600 milligrams per litre of water in hydrothermal fluids – hot groundwaters that circulate within the Earth’s crust. To extract the lithium, the researchers propose a system [that would also act as a heat pump](https://www.cleanenergywire.org/news/germany-could-use-geothermal-wells-cover-part-lithium-needs-researchers). After the lithium is retrieved, the hot water can be used to heat buildings, for production processes or to generate electricity, before being led back into deeper geological layers. However, a sufficiently high underground flow rate is needed for such an operation to be economical. Finding spots where the flow rate meets requirements needs more research, the institute said.
+In northern state Saxony-Anhalt, the government [began construction](https://www.cleanenergywire.org/news/eastern-german-saxony-anhalt-includes-lithium-extraction-state-development-plan) of a lithium extraction site in 2024 that would also double as a [geothermal energy](https://www.cleanenergywire.org/glossary/letter_g#geothermal_energy) plant. Critics of the mining plans have argued that lithium extraction could contaminate groundwater reserves with lead, quicksilver, arsenic or other poisonous substances. Sizeable lithium deposits [are also present](https://www.cleanenergywire.org/news/german-reserves-lithium-and-copper-could-partly-cover-future-domestic-demand-report) in the Ore Mountains in Saxony in eastern Germany [and in the Rhine Valley](https://www.cleanenergywire.org/news/local-utilities-explore-domestic-lithium-sourcing-germany) in the west.
+23 Aug 2024, 12:34
+11 Dec 2024, 12:46
+04 May 2021, 10:15

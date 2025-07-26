@@ -1,0 +1,12 @@
+07 Mar 2025, 13:21
+| 
+EU
+# EU to profit from German infrastructure spending plans – analysts
+## 
+Politico / Clean Energy Wire / Reuters
+The European Union as a business location is set to profit from additional infrastructure investments planned by the likely next German government, Philipp Jäger of the Jacques Delors Centre [told](https://www.politico.eu/newsletter/berlin-playbook/merz-hat-akute-lieferschwierigkeiten/) Politico. “Germany is currently slowing down its neighbours due to inadequate infrastructure, particularly in the transport of goods by road and rail and in the transport of electricity,” the researcher said.
+Varg Folkman, of the European Policy Centre, told the news outlet that German spending would lead to a spillover effect on its neighbours. “After all, a better infrastructure in one of Europe's heartlands also has a positive impact on the other member states,” he said.
+Swiss bank UBS said that the plans “raise hopes for an economic lift” in Germany and the region. “It could also help offset potential headwinds to the Eurozone economy in the event of higher tariffs from the US,” [wrote](https://www.ubs.com/global/en/wealthmanagement/insights/marketnews/article.1981336.html) UBS. Goldman Sachs senior European economist Filippo Taddei [told Reuters](https://www.reuters.com/world/europe/defence-surge-could-help-jumpstart-europes-flat-economy-2025-03-06/) that the plans “Will support growth and, in particular, will support European manufacturers at a time when they are particularly struggling.”
+Germany’s likely next government coalition parties [proposed an overhaul of state debt rules](https://www.cleanenergywire.org/news/likely-next-german-govt-parties-agree-debt-rules-bypass-defence-and-infrastructure-climate-focus-unclear) to make hundreds of billions of euros available for defence and infrastructure investments. The agreement marked the first major deal in the coalition talks between the conservative [CDU](https://www.cleanenergywire.org/experts/cdu-christian-democratic-union)/[CSU](https://www.cleanenergywire.org/experts/csu-christian-social-union) alliance of chancellor candidate Friedrich Merz and the [SPD](https://www.cleanenergywire.org/experts/spd-social-democratic-party), but requires further negotiations with the [Green Party](https://www.cleanenergywire.org/experts/green-party), whose lawmakers are needed to reach the two-thirds majority.
+05 Mar 2025, 17:07
+02 May 2025, 12:00

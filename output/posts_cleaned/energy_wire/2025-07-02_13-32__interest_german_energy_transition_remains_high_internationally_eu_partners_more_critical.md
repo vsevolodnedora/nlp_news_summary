@@ -1,0 +1,15 @@
+02 Jul 2025, 13:32
+| 
+Germany
+# Interest in German energy transition remains high internationally, but EU partners more critical
+[Government](https://www.cleanenergywire.org/topics/Government) [EU](https://www.cleanenergywire.org/topics/EU)
+## 
+Clean Energy Wire
+Scepticism is growing among Germany’s European neighbours regarding the country’s energy policy choices, found a [survey](https://www.weltenergierat.de/wp-content/uploads/2021/10/2021-Blueprint-Survey_highlights.pdf) among energy sector experts in dozens of countries by the World Energy Council ([WEC](https://www.cleanenergywire.org/experts/world-energy-council-germany)). While interest in Germany’s energy transition (Energiewende) remains high internationally, opinions of the path the country has taken to replace fossil and nuclear energy generation with renewable energy sources has dimmed markedly since 2021, the [WEC](https://www.cleanenergywire.org/experts/world-energy-council-germany) [said](https://www.weltenergierat.de/01-07-2025-deutsche-energiepolitik-skepsis-bei-europaeischen-nachbarn-waechst/).
+Three in four respondents said they are following developments in German energy policy closely, a slight increase since 2021. However, nearly half of all surveyed Europeans and 38 percent internationally said they are critical of the course the Energiewende has taken.
+Nonetheless, 80 percent of respondents from Europe said that German energy policy can at least partially be a guide for other countries – a perspective that 90 percent of respondents outside of Europe shared. The most important energy policy projects named by EU countries in this respect were the phase out of coal and the flexibilisation of industrial energy consumption. Outside of Europe, carbon pricing and flexible use concepts for renewable energy by households and industry were named as landmark projects.
+However, about two thirds said they doubt Germany will meet its climate targets for 2030 and 2045. Moreover, the impression that Germany struggles to balance economic growth with climate action is becoming more widespread, the [WEC](https://www.cleanenergywire.org/experts/world-energy-council-germany) warned. “The better we manage to bring the energy transition together with economic success, the more we will be seen as a role model abroad,” said [WEC](https://www.cleanenergywire.org/experts/world-energy-council-germany) Germany head Carsten Rolle.
+Supply security has become the main driver of the European energy transition, 43 percent of respondents said, thereby eclipsing climate action, which only 35 percent regarded as the main motivation. Outside of Europe, the balance between supply security, climate action, and economic growth was more evened out as a driver for transforming energy systems. Two in three respondents urged for closer cooperation within Europe.
+02 May 2025, 12:00
+18 Dec 2024, 13:00
+26 Feb 2025, 13:16

@@ -1,0 +1,12 @@
+20 Jan 2025, 13:31
+| 
+Germany
+# Urban and rural users pay same grid fees in Germany for the first time 
+## 
+Clean Energy Wire
+Grid fees for users in urban and in rural areas of Germany have, for the first time, been brought to similar levels, [according](https://www.verivox.de/presse/kluft-geschlossen-stromnetzgebuehren-zwischen-stadt-und-land-erstmals-ausgeglichen-1121039/) to price comparison website Verivox. After a nine percent drop in fees for electricity customers in rural areas at the turn of the year, the charges for grid operation have converged with those in more densely populated areas. In 2024, rural fees were still more than ten percent higher. The average three-person household in Germany thus paid about 420 euros in [grid fees](https://www.cleanenergywire.org/glossary/letter_g#grid_fees) in cities and 464 euros in the countryside.
+The expansion of Germany’s power grid, necessary for integrating thousands of new renewable power sources scattered across the country, is a costly undertaking. Until now, rural users have shouldered a relatively greater share of the burden. A [new balancing mechanism](https://www.cleanenergywire.org/news/germany-moves-make-renewable-energy-costs-fairer-new-grid-fees) introduced at the beginning of 2025 is reducing [grid fees](https://www.cleanenergywire.org/glossary/letter_g#grid_fees) there, while simultaneously causing a slight increase for city dwellers, Verivox found. “So far, households in more sparsely populated areas with a strong expansion of renewables had to pay higher [grid fees](https://www.cleanenergywire.org/glossary/letter_g#grid_fees). These energy transition costs are now being distributed more fairly,” said the company’s energy expert, Thorsten Storck.
+Consequently, the fee reduction was most significant in areas with a high share of renewable energy sources, including northern states Schleswig-Holstein (-28%) and Mecklenburg-Western Pomerania (-26%), as well as eastern Brandenburg (-19%). In contrast, the southern state of Baden-Württemberg saw an increase of three percent. According to Verivox, [grid fees](https://www.cleanenergywire.org/glossary/letter_g#grid_fees) on average now account for just under 30 percent of the power price paid by private households.
+21 Oct 2024, 13:37
+30 Aug 2024, 13:15
+10 Jun 2021, 10:00

@@ -1,0 +1,12 @@
+23 Jan 2025, 14:07
+| 
+Germany
+# Many people in Germany continue energy savings long after crisis, worry about costs – survey
+## 
+Clean Energy Wire
+Almost three years after the peak of Europe’s energy crisis in 2022, many people in Germany are still trying to save energy and say their energy consumption is still lower than before the crisis ushered in by supply shortages after the coronavirus pandemic and Russia’s war on Ukraine. In a [survey](https://group.vattenfall.com/de/newsroom/pressemitteilungen/2025/energiebarometer-von-vattenfall-menschen-lassen-beim-energiesparen-nicht-locker) commissioned by energy supplier Vattenfall, a majority of 57 percent said they uphold efforts to save energy since the energy crisis and pay greater attention to the share of fossil fuels used. Roughly one in five respondents said they had stopped doing so while another 22 percent said they never changed their behaviour in the first place.
+Especially people aged 65 or older said the crisis has had a lasting effect on their energy consumption. 73 percent of them said they consciously tried to consume less. For people aged 18 to 35 years, the share was only 47 percent. Steps taken to reduce consumption included using less heating energy and less lighting, while many also said they had made investments to reduce fossil fuel use and replace it with renewable sources such as solar [PV](https://www.cleanenergywire.org/glossary/letter_p#pv) panels or heat pumps. The primary motivation for more than one third (36%) of respondents was environmental protection and climate action, while about a quarter (26%) said they primarily wanted to save costs.
+Nearly 80 percent said that a climate friendly lifestyle is generally important to them. However, three quarters likewise said they were afraid that the transition towards a more climate-friendly energy system could become very costly. “Many people in the country realise that the energy transition is not free of charge,” said Vattenfall Germany CEO Robert Zurawski. However, more than half of respondents said they wanted more investments in new renewable power sources, hydrogen, [storage](https://www.cleanenergywire.org/glossary/letter_s#storage) and grid infrastructure.
+17 Jun 2024, 12:21
+14 Jan 2025, 13:04
+13 Jan 2025, 13:40

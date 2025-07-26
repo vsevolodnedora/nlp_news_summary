@@ -1,0 +1,17 @@
+24 Jul 2025, 14:08
+| 
+Germany
+# Germany must strengthen climate action following landmark ICJ opinion – legal experts 
+[Society](https://www.cleanenergywire.org/topics/Society) [International](https://www.cleanenergywire.org/topics/International)
+## 
+Clean Energy Wire
+Legal experts and climate advocates have called on the German government to strengthen its commitment to tackling climate change following an opinion from the International Court of Justice (ICJ), which found that all states are obliged to protect the Earth's atmosphere from [greenhouse gas](https://www.cleanenergywire.org/glossary/letter_g#greenhouse_gas) emissions and tackle climate change. Failure to meet these obligations, [the court warned](https://www.bloomberg.com/news/articles/2025-07-23/vanuatu-wins-landmark-legal-battle-over-climate-change-impact), may constitute a breach of international law, opening the door to state responsibility, compensation claims, and legal consequences.
+"Climate protection is a matter for every country, and every country must do what it can in view of the extremely threatening effects of climate change," Roda Verheyen, a lawyer specialising in climate litigation, told energy and climate newsletter Tagesspiegel Background. 
+Thomas Burri, expert for international law at St. Gallen University, called the report "a milestone in international law and climate protection law, which emerges immensely strengthened from the report."
+The judges' unanimous advisory opinion “emphasizes the importance of climate justice and the special responsibility of countries with particularly high historical emissions—such as Germany—which entails a number of obligations,” Carl-Friedrich Schleussner, a climate expert at Humboldt University Berlin, told the Science Media Center. “This is also a clear message to the German federal government. Watering down climate targets is not permissible. More, not less, climate protection is needed in Germany and Europe.”
+Climate advocacy groups arrived at a similar conclusion. “The German government must respect international law as well as the constitutional climate resolution of 2021 and now make the ICJ opinion the benchmark for its climate policy,” said Christoph Bals, policy director at NGO [Germanwatch](https://www.cleanenergywire.org/experts/germanwatch). “This means serious and rapid emissions reductions at home, regular increases in funding for climate protection and adaptation, and for losses and damage in the particularly affected regions of the Global South.”
+“There can be no more excuses. This groundbreaking ICJ opinion shows that the German government is obliged to take appropriate climate protection measures,” said Yasin Hinz from climate campaign youth group Fridays for Future. She accused chancellor Friedrich Merz’ Christian Democrats ([CDU](https://www.cleanenergywire.org/experts/cdu-christian-democratic-union)), the largest member of the coalition government, of constantly delaying action.
+Germany has set a target to reach net zero emissions by 2045, five years earlier than the target for the European Union. The decision to pull the target forward followed a [landmark ruling by Germany's highest court](https://www.cleanenergywire.org/factsheets/german-top-court-finds-key-climate-legislation-insufficient-landmark-ruling) that obliged the government to sketch a clear path towards climate neutrality. 
+10 Nov 2021, 13:00
+[Isabel Sutton](https://www.cleanenergywire.org/about-us-clew-team)
+29 Apr 2021, 14:43
