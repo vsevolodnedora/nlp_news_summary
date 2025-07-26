@@ -1,0 +1,9 @@
+**What this event is about**
+As global geopolitical developments continue to shape the international climate and trade landscape, collaboration on sustainable energy and climate solutions has become more essential than ever. This year’s Shanghai dialogue on pressing energy and climate issues brought together key experts and stakeholders from across Europe, North America, Latin America and China to envision a resilient and collaborative global clean energy supply chain. The dialogue provided timely insights into the future of the international climate agenda and opportunities for cross-border cooperation.  
+  
+The annual dialogue is a key side event of the International Carbon Neutrality and Green Investment Conference, part of the China International Import Expo. Co-hosted by Agora Energiewende, Agora Energy Transition China, the Shanghai Institutes for International Studies (SIIS) and the Energy Investment Committee of the Investment Association of China (IAC), the event serves as a crucial platform for fostering dialogue and driving global solutions in energy and climate. 
+The high level of interest in last year's event has already highlighted the need for inclusive discussions that bridge perspectives from China, Europe and beyond. This year's dialogue built on this momentum featuring two focused sessions: In the morning, experts discussed emerging opportunities for international cooperation on energy and climate goals. The afternoon featured a global dialogue on carbon border adjustment mechanisms, an essential topic for aligning climate and trade policies worldwide.
+**Programme**  
+The detailed agenda can be found in the download area below.
+**Livestream**  
+The livestream by Xinhua Agency (in Chinese) can be reviewed [**here**](https://my-h5news.app.xinhuanet.com/h5activity/yunzhibo/#/?roomId=672894e4e4b00bb217085c5c&isFull=0&isTest=no&isXR=0).
