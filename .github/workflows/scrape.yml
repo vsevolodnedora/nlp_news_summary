@@ -33,14 +33,14 @@ jobs:
       - name: Install Playwright Browsers
         run: pipenv run playwright install
 
-      - name: Scrape ENTSOE Data
+      - name: Scrape Data
         run: pipenv run python run_scrape.py all
 
       - name: Commit Updated Data
         run: |
           git config --global user.name 'Collector'
           git config --global user.email 'noreply@nedora.digital'
-          git add output/posts_cleaned/
-          git commit -m "Add latest news"
+          git add database/scraped_posts.db
+          git commit -m "Added latest posts to the database"
           git pull -r
           git push
