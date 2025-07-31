@@ -18,7 +18,6 @@ from crawl4ai.deep_crawling.filters import (
 from crawl4ai.deep_crawling.scorers import (
     KeywordRelevanceScorer,
 )
-from utils_scrape import cut_article_text_from_raw_pages, cut_article_text_in_db
 
 from database import PostsDatabase
 from logger import get_logger
@@ -27,7 +26,6 @@ logger = get_logger(__name__)
 
 async def scrape_ec_news(root_url:str, table_name:str, database: PostsDatabase) -> None:
     """Scrape posts from ec news page."""
-
     async with AsyncWebCrawler() as crawler:
 
         # Create a filter that only allows URLs with 'guide' in them

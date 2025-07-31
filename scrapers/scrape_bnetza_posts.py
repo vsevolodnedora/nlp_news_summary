@@ -12,8 +12,8 @@ from crawl4ai.deep_crawling.filters import (
 )
 
 from database import PostsDatabase
-from logger import get_logger
 
+from logger import get_logger
 logger = get_logger(__name__)
 
 async def scrape_bnetza_news(

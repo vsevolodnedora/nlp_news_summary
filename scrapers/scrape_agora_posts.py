@@ -20,7 +20,6 @@ from crawl4ai.deep_crawling.scorers import (
     KeywordRelevanceScorer,
 )
 
-from utils_scrape import cut_article_text_from_raw_pages, cut_article_text_in_db
 from database import PostsDatabase
 
 from logger import get_logger
