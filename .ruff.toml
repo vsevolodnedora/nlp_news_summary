@@ -1,0 +1,26 @@
+line-length = 200
+# lint.select = ["ALL"]
+lint.select = ["A", "B", "C", "D", "E", "F", "I", "N", "Q", "S", "T", "W"]
+lint.ignore = [
+    "A002",
+    "D100",
+    "D104",
+    "D203",
+    "D212",
+    "EM101",
+    "EM102",
+    "F841",
+    "FBT001",
+    "FBT002",
+    "G004",
+    "N999",
+    "PLR0913",
+    "PLR2004",
+    "PLW0133",
+    "RET504",
+    "S101",
+    "TRY003",
+]
+
+[lint.per-file-ignores]
+"tests/**/*.py" = ["D103"]

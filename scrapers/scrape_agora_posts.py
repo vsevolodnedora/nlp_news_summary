@@ -3,6 +3,7 @@ import time
 import fnmatch
 import re, os
 from datetime import datetime
+from typing import Optional, List, Dict
 
 from crawl4ai import CrawlerRunConfig, AsyncWebCrawler, CacheMode
 from crawl4ai.content_scraping_strategy import LXMLWebScrapingStrategy
@@ -19,14 +20,17 @@ from crawl4ai.deep_crawling.scorers import (
     KeywordRelevanceScorer,
 )
 
-from .utils_scrape import cut_article_text_from_raw_pages
+from utils_scrape import cut_article_text_from_raw_pages, cut_article_text_in_db
+from database import PostsDatabase
 
 from logger import get_logger
 logger = get_logger(__name__)
 
 def extract_and_format_date(markdown: str) -> str | None:
+    """Extract date from markdown"""
+
     # Define regex pattern to match dates like "11 June 2024"
-    date_pattern = r'\b(\d{1,2}) (January|February|March|April|May|June|July|August|September|October|November|December) (\d{4})\b'
+    date_pattern = r"\b(\d{1,2}) (January|February|March|April|May|June|July|August|September|October|November|December) (\d{4})\b"
 
     # Find all matching dates
     matches = re.findall(date_pattern, markdown)
@@ -40,24 +44,16 @@ def extract_and_format_date(markdown: str) -> str | None:
     else:
         return None
 
-async def scrape_agora_news(root_url:str, output_dir:str, clean_output_dir:str) -> None:
-
-    os.makedirs(output_dir, exist_ok=True)
-    os.makedirs(clean_output_dir, exist_ok=True)
+async def scrape_agora_news(root_url:str, database: PostsDatabase, table_name:str) -> None:
+    """Scrape agora news articles from agora webpage"""
 
     async with AsyncWebCrawler() as crawler:
 
-        # Create a filter that only allows URLs with 'guide' in them
-        # Create one filter for each required pattern
         url_filter_news = URLPatternFilter(patterns=["*/news-events/*"])
-        # url_filter_2025 = URLPatternFilter(patterns=["*2025*"])
-        # url_filter_en = URLPatternFilter(patterns=["*_en"])
 
         # Chain them so all must pass (AND logic)
         filter_chain = FilterChain([
             url_filter_news,
-            # url_filter_2025,
-            # url_filter_en,
         ])
 
         config = CrawlerRunConfig(
@@ -75,66 +71,77 @@ async def scrape_agora_news(root_url:str, output_dir:str, clean_output_dir:str) 
         results = await crawler.arun(url=root_url, config=config)
         if len(results) == 1:
             logger.warning(f"Only one result found for {root_url}. Suspected limit.")
-        # date_pattern = re.compile(r"https?://[^ ]*/\d{4}-\d{2}-\d{2}[^ ]*") # to remove non-articles entries
 
         logger.info(f"Crawled {len(results)} pages matching '*news-events*'")
         new_articles = []
         for result in results:  # Show first 3 results
-            if fnmatch.fnmatch(result.url, '*news-events*') \
-                    and result.url.replace(root_url, "") != "" \
-                    and "/filter/" not in result.url \
-                    and "/page/" not in result.url \
-                    and "pdf" not in result.url:
+            url = result.url
+            if fnmatch.fnmatch(url, "*news-events*") \
+                    and url.replace(root_url, "") != "" \
+                    and "/filter/" not in url \
+                    and "/page/" not in url \
+                    and "pdf" not in url:
 
-                logger.info(f"Processing {result.url}")
-                date_match = extract_and_format_date(result.markdown.raw_markdown)
-                if date_match is None:
-                    logger.warning(f"Could not extract date for {result.url}")
+                if database.is_table(table_name=table_name) and database.is_post(table_name=table_name, post_id=database.create_post_id(post_url=url)):
+                    logger.info(f"Post already exists in the database. Skipping: {url}")
                     continue
 
-                title_part = result.url.split('/')[-1].replace("-", "_")
-                # Combine date and title for the filename
-                filename = f"{date_match}__{title_part}.md"
+                logger.info(f"Processing {url}")
+                date_iso = extract_and_format_date(result.markdown.raw_markdown) # Date in YYYY-MM-DD
+                if date_iso is None:
+                    logger.warning(f"Could not extract date for {url}")
+                    continue
+                url = url.split("?")[0]
+                title_part = url.split("/")[-1].replace("-", "_")
 
-                fpath = f"{output_dir}{filename}"
-                fpath_exiected = f"{clean_output_dir}{filename}"
-                if not os.path.exists(fpath_exiected):
-                    res = result.markdown.raw_markdown
-                    new_articles.append(result.url)
-                    logger.debug(f"Saving article {result.url} | Length: {len(result.markdown.raw_markdown)} chars ")
-                    os.makedirs(os.path.dirname(fpath), exist_ok=True)
-                    with open(fpath, "w", encoding="utf-8") as f:
-                        f.write(res)
-                else:
-                    logger.debug(f"Article already processed: {fpath}")
+                # store full article in the database
+                database.add_post(
+                    table_name="agora",
+                    published_on=date_iso,
+                    title=title_part,
+                    post_url=url,
+                    post=result.markdown.raw_markdown,
+                )
+
         logger.info(f"Finished saving {len(new_articles)} new articles out of {len(results)} articles")
 
-def main_scrape_agora_posts(output_dir_raw:str, output_dir_cleaned:str,root_url:str|None=None):
+def main_scrape_agora_posts(db_path:str, table_name:str, out_dir:str, root_url:str|None=None):
+    """Scrape agora news articles from agora webpage"""
+
     if root_url is None:
         root_url = "https://www.agora-energiewende.org/news-events" # default path to latest news
-    # scrape news posts from ENTSO-E into a folder with raw posts
-    asyncio.run(scrape_agora_news(root_url=root_url, output_dir=output_dir_raw, clean_output_dir=output_dir_cleaned))
-    # Clean posts raw posts and save clean versions into new foler
-    cut_article_text_from_raw_pages(
-        RAW_DIR=output_dir_raw,
-        CLEANED_DIR=output_dir_cleaned,
-        start_markers = [
-            "  * Print"
-        ],
-        end_markers = [
-            "##  Stay informed",
-            "## Impressions",
-            "##  Event details",
-            "##  Further reading"
-        ],
-        max_lines = 30
-    )
+
+    # --- initialize / connect to DB ---
+    news_db = PostsDatabase(db_path=db_path)
+
+    # create acer table if it does not exist
+    news_db.check_create_table(table_name=table_name)
+
+    # try to scrape articles and add them to the database
+    try:
+        # --- scrape & store ---
+        asyncio.run(
+            scrape_agora_news(
+                root_url=root_url,
+                database=news_db,
+                table_name=table_name,
+            )
+        )
+    except Exception as e:
+        logger.error(f"Failed to '{table_name}' run scraper. Aborting... Error raised: {e}")
+        news_db.close()
+        return
+
+    # save scraped posts as raw .md files for analysis
+    news_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
+
+    news_db.close()
 
 # Execute the tutorial when run directly
 if __name__ == "__main__":
     main_scrape_agora_posts(
-        output_dir_raw="../output/posts_raw/agora/",
-        output_dir_cleaned="../output/posts_cleaned/agora/",
         root_url="https://www.agora-energiewende.org/news-events",
-        # root_url="https://energy.ec.europa.eu/news_en?page=10",
+        table_name="agora",
+        db_path="../database/scraped_posts.db",
+        out_dir="../output/posts_raw/agora/",
     )

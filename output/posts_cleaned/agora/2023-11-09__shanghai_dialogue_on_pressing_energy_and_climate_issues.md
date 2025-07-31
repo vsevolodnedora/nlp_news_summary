@@ -1,8 +1,0 @@
-**What this event is about**
-China, Europe, and many other world economies have pledged to reach carbon neutrality around the middle of this century. To achieve these goals, we need to decarbonise our economies and implement a clean energy transition.
-For many years, decarbonisation stands as a testament to the transformative power of innovation and resilience. However, there is not only the necessity but there are also remarkable opportunities that lie within this transition. For enterprises, large and small, the net-zero transition is not only an ecological but also a strategic imperative, ensuring the long-term viability and resilience of companies in an ever-evolving global landscape.
-Energy transition and fossil fuels phase down, industry decarbonisation, corporate net-zero transitions, and sustainable trade are integral components of our energy transition journey. This conference, the “Shanghai dialogue on pressing energy and climate issues”, aimed to advance the international collaboration in fighting climate change and to showcase China’s energy transition path and way forward.
-Agora Energiewende and Energy Transition China hosted this official side event of the "6th CIIE 2023 International Carbon Neutrality and Green Investment Conference", a high-level annual event held during Shanghai Expo, together with the Shanghai Institutes for International Studies (SIIS) and the Energy Investment Professional Committee of the Investment Association of China (IAC).
-**Programme**  
-You can find the agenda for the event in the download section below.
-**Interpretation** The event took place in English and Chinese. Interpretation was offered.

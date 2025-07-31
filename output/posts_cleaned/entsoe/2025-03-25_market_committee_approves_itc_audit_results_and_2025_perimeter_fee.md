@@ -1,5 +1,0 @@
-#  news Market Committee - Approves ITC Audit Results and 2025 Perimeter Fee
-25 March 2025
-The ITC mechanism functions according to the terms defined in the ITC Agreement, compensating transmission system operators for costs associated with hosting transit flows (i.e. facilitating the transfer of power between two countries). This mechanism aims to incentivise the hosting of cross border flows and to facilitate the creation of an effectively competitive pan-European electricity market.
-The ITC Agreement foresees an annual process in which the parties are required to provide and check the values for the calculation of the annual perimeter fee. Based on this audited data, the transit flows, including also the perimeter flows, are calculated (i.e. imports and exports of electricity to and from third countries), contributing to the framework fund and WWT calculations.
-The 2025 perimeter fee has been established at € 1,50/MWh.

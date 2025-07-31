@@ -1,8 +1,0 @@
-# EEX Press Release - EEX and ECC illuminate our floors in the City Tower for Leipzig's Pride Week (Only in German)
-###  06/25/2025  EEX Press Release 
-**EEX und ECC erleuchten ihre Etagen im City-Hochhaus zur Leipziger Pride-Woche**
-**Leipzig, 25. Juni 2025** – Die European Energy Exchange (EEX) und die European Commodity Clearing (ECC) setzen ein Zeichen zur Leipziger Pride-Woche.
-Im Rahmen der Leipziger Pride-Woche lassen die Unternehmen ihre angemieteten Etagen im Leipziger City-Hochhaus in den Farben der Pride-Flagge erstrahlen. Die Lichtinstallation ist bis Sonntag, den 29. Juni, täglich von 21:00 bis 2:00 Uhr weithin sichtbar und soll das Engagement der Unternehmen für Diversität intern wie extern unterstreichen. Respekt ist einer der Grundwerte der EEX Group, zu denen EEX und ECC gehören, und das bedeutet für die Unternehmen, Vielfalt zu fördern und sichtbar zu machen.
-Als international tätige Akteure auf den Energie- und Rohstoffmärkten sind EEX und ECC überzeugt davon, dass Diversität und vielfältige Perspektiven die (Arbeits-)Kultur bereichern.
-Peter Reitz, Vorstandsvorsitzender der EEX, kommentiert: „Gerade in Zeiten, in denen gesellschaftliche Vielfalt zunehmend unter Druck gerät, ist es wichtiger denn je, Haltung zu zeigen. Mit unserer Lichtinstallation setzen wir in dieser Woche ein sichtbares Zeichen für Respekt, Offenheit und Zusammenhalt. Wir stehen als Unternehmen für ein Arbeitsumfeld, in dem jede*r willkommen ist – unabhängig von Identität oder Orientierung. Vielfalt ist kein Trend, sondern ein Wert, den wir leben, und zwar das ganze Jahr über.“
-Ein Foto der Installation finden Sie im Anhang.
