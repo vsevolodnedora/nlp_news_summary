@@ -7,3 +7,5 @@ from .scrape_bnetza_posts import main_scrape_bnetza_posts
 from .scrape_smard_posts import main_scrape_smard_posts
 from .scrape_agora_posts import main_scrape_agora_posts
 from .scrape_energy_wire_posts import main_scrape_energy_wire_posts
+from .scrape_transnetbw_posts import main_scrape_transnetbw_posts
+from .scrape_tennet_posts import main_scrape_tennet_posts

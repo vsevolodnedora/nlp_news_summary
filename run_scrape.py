@@ -9,7 +9,8 @@ from scrapers.scrape_energy_wire_posts import main_scrape_energy_wire_posts
 from scrapers.scrape_entsoe_posts import main_scrape_entsoe_posts
 from scrapers.scrape_icis_posts import main_scrape_icis_posts
 from scrapers.scrape_smard_posts import main_scrape_smard_posts
-
+from scrapers.scrape_transnetbw_posts import main_scrape_transnetbw_posts
+from scrapers.scrape_tennet_posts import main_scrape_tennet_posts
 
 def main_scrape(source:str):  # noqa: C901
     """Scrape posts from various sources."""
@@ -85,7 +86,25 @@ def main_scrape(source:str):  # noqa: C901
             out_dir="./output/posts_raw/energy_wire/",
         )
 
-    if source not in ["entsoe", "eex", "acer", "ec", "icis", "bnetza", "smard", "agora", "energy_wire", "all"]:
+    if source == "transnetbw" or source == "all":
+        main_scrape_transnetbw_posts(
+            root_url="https://www.transnetbw.de/de/newsroom/",
+            table_name="transnetbw",
+            db_path="./database/scraped_posts.db",
+            out_dir="./output/posts_raw/transnetbw/",
+        )
+
+    if source == "tennet" or source == "all":
+        main_scrape_tennet_posts(
+            root_url="https://www.tennet.eu/de/news-de",
+            table_name="tennet",
+            db_path="./database/scraped_posts.db",
+            out_dir="./output/posts_raw/tennet/",
+        )
+
+    if source not in [
+        "entsoe", "eex", "acer", "ec", "icis", "bnetza", "smard", "agora", "energy_wire", "transnetbw", "tennet", "all"
+    ]:
         raise ValueError(f"invalid source={source}")
 
 if __name__ == "__main__":
