@@ -6,6 +6,8 @@ from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 from crawl4ai import AsyncWebCrawler, CacheMode, CrawlerRunConfig, MemoryAdaptiveDispatcher, RateLimiter
 from crawl4ai import BrowserConfig
@@ -22,19 +24,77 @@ from logger import get_logger
 logger = get_logger(__name__)
 
 
-def fetch_html(url, timeout=10, headers=None):
-    """Fetch HTML of a page with basic headers and error handling."""
-    headers = headers or {
-        "User-Agent": "Mozilla/5.0 (compatible; news-link-extractor/1.0; +https://example.com)"
+def _build_retry_session() -> requests.Session:
+    """Create a requests Session with retry/backoff logic for transient errors."""
+    session = requests.Session()
+    retry = Retry(
+        total=5,
+        connect=3,
+        read=3,
+        status=3,
+        backoff_factor=1,  # exponential backoff: 1s, 2s, 4s...
+        status_forcelist=[429, 500, 502, 503, 504],
+        allowed_methods=["GET", "HEAD", "OPTIONS"],
+        raise_on_status=False,  # we will handle raise_for_status manually
+        respect_retry_after_header=True,
+    )
+    adapter = HTTPAdapter(max_retries=retry)
+    session.mount("https://", adapter)
+    session.mount("http://", adapter)
+    return session
+
+
+def fetch_html(url: str, timeout: int = 10, headers: dict | None = None, session: requests.Session | None = None) -> str:
+    """
+    Fetch HTML of a page with robust headers, retries, and a fallback to cloudscraper on 403.
+    """
+    if session is None:
+        session = _build_retry_session()
+
+    default_headers = {
+        "User-Agent": (
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/120.0.0.0 Safari/537.36"
+        ),
+        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+        "Accept-Language": "en-US,en;q=0.9",
+        "Connection": "keep-alive",
+        "Upgrade-Insecure-Requests": "1",
+        # The Sec-Fetch headers are optional, but can help mimic real browser navigation
+        "Sec-Fetch-Site": "none",
+        "Sec-Fetch-Mode": "navigate",
+        "Sec-Fetch-Dest": "document",
     }
-    resp = requests.get(url, timeout=timeout, headers=headers)
-    resp.raise_for_status()
+
+    merged_headers = {**default_headers, **(headers or {})}
+
+    try:
+        resp = session.get(url, timeout=timeout, headers=merged_headers)
+        if resp.status_code == 403:
+            logger.warning("Received 403 for %s; attempting cloudscraper fallback.", url)
+            try:
+                import cloudscraper
+            except ImportError:
+                raise requests.exceptions.HTTPError(
+                    f"403 Forbidden for url: {url}. Install 'cloudscraper' to bypass anti-bot protections."
+                )
+            # cloudscraper tries to emulate browser; pass headers if needed
+            scraper = cloudscraper.create_scraper(
+                browser={"custom": merged_headers["User-Agent"]}
+            )
+            resp = scraper.get(url, timeout=timeout)
+        resp.raise_for_status()
+    except requests.exceptions.RequestException as e:
+        logger.error("Error fetching URL %s: %s", url, e)
+        raise
     return resp.text
 
-def extract_news_links_from_html(html:str, base_url:str)->list:
+
+def extract_news_links_from_html(html: str, base_url: str) -> list[str]:
     """Parse HTML and return a sorted list of absolute links whose href contains '/de/news/'."""
     soup = BeautifulSoup(html, "html.parser")
-    found = set()
+    found: set[str] = set()
     for a in soup.find_all("a", href=True):
         href = a["href"].strip()
         # skip non-navigational hrefs
@@ -45,9 +105,10 @@ def extract_news_links_from_html(html:str, base_url:str)->list:
             found.add(full)
     return sorted(found)
 
-def get_tennet_news_links(url:str="https://www.tennet.eu/de/news-de")->list:
-    """Extract tennet news links from a tennet news page."""
-    html = fetch_html(url)
+
+def get_tennet_news_links(url: str = "https://www.tennet.eu/de/news-de", session: requests.Session | None = None) -> list[str]:
+    """Extract TenneT news links from the TenneT news page."""
+    html = fetch_html(url, session=session)
     return extract_news_links_from_html(html, url)
 
 def find_and_format_numeric_date(text:str)->str|None:
