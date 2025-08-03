@@ -126,6 +126,8 @@ async def scrape_eex_news(root_url:str, table_name:str, database: PostsDatabase)
                 )
                 new_articles.append(url)
 
+        await asyncio.sleep(5) # to avoid IP blocking
+
         logger.info(f"Finished saving {len(new_articles)} new articles out of {len(results)} articles")
 
 def main_scrape_eex_posts(db_path:str, table_name:str, out_dir:str, root_url:str|None=None) -> None:

@@ -87,6 +87,8 @@ async def scrape_icis_news(root_url:str, database: PostsDatabase, table_name:str
                 )
                 new_articles.append(url)
 
+        await asyncio.sleep(5) # to avoid IP blocking
+
         logger.info(f"Finished saving {len(new_articles)} new articles out of {len(results)} articles")
 
 def main_scrape_icis_posts(db_path:str, table_name:str, out_dir:str, root_url:str|None=None):

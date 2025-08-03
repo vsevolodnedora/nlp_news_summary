@@ -96,6 +96,8 @@ async def scrape_transnetbw_news(root_url:str, table_name:str, database: PostsDa
                     post=result.markdown.raw_markdown,
                 )
 
+        await asyncio.sleep(5) # to avoid hitting IP limits
+
         logger.info(f"Finished saving {len(new_articles)} new articles out of {len(results)} articles")
 
 def main_scrape_transnetbw_posts(db_path:str, table_name:str, out_dir:str, root_url:str|None=None):

@@ -113,6 +113,8 @@ async def scrape_bnetza_news(
                 post=result.markdown.raw_markdown,
             )
 
+            await asyncio.sleep(5) # to avoid IP blocking
+
     logger.info(f"Finished saving {len(new_articles)} new articles out of {len(links)} links")
 
 def main_scrape_bnetza_posts(db_path:str, table_name:str, out_dir:str, root_url:str|None=None):

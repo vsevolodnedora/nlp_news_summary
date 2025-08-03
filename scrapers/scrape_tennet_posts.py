@@ -340,13 +340,13 @@ def main_scrape_tennet_posts(db_path:str, table_name:str, out_dir:str, root_url:
         root_url = "https://www.tennet.eu/de/news-de" # default path to latest news
 
     # --- initialize / connect to DB ---
-    # news_db = PostsDatabase(db_path=db_path)
+    news_db = PostsDatabase(db_path=db_path)
 
     # create acer table if it does not exists
-    # news_db.check_create_table(table_name)
+    news_db.check_create_table(table_name)
 
     # try to scrape articles and add them to the database
-    if True:
+    try:
         # --- scrape & store ---
         asyncio.run(
             scrape_tennet_news(
@@ -355,15 +355,15 @@ def main_scrape_tennet_posts(db_path:str, table_name:str, out_dir:str, root_url:
                 database=None
             )
         )
-    # except Exception as e:
-    #     logger.error(f"Failed to '{table_name}' run scraper. Aborting... Error raised: {e}")
-    #     news_db.close()
-    #     return
+    except Exception as e:
+        logger.error(f"Failed to '{table_name}' run scraper. Aborting... Error raised: {e}")
+        news_db.close()
+        return
 
     # save scraped posts as raw .md files for analysis
-    # news_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
+    news_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
 
-    # news_db.close()
+    news_db.close()
 
 # Execute the tutorial when run directly
 if __name__ == "__main__":

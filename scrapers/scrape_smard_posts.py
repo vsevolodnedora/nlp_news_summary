@@ -67,6 +67,7 @@ async def scrape_smard_news(root_url:str, database: PostsDatabase, table_name:st
             logger.warning(f"Only one result found for {root_url}. Suspected limit.")
         # date_pattern = re.compile(r"https?://[^ ]*/\d{4}-\d{2}-\d{2}[^ ]*") # to remove non-articles entries
 
+        # check if it exists in the database
         logger.info(f"Crawled {len(results)} pages matching '*news*'")
 
         # inform about which to process and which to skip
@@ -84,6 +85,10 @@ async def scrape_smard_news(root_url:str, database: PostsDatabase, table_name:st
 
             url = result.url
             if url in known_bad_links:
+                continue
+
+            if database.is_table(table_name=table_name) and database.is_post(table_name=table_name, post_id=database.create_post_id(post_url=url)):
+                logger.info(f"Post already exists in the database '{url}' Skipping...")
                 continue
 
             if fnmatch.fnmatch(result.url, "*topic-article*"):
@@ -106,13 +111,8 @@ async def scrape_smard_news(root_url:str, database: PostsDatabase, table_name:st
                     else:
                         logger.warning(f"Date not found in markdown for URL: {url}. Using dummy date.")
 
-
                 # Extract the last segment of the URL for the title part
                 title = url.split("/")[-1].replace("-", "_")
-
-                if database.is_table(table_name=table_name) and database.is_post(table_name=table_name, post_id=database.create_post_id(post_url=url)):
-                    logger.info(f"Post already exists in the database. Date={date_iso} Title={title} URL: '{url}' Skipping...")
-                    continue
 
                 # store full article in the database
                 database.add_post(
@@ -123,6 +123,8 @@ async def scrape_smard_news(root_url:str, database: PostsDatabase, table_name:st
                     post=result.markdown.raw_markdown,
                 )
                 new_articles.append(url)
+
+        await asyncio.sleep(5) # to avoid IP blocking
 
         logger.info(f"Finished saving {len(new_articles)} new articles out of {len(results)} articles")
 

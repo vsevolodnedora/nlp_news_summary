@@ -93,7 +93,7 @@ async def scrape_acer_news(
                 )
                 new_articles.append(url)
 
-
+        await asyncio.sleep(5) # to avoid IP blocking
         logger.info(
             f"Finished: {len(new_articles)} new articles out of {len(results)} crawled."
         )
