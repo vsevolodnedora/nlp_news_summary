@@ -207,6 +207,7 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
                 # Small jitter to reduce fingerprinting
                 await asyncio.sleep(1 + random.random() * 2)
 
+                results = None
                 try:
                     config = copy.deepcopy(base_config)
                     results = await crawler.arun(url=link, config=config, dispatcher=dispatcher)
@@ -216,12 +217,13 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
                     await asyncio.sleep(2 ** attempt)
                     continue
 
-                if not results:
+                if results is None or not results:
                     logger.warning(f"No crawl result for {link} on attempt {attempt+1}")
                     attempt += 1
                     await asyncio.sleep(2 ** attempt)
                     continue
 
+                # accessing the article page (should be only one in the list)
                 result = results[0]
                 raw_md = result.markdown
                 last_markdown = raw_md

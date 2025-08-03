@@ -34,7 +34,7 @@ jobs:
         run: pipenv run playwright install
 
       - name: Scrape Data
-        run: pipenv run python run_scrape.py all
+        run: pipenv run python run_scrape.py tennet
 
       - name: Commit Updated Data
         run: |

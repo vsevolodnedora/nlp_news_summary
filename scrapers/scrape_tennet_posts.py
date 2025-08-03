@@ -72,7 +72,7 @@ def is_challenge_page(markdown: str) -> bool:
         or "please enable javascript" in lowered and "security check" in lowered
     )
 
-async def scrape_tennet_news(root_url: str, table_name: str, database: PostsDatabase) -> None:
+async def scrape_tennet_news(root_url: str, table_name: str, database: PostsDatabase|None) -> None:
     """Scrape tennet news pages."""
     links = get_tennet_news_links(url=root_url)
 
@@ -136,7 +136,9 @@ async def scrape_tennet_news(root_url: str, table_name: str, database: PostsData
             logger.info(f"Processing {link}")
 
             # check if file exists and if so, skip
-            if database.is_table(table_name=table_name) and database.is_post(table_name=table_name, post_id=database.create_post_id(post_url=link)):
+            if database is not None \
+                    and database.is_table(table_name=table_name) \
+                    and database.is_post(table_name=table_name, post_id=database.create_post_id(post_url=link)):
                 logger.info(f"Post already exists in the database. Skipping: {link}")
                 continue
 
@@ -206,13 +208,14 @@ async def scrape_tennet_news(root_url: str, table_name: str, database: PostsData
                 continue
 
             # addd to the database
-            database.add_post(
-                table_name=table_name,
-                published_on=date,
-                title=article_title,
-                post_url=link,
-                post=raw_md,
-            )
+            if not database is None:
+                database.add_post(
+                    table_name=table_name,
+                    published_on=date,
+                    title=article_title,
+                    post_url=link,
+                    post=raw_md,
+                )
 
             new_articles.append(link)
             logger.info(f"Saved article {link} (size: {len(raw_md)} chars)")
@@ -228,30 +231,30 @@ def main_scrape_tennet_posts(db_path:str, table_name:str, out_dir:str, root_url:
         root_url = "https://www.tennet.eu/de/news-de" # default path to latest news
 
     # --- initialize / connect to DB ---
-    news_db = PostsDatabase(db_path=db_path)
+    # news_db = PostsDatabase(db_path=db_path)
 
     # create acer table if it does not exists
-    news_db.check_create_table(table_name)
+    # news_db.check_create_table(table_name)
 
     # try to scrape articles and add them to the database
-    try:
+    if True:
         # --- scrape & store ---
         asyncio.run(
             scrape_tennet_news(
                 root_url=root_url,
                 table_name=table_name,
-                database=news_db
+                database=None
             )
         )
-    except Exception as e:
-        logger.error(f"Failed to '{table_name}' run scraper. Aborting... Error raised: {e}")
-        news_db.close()
-        return
+    # except Exception as e:
+    #     logger.error(f"Failed to '{table_name}' run scraper. Aborting... Error raised: {e}")
+    #     news_db.close()
+    #     return
 
     # save scraped posts as raw .md files for analysis
-    news_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
+    # news_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
 
-    news_db.close()
+    # news_db.close()
 
 # Execute the tutorial when run directly
 if __name__ == "__main__":
