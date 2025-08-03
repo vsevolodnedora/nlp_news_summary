@@ -47,10 +47,15 @@ async def _get_playwright_browser():
     return _browser
 
 
-async def fetch_html(url: str, timeout: int = 10, headers: Optional[dict] = None, max_retries: int = 3) -> str:
+async def fetch_html(
+    url: str,
+    timeout: int = 10,
+    headers: Optional[dict] = None,
+    max_retries: int = 3,
+) -> str:
     """
-    Async fetch HTML. First try a fast HTTP request with retries. On 403 or persistent failure,
-    fall back to Playwright headless browser to get the rendered HTML.
+    Fetch HTML from a URL with fallback to headless browser if blocked.
+    Handles TenneT redirect loops by setting German headers and locale.
     """
     default_headers = {
         "User-Agent": (
@@ -59,42 +64,44 @@ async def fetch_html(url: str, timeout: int = 10, headers: Optional[dict] = None
             "Chrome/120.0.0.0 Safari/537.36"
         ),
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-        "Accept-Language": "en-US,en;q=0.9",
+        "Accept-Language": "de-DE,de;q=0.9",  # force German version
         "Connection": "keep-alive",
         "Upgrade-Insecure-Requests": "1",
     }
     merged_headers = {**default_headers, **(headers or {})}
 
+    # normalize to avoid redirect loop (trailing slash is required by TenneT)
+    target = url if url.endswith("/") else url + "/"
+
     async with httpx.AsyncClient(timeout=timeout, headers=merged_headers, follow_redirects=True) as client:
         for attempt in range(1, max_retries + 1):
             try:
-                resp = await client.get(url)
+                resp = await client.get(target)
                 status = resp.status_code
                 if status == 403:
-                    logger.warning("Received 403 for %s on HTTP fetch; will attempt browser fallback.", url)
-                    break  # go to fallback
+                    logger.warning("Received 403 for %s on HTTP fetch; will attempt browser fallback.", target)
+                    break
                 if status in (429, 500, 502, 503, 504):
-                    # transient, back off
                     backoff = 2 ** (attempt - 1)
-                    logger.info("Transient status %s for %s, retrying after %s seconds (attempt %s).", status, url, backoff, attempt)
+                    logger.info("Transient status %s for %s, retrying after %s seconds (attempt %s).", status, target, backoff, attempt)
                     await asyncio.sleep(backoff)
                     continue
                 resp.raise_for_status()
                 return resp.text
             except httpx.HTTPStatusError as e:
                 if e.response.status_code == 403:
-                    logger.warning("HTTPStatusError 403 for %s; falling back to browser.", url)
+                    logger.warning("HTTPStatusError 403 for %s; falling back to browser.", target)
                     break
                 if attempt == max_retries:
-                    logger.error("Max retries hit fetching %s via HTTP: %s", url, e)
+                    logger.error("Max retries hit fetching %s via HTTP: %s", target, e)
                     raise
                 await asyncio.sleep(2 ** (attempt - 1))
             except (httpx.TransportError, httpx.ReadTimeout) as e:
                 if attempt == max_retries:
-                    logger.error("Network error fetching %s via HTTP: %s", url, e)
+                    logger.error("Network error fetching %s via HTTP: %s", target, e)
                     raise
                 backoff = 2 ** (attempt - 1)
-                logger.info("Network error %s for %s, retrying after %s seconds (attempt %s).", e, url, backoff, attempt)
+                logger.info("Network error %s for %s, retrying after %s seconds (attempt %s).", e, target, backoff, attempt)
                 await asyncio.sleep(backoff)
 
     # Fallback to Playwright
@@ -102,25 +109,21 @@ async def fetch_html(url: str, timeout: int = 10, headers: Optional[dict] = None
         browser = await _get_playwright_browser()
         context = await browser.new_context(
             user_agent=merged_headers["User-Agent"],
-            locale="en-US",
-            bypass_csp=True,  # optional: sometimes helps
+            locale="de-DE",  # force browser locale to German
+            bypass_csp=True,
         )
         page = await context.new_page()
-        # Additional headers if desired
-        await page.set_extra_http_headers(
-            {
-                "Accept": merged_headers["Accept"],
-                "Accept-Language": merged_headers["Accept-Language"],
-            }
-        )
-        await page.goto(url, wait_until="networkidle", timeout=timeout * 1000)
+        await page.set_extra_http_headers({
+            "Accept": merged_headers["Accept"],
+            "Accept-Language": merged_headers["Accept-Language"],
+        })
+        await page.goto(target, wait_until="networkidle", timeout=timeout * 1000)
         content = await page.content()
         await context.close()
         return content
     except Exception as e:
-        logger.error("Playwright fallback failed for %s: %s", url, e)
+        logger.error("Playwright fallback failed for %s: %s", target, e)
         raise
-
 
 def extract_news_links_from_html(html: str, base_url: str) -> list[str]:
     """Parse HTML and return a sorted list of absolute links whose href contains '/de/news/'."""
