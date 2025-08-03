@@ -3,11 +3,14 @@ import gc
 import random
 import re
 from datetime import datetime
+from typing import Optional
+
 import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
+import httpx  # async HTTP client
 
 from crawl4ai import AsyncWebCrawler, CacheMode, CrawlerRunConfig, MemoryAdaptiveDispatcher, RateLimiter
 from crawl4ai import BrowserConfig
@@ -24,33 +27,31 @@ from logger import get_logger
 logger = get_logger(__name__)
 
 
-def _build_retry_session() -> requests.Session:
-    """Create a requests Session with retry/backoff logic for transient errors."""
-    session = requests.Session()
-    retry = Retry(
-        total=5,
-        connect=3,
-        read=3,
-        status=3,
-        backoff_factor=1,  # exponential backoff: 1s, 2s, 4s...
-        status_forcelist=[429, 500, 502, 503, 504],
-        allowed_methods=["GET", "HEAD", "OPTIONS"],
-        raise_on_status=False,  # we will handle raise_for_status manually
-        respect_retry_after_header=True,
+# Playwright globals so we reuse browser across calls in the process
+_playwright = None
+_browser = None
+
+
+async def _get_playwright_browser():
+    global _playwright, _browser
+    if _browser:
+        return _browser
+    from playwright.async_api import async_playwright
+
+    _playwright = await async_playwright().start()
+    # launch in headless mode; on GitHub Actions you want no-sandbox
+    _browser = await _playwright.chromium.launch(
+        headless=True,
+        args=["--no-sandbox", "--disable-setuid-sandbox"],
     )
-    adapter = HTTPAdapter(max_retries=retry)
-    session.mount("https://", adapter)
-    session.mount("http://", adapter)
-    return session
+    return _browser
 
 
-def fetch_html(url: str, timeout: int = 10, headers: dict | None = None, session: requests.Session | None = None) -> str:
+async def fetch_html(url: str, timeout: int = 10, headers: Optional[dict] = None, max_retries: int = 3) -> str:
     """
-    Fetch HTML of a page with robust headers, retries, and a fallback to cloudscraper on 403.
+    Async fetch HTML. First try a fast HTTP request with retries. On 403 or persistent failure,
+    fall back to Playwright headless browser to get the rendered HTML.
     """
-    if session is None:
-        session = _build_retry_session()
-
     default_headers = {
         "User-Agent": (
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -61,34 +62,64 @@ def fetch_html(url: str, timeout: int = 10, headers: dict | None = None, session
         "Accept-Language": "en-US,en;q=0.9",
         "Connection": "keep-alive",
         "Upgrade-Insecure-Requests": "1",
-        # The Sec-Fetch headers are optional, but can help mimic real browser navigation
-        "Sec-Fetch-Site": "none",
-        "Sec-Fetch-Mode": "navigate",
-        "Sec-Fetch-Dest": "document",
     }
-
     merged_headers = {**default_headers, **(headers or {})}
 
-    try:
-        resp = session.get(url, timeout=timeout, headers=merged_headers)
-        if resp.status_code == 403:
-            logger.warning("Received 403 for %s; attempting cloudscraper fallback.", url)
+    async with httpx.AsyncClient(timeout=timeout, headers=merged_headers, follow_redirects=True) as client:
+        for attempt in range(1, max_retries + 1):
             try:
-                import cloudscraper
-            except ImportError:
-                raise requests.exceptions.HTTPError(
-                    f"403 Forbidden for url: {url}. Install 'cloudscraper' to bypass anti-bot protections."
-                )
-            # cloudscraper tries to emulate browser; pass headers if needed
-            scraper = cloudscraper.create_scraper(
-                browser={"custom": merged_headers["User-Agent"]}
-            )
-            resp = scraper.get(url, timeout=timeout)
-        resp.raise_for_status()
-    except requests.exceptions.RequestException as e:
-        logger.error("Error fetching URL %s: %s", url, e)
+                resp = await client.get(url)
+                status = resp.status_code
+                if status == 403:
+                    logger.warning("Received 403 for %s on HTTP fetch; will attempt browser fallback.", url)
+                    break  # go to fallback
+                if status in (429, 500, 502, 503, 504):
+                    # transient, back off
+                    backoff = 2 ** (attempt - 1)
+                    logger.info("Transient status %s for %s, retrying after %s seconds (attempt %s).", status, url, backoff, attempt)
+                    await asyncio.sleep(backoff)
+                    continue
+                resp.raise_for_status()
+                return resp.text
+            except httpx.HTTPStatusError as e:
+                if e.response.status_code == 403:
+                    logger.warning("HTTPStatusError 403 for %s; falling back to browser.", url)
+                    break
+                if attempt == max_retries:
+                    logger.error("Max retries hit fetching %s via HTTP: %s", url, e)
+                    raise
+                await asyncio.sleep(2 ** (attempt - 1))
+            except (httpx.TransportError, httpx.ReadTimeout) as e:
+                if attempt == max_retries:
+                    logger.error("Network error fetching %s via HTTP: %s", url, e)
+                    raise
+                backoff = 2 ** (attempt - 1)
+                logger.info("Network error %s for %s, retrying after %s seconds (attempt %s).", e, url, backoff, attempt)
+                await asyncio.sleep(backoff)
+
+    # Fallback to Playwright
+    try:
+        browser = await _get_playwright_browser()
+        context = await browser.new_context(
+            user_agent=merged_headers["User-Agent"],
+            locale="en-US",
+            bypass_csp=True,  # optional: sometimes helps
+        )
+        page = await context.new_page()
+        # Additional headers if desired
+        await page.set_extra_http_headers(
+            {
+                "Accept": merged_headers["Accept"],
+                "Accept-Language": merged_headers["Accept-Language"],
+            }
+        )
+        await page.goto(url, wait_until="networkidle", timeout=timeout * 1000)
+        content = await page.content()
+        await context.close()
+        return content
+    except Exception as e:
+        logger.error("Playwright fallback failed for %s: %s", url, e)
         raise
-    return resp.text
 
 
 def extract_news_links_from_html(html: str, base_url: str) -> list[str]:
@@ -97,7 +128,6 @@ def extract_news_links_from_html(html: str, base_url: str) -> list[str]:
     found: set[str] = set()
     for a in soup.find_all("a", href=True):
         href = a["href"].strip()
-        # skip non-navigational hrefs
         if href.lower().startswith("javascript:") or href.startswith("#") or href.startswith("mailto:"):
             continue
         if "/de/news/" in href:
@@ -106,10 +136,22 @@ def extract_news_links_from_html(html: str, base_url: str) -> list[str]:
     return sorted(found)
 
 
-def get_tennet_news_links(url: str = "https://www.tennet.eu/de/news-de", session: requests.Session | None = None) -> list[str]:
-    """Extract TenneT news links from the TenneT news page."""
-    html = fetch_html(url, session=session)
+async def get_tennet_news_links_async(url: str = "https://www.tennet.eu/de/news-de") -> list[str]:
+    """Async extraction using the async fetch_html."""
+    html = await fetch_html(url)
     return extract_news_links_from_html(html, url)
+
+
+# # Optional synchronous wrapper if somewhere you need sync:
+# def get_tennet_news_links(url: str = "https://www.tennet.eu/de/news-de") -> list[str]:
+#     """Blocking wrapper that can be used from sync code (calls async version)."""
+#     return asyncio.run(get_tennet_news_links_async(url))
+#
+#
+# def get_tennet_news_links(url: str = "https://www.tennet.eu/de/news-de", session: requests.Session | None = None) -> list[str]:
+#     """Extract TenneT news links from the TenneT news page."""
+#     html = fetch_html(url, session=session)
+#     return extract_news_links_from_html(html, url)
 
 def find_and_format_numeric_date(text:str)->str|None:
     """Extract date from markdown."""
@@ -135,7 +177,8 @@ def is_challenge_page(markdown: str) -> bool:
 
 async def scrape_tennet_news(root_url: str, table_name: str, database: PostsDatabase|None) -> None:
     """Scrape tennet news pages."""
-    links = get_tennet_news_links(url=root_url)
+    html = await fetch_html(url=root_url)
+    links = extract_news_links_from_html(html=html, base_url=root_url)
 
     # links that are know to fail due to language/other issues
     known_exceptions = [
