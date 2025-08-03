@@ -34,6 +34,11 @@ from logger import get_logger
 logger = get_logger(__name__)
 
 async def scrape_smard_news(root_url:str, database: PostsDatabase, table_name:str) -> None:
+
+    known_bad_links = [
+        "https://www.smard.de/page/home/topic-article/211972/214452/energietraegerscharfe-exporte-nach-laendern" # no text
+    ]
+
     """Scrape acer news posts from news-and-engagement database."""
     async with AsyncWebCrawler() as crawler:
 
@@ -76,12 +81,16 @@ async def scrape_smard_news(root_url:str, database: PostsDatabase, table_name:st
 
         new_articles = []
         for result in results:  # Show first 3 results
+
             url = result.url
+            if url in known_bad_links:
+                continue
+
             if fnmatch.fnmatch(result.url, "*topic-article*"):
                 # Try to match "YYYY.MM.DD" format first
                 full_date_match = re.search(r"\b(\d{2})\.(\d{2})\.(\d{4})\b", result.markdown)
 
-                date_iso = ""
+                date_iso = "1990-01-01" # very far in the past; no current scrapes are expected to reach it
                 if full_date_match:
                     day, month, year = full_date_match.groups()
                     date_iso = f"{year}-{month}-{day}"
@@ -93,17 +102,16 @@ async def scrape_smard_news(root_url:str, database: PostsDatabase, table_name:st
                             parsed_date = datetime.strptime(f"{date_match.group(1)} {date_match.group(2)} {date_match.group(3)}", "%d %B %Y")
                             date_iso = parsed_date.strftime("%Y-%m-%d")
                         except ValueError:
-                            logger.error(f"Invalid date format in markdown for URL: {url}")
-                            continue
+                            logger.warning(f"Date found but invalid date format in markdown for URL: {url}. Using dummy date.")
                     else:
-                        logger.error(f"Date not found in markdown for URL: {url}")
-                        continue
+                        logger.warning(f"Date not found in markdown for URL: {url}. Using dummy date.")
+
 
                 # Extract the last segment of the URL for the title part
                 title = url.split("/")[-1].replace("-", "_")
 
                 if database.is_table(table_name=table_name) and database.is_post(table_name=table_name, post_id=database.create_post_id(post_url=url)):
-                    logger.info(f"Post already exists in the database. Skipping: {url}")
+                    logger.info(f"Post already exists in the database. Date={date_iso} Title={title} URL: '{url}' Skipping...")
                     continue
 
                 # store full article in the database

@@ -15,7 +15,6 @@ from crawl4ai.deep_crawling import BFSDeepCrawlStrategy
 from crawl4ai.deep_crawling.filters import (
     FilterChain,
 )
-from crawl4ai.types import CrawlerMonitor
 
 from database import PostsDatabase
 from logger import get_logger
@@ -76,8 +75,16 @@ def is_challenge_page(markdown: str) -> bool:
 async def scrape_tennet_news(root_url: str, table_name: str, database: PostsDatabase) -> None:
     """Scrape tennet news pages."""
     links = get_tennet_news_links(url=root_url)
+
+    # links that are know to fail due to language/other issues
+    known_exceptions = [
+        "https://www.tennet.eu/de/news/tennet-holding-kuendigt-neue-finanzierungsstruktur-mit-niederlaendischer-staatsgarantie-und-startet-den-prozess-zur-zustimmung-der"
+    ]
+
+    # select links to process
     for link in links:
-        logger.debug(f"Found: {link}")
+        if link not in known_exceptions:
+            logger.debug(f"Found: {link}")
 
     # Shared dispatcher and rate limiter (reuse for all crawls)
     rate_limiter = RateLimiter(
@@ -127,6 +134,11 @@ async def scrape_tennet_news(root_url: str, table_name: str, database: PostsData
         # Process links sequentially with retry/backoff. Could be batched with arun_many for higher throughput.
         for link in links:
             logger.info(f"Processing {link}")
+
+            # check if file exists and if so, skip
+            if database.is_table(table_name=table_name) and database.is_post(table_name=table_name, post_id=database.create_post_id(post_url=link)):
+                logger.info(f"Post already exists in the database. Skipping: {link}")
+                continue
 
             attempt = 0
             max_attempts = 3
@@ -187,15 +199,13 @@ async def scrape_tennet_news(root_url: str, table_name: str, database: PostsData
                 article_title = link.rstrip("/").split("/")[-1].replace("-", "_")
                 success = True
 
+            # check if the overall scrape was successfull
             if not success:
-                logger.error(f"Failed to scrape {link} after {max_attempts} attempts. Last markdown snippet:\n{(last_markdown or '')[:500]}")
+                logger.error(f"Failed to scrape challenge {link} after {max_attempts} attempts. Last markdown snippet:\n{(last_markdown or '')[:500]}")
+                await asyncio.sleep(10)
                 continue
 
-            # check if file exists and if so, skip
-            if database.is_table(table_name=table_name) and database.is_post(table_name=table_name, post_id=database.create_post_id(post_url=link)):
-                logger.info(f"Post already exists in the database. Skipping: {link}")
-                continue
-
+            # addd to the database
             database.add_post(
                 table_name=table_name,
                 published_on=date,

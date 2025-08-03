@@ -1,4 +1,5 @@
 import asyncio
+import copy
 import gc
 import random
 import re
@@ -131,11 +132,11 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
     # Shared dispatcher and rate limiter (reuse for all crawls)
     rate_limiter = RateLimiter(
         base_delay=(20.0, 90.0),
-        max_delay=200.0,
+        max_delay=400.0,
         max_retries=5,
     )
     dispatcher = MemoryAdaptiveDispatcher(
-        memory_threshold_percent=80.0,
+        memory_threshold_percent=85.0,
         check_interval=2.0,
         max_session_permit=1,
         monitor=CrawlerMonitor(),
@@ -152,7 +153,7 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
         scraping_strategy=LXMLWebScrapingStrategy(),
         cache_mode=CacheMode.BYPASS,
         verbose=True,
-        page_timeout=200_000,
+        page_timeout=400_000,
     )
 
     new_articles = []
@@ -189,14 +190,14 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
 
             while attempt < max_attempts and not success:
                 # Rotate user-agent on retry
-                ua = random.choice(plausable_user_agents) if attempt > 0 else plausable_user_agents[0]
+                user_agent = random.choice(plausable_user_agents) if attempt > 0 else plausable_user_agents[0]
                 if attempt > 0:
                     # Reconfigure crawler's user-agent by rebuilding browser context.
                     # Lightweight since it's only on failure.
                     await crawler.close()  # close previous context
                     crawler = AsyncWebCrawler(
                         config=BrowserConfig(
-                            user_agent=ua,
+                            user_agent=user_agent,
                             headless=True,
                             use_persistent_context=True,
                         )
@@ -207,7 +208,7 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
                 await asyncio.sleep(1 + random.random() * 2)
 
                 try:
-                    config = base_config  # could deep-copy and modify if needed
+                    config = copy.deepcopy(base_config)
                     results = await crawler.arun(url=link, config=config, dispatcher=dispatcher)
                 except Exception as e:
                     logger.warning(f"Exception while crawling {link} on attempt {attempt+1}: {e}")
@@ -241,10 +242,13 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
                 article_title = link.rstrip("/").split("/")[-1].replace("-", "_")
                 success = True
 
+            # check if at the and the download was successfull
             if not success:
-                logger.error(f"Failed to scrape {link} after {max_attempts} attempts. Last markdown snippet:\n{(last_markdown or '')[:500]}")
+                logger.error(f"Failed to scrape challenge {link} after {max_attempts} attempts. Last markdown snippet:\n{(last_markdown or '')[:500]}")
+                await asyncio.sleep(10)
                 continue
 
+            # add post to the database
             database.add_post(
                 table_name=table_name,
                 published_on=date,
