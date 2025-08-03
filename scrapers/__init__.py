@@ -9,3 +9,5 @@ from .scrape_agora_posts import main_scrape_agora_posts
 from .scrape_energy_wire_posts import main_scrape_energy_wire_posts
 from .scrape_transnetbw_posts import main_scrape_transnetbw_posts
 from .scrape_tennet_posts import main_scrape_tennet_posts
+from .scrape_amprion_posts import main_scrape_amprion_posts
+from .scrape_50hz_posts import main_scrape_50hz_posts

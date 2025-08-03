@@ -11,6 +11,8 @@ from scrapers.scrape_icis_posts import main_scrape_icis_posts
 from scrapers.scrape_smard_posts import main_scrape_smard_posts
 from scrapers.scrape_transnetbw_posts import main_scrape_transnetbw_posts
 from scrapers.scrape_tennet_posts import main_scrape_tennet_posts
+from scrapers.scrape_amprion_posts import main_scrape_amprion_posts
+from scrapers.scrape_50hz_posts import main_scrape_50hz_posts
 
 def main_scrape(source:str):  # noqa: C901
     """Scrape posts from various sources."""
@@ -102,8 +104,26 @@ def main_scrape(source:str):  # noqa: C901
             out_dir="./output/posts_raw/tennet/",
         )
 
+    if source == "50hz" or source == "all":
+        main_scrape_50hz_posts(
+            root_url="https://www.50hertz.com/de/Medien/",
+            table_name="50hz",
+            db_path="./database/scraped_posts.db",
+            out_dir="./output/posts_raw/50hz/",
+        )
+
+    if source == "amprion" or source == "all":
+        main_scrape_amprion_posts(
+            root_url="https://www.amprion.net/",
+            table_name="amprion",
+            db_path="./database/scraped_posts.db",
+            out_dir="./output/posts_raw/amprion/",
+        )
+
     if source not in [
-        "entsoe", "eex", "acer", "ec", "icis", "bnetza", "smard", "agora", "energy_wire", "transnetbw", "tennet", "all"
+        "entsoe", "eex", "acer", "ec", "icis", "bnetza", "smard", "agora", "energy_wire", # outlets
+        "transnetbw", "tennet", "50hz", "amprion", # TSOs
+        "all" # iterate over all
     ]:
         raise ValueError(f"invalid source={source}")
 
