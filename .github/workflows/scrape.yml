@@ -34,7 +34,7 @@ jobs:
         run: pipenv run playwright install
 
       - name: Scrape Data
-        run: pipenv run python run_scrape.py tennet
+        run: pipenv run python run_scrape.py all
 
       - name: Commit Updated Data
         run: |
@@ -42,5 +42,5 @@ jobs:
           git config --global user.email 'noreply@nedora.digital'
           git add database/scraped_posts.db
           git commit -m "Added latest posts to the database"
-          git pull -r
+          git pull -r 
           git push

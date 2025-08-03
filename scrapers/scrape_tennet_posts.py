@@ -182,13 +182,15 @@ async def scrape_tennet_news(root_url: str, table_name: str, database: PostsData
 
     # links that are know to fail due to language/other issues
     known_exceptions = [
-        "https://www.tennet.eu/de/news/tennet-holding-kuendigt-neue-finanzierungsstruktur-mit-niederlaendischer-staatsgarantie-und-startet-den-prozess-zur-zustimmung-der"
+        "https://www.tennet.eu/de/news/tennet-holding-kuendigt-neue-finanzierungsstruktur-mit-niederlaendischer-staatsgarantie-und-startet-den-prozess-zur-zustimmung-der",
     ]
 
     # select links to process
+    selected_links = []
     for link in links:
         if link not in known_exceptions:
             logger.debug(f"Found: {link}")
+            selected_links.append(link)
 
     # Shared dispatcher and rate limiter (reuse for all crawls)
     rate_limiter = RateLimiter(
@@ -236,7 +238,7 @@ async def scrape_tennet_news(root_url: str, table_name: str, database: PostsData
     ) as crawler:
 
         # Process links sequentially with retry/backoff. Could be batched with arun_many for higher throughput.
-        for link in links:
+        for link in selected_links:
             logger.info(f"Processing {link}")
 
             # check if file exists and if so, skip
