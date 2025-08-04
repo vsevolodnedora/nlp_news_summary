@@ -265,8 +265,6 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
             await asyncio.sleep(5) # to avoid IP blocking
             gc.collect() # clean memory
 
-        logger.info(f"Finished saving {len(new_articles)} new articles out of {len(results)} articles")
-
 def main_scrape_50hz_posts(db_path:str, table_name:str, out_dir:str, root_url:str|None=None):
     """Scrape 50hz news articles database."""
     if root_url is None:

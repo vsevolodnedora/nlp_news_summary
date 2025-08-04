@@ -1,5 +1,7 @@
-# large raw posts should not be tracked
+# large raw posts should not be tracked and database lives in the separate repo
 /output/posts_raw/
+/output/posts_cleaned/
+/database/scraped_posts.db
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -33,14 +33,23 @@ jobs:
       - name: Install Playwright Browsers
         run: pipenv run playwright install
 
+      # Clone private data repo and pull existing DB
+      - name: Clone Private Data Repo
+        run: |
+          git clone https://${{ secrets.NLP_NEWS_SUMMARY_DATA }}@github.com/vsevolodnedora/nlp_news_summary_data.git data_repo
+          mkdir -p database
+          cp data_repo/database/scraped_posts.db database/scraped_posts.db
+
       - name: Scrape Data
         run: pipenv run python run_scrape.py all
 
-      - name: Commit Updated Data
+      # Copy updated DB back into private repo and push
+      - name: Push Updated DB to Private Repo
         run: |
+          cp database/scraped_posts.db data_repo/database/scraped_posts.db
+          cd data_repo
           git config --global user.name 'Collector'
           git config --global user.email 'noreply@nedora.digital'
           git add database/scraped_posts.db
-          git commit -m "Added latest posts to the database"
-          git pull -r 
+          git commit -m "Update scraped_posts.db from scraper run at $(date -u)"
           git push
