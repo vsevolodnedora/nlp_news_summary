@@ -131,13 +131,13 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
 
     # Shared dispatcher and rate limiter (reuse for all crawls)
     rate_limiter = RateLimiter(
-        base_delay=(20.0, 90.0),
+        base_delay=(20.0, 110.0),
         max_delay=400.0,
-        max_retries=5,
+        max_retries=10,
     )
     dispatcher = MemoryAdaptiveDispatcher(
         memory_threshold_percent=85.0,
-        check_interval=2.0,
+        check_interval=3.0,
         max_session_permit=1,
         monitor=CrawlerMonitor(),
         rate_limiter=rate_limiter,
@@ -153,7 +153,7 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
         scraping_strategy=LXMLWebScrapingStrategy(),
         cache_mode=CacheMode.BYPASS,
         verbose=True,
-        page_timeout=400_000,
+        page_timeout=600_000,
     )
 
     new_articles = []
@@ -231,7 +231,7 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
                 last_markdown = raw_md
 
                 if is_challenge_page(raw_md):
-                    logger.warning(f"Detected challenge page for {link} on attempt {attempt+1}; retrying with different UA/backoff.")
+                    logger.warning(f"Detected challenge page for {link} on attempt {attempt+1}; retrying with different UA/backoff. Returning raw markdown: {result.markdown}")
                     attempt += 1
                     await asyncio.sleep(2 ** attempt)
                     continue  # retry
@@ -248,7 +248,7 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
 
             # check if at the and the download was successfull
             if not success:
-                logger.error(f"Failed to scrape challenge {link} after {max_attempts} attempts. Last markdown snippet:\n{(last_markdown or '')[:500]}")
+                logger.error(f"Failed to scrape challenge {link} after {max_attempts} attempts. Last markdown snippet:\n{last_markdown}")
                 await asyncio.sleep(10)
                 continue
 
