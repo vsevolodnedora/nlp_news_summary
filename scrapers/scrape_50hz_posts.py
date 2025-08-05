@@ -214,6 +214,7 @@ async def scrape_page_with_crawl4ai(link: str) -> str|None:
                 logger.warning(f"Could not locate date. Skipping: {link}")
                 continue
 
+            # stop the retry
             success = True
 
         # check if at the and the download was successfull
