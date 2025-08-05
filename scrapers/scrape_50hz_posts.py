@@ -40,8 +40,8 @@ def fetch_html(url: str, timeout: int = 10, headers: dict = None) -> str:
 async def fetch_news_links_with_playwright_async(
     url: str = "https://www.50hertz.com/de/Medien/",
     headless: bool = True,
-    timeout_ms: int = 15000,
-    wait_after_network_idle: float = 1.0,
+    timeout_ms: int = 45000,
+    wait_after_network_idle: float = 5.0,
 ) -> List[str]:
     """
     Async: load the page with JS executed and extract absolute links containing
@@ -62,7 +62,7 @@ async def fetch_news_links_with_playwright_async(
         # Try waiting for true network idle; may timeout on slow CI
         await page.goto(url, wait_until="networkidle", timeout=timeout_ms)
     except PlaywrightTimeoutError as e:
-        logger.error("PlaywrightTimeoutError raised: {}".format(e))
+        logger.error("PlaywrightTimeoutError raised for '{}' with {}".format(url, e))
         # Fallback: proceed even if networkidle didn’t happen
         pass
 
@@ -71,9 +71,9 @@ async def fetch_news_links_with_playwright_async(
 
     # Best‐effort: wait for at least one relevant link
     try:
-        await page.wait_for_selector('a[href*="News/Details"]', timeout=5000)
+        await page.wait_for_selector('a[href*="News/Details"]', timeout=15000)
     except PlaywrightTimeoutError as e:
-        logger.error("PlaywrightTimeoutError raised: {}".format(e))
+        logger.error("PlaywrightTimeoutError raised for '{}' with {}".format(url, e))
         pass
 
     # Scrape all anchors
@@ -274,13 +274,13 @@ def main_scrape_50hz_posts(db_path:str, table_name:str, out_dir:str, root_url:st
         root_url = "https://www.50hertz.com/de/Medien/" # default path to latest news
 
     # --- initialize / connect to DB ---
-    # news_db = PostsDatabase(db_path=db_path)
+    news_db = PostsDatabase(db_path=db_path)
 
     # create acer table if it does not exists
-    # news_db.check_create_table(table_name)
+    news_db.check_create_table(table_name)
 
     # try to scrape articles and add them to the database
-    if True:
+    try:
         # --- scrape & store ---
         asyncio.run(
             scrape_50hz_news(
@@ -289,15 +289,15 @@ def main_scrape_50hz_posts(db_path:str, table_name:str, out_dir:str, root_url:st
                 database=None
             )
         )
-    # except Exception as e:
-    #     logger.error(f"Failed to '{table_name}' run scraper. Aborting... Error raised: {e}")
-    #     news_db.close()
-    #     return
-    #
-    # # save scraped posts as raw .md files for analysis
-    # news_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
-    #
-    # news_db.close()
+    except Exception as e:
+        logger.error(f"Failed to '{table_name}' run scraper. Aborting... Error raised: {e}")
+        news_db.close()
+        return
+
+    # save scraped posts as raw .md files for analysis
+    news_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
+
+    news_db.close()
 
 # Execute the tutorial when run directly
 if __name__ == "__main__":
