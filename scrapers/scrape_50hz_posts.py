@@ -5,33 +5,28 @@ import random
 import re
 from datetime import datetime
 from typing import List
+from urllib.parse import urljoin
 
 import requests
 from bs4 import BeautifulSoup
-from urllib.parse import urljoin
-
-from crawl4ai import AsyncWebCrawler, CacheMode, CrawlerRunConfig, MemoryAdaptiveDispatcher, RateLimiter, html2text
-from crawl4ai import BrowserConfig
+from crawl4ai import AsyncWebCrawler, BrowserConfig, CacheMode, CrawlerRunConfig, MemoryAdaptiveDispatcher, RateLimiter, html2text
 from crawl4ai.components.crawler_monitor import CrawlerMonitor
 from crawl4ai.content_scraping_strategy import LXMLWebScrapingStrategy
 from crawl4ai.deep_crawling import BFSDeepCrawlStrategy
 from crawl4ai.deep_crawling.filters import (
     FilterChain,
 )
-from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
-
-from database import PostsDatabase
-from logger import get_logger
-
-
-
+from markdownify import markdownify as md
+from playwright.async_api import TimeoutError as PlaywrightTimeoutError
+from playwright.async_api import async_playwright
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from bs4 import BeautifulSoup
-from markdownify import markdownify as md
+from selenium.webdriver.support.ui import WebDriverWait
+
+from database import PostsDatabase
+from logger import get_logger
 
 logger = get_logger(__name__)
 
