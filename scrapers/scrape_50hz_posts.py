@@ -10,7 +10,7 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
-from crawl4ai import AsyncWebCrawler, CacheMode, CrawlerRunConfig, MemoryAdaptiveDispatcher, RateLimiter
+from crawl4ai import AsyncWebCrawler, CacheMode, CrawlerRunConfig, MemoryAdaptiveDispatcher, RateLimiter, html2text
 from crawl4ai import BrowserConfig
 from crawl4ai.components.crawler_monitor import CrawlerMonitor
 from crawl4ai.content_scraping_strategy import LXMLWebScrapingStrategy
@@ -27,9 +27,7 @@ logger = get_logger(__name__)
 
 
 def fetch_html(url: str, timeout: int = 10, headers: dict = None) -> str:
-    """
-    Fetch HTML of a page with basic headers and error handling.
-    """
+    """ Fetch HTML of a page with basic headers and error handling. """
     headers = headers or {
         "User-Agent": "Mozilla/5.0 (compatible; news-link-extractor/1.0; +https://example.com)"
     }
@@ -43,10 +41,7 @@ async def fetch_news_links_with_playwright_async(
     timeout_ms: int = 45000,
     wait_after_network_idle: float = 5.0,
 ) -> List[str]:
-    """
-    Async: load the page with JS executed and extract absolute links containing
-    'News/Details/' (case-insensitive).
-    """
+    """ Async: load the page with JS executed and extract absolute links containing 'News/Details/' (case-insensitive)."""
     found = set()
     playwright = await async_playwright().start()
     browser = await playwright.chromium.launch(headless=headless)
@@ -112,7 +107,8 @@ def find_and_format_numeric_date(text:str)->str|None:
 
 def is_challenge_page(markdown: str) -> bool:
     """Heuristic for detecting Cloudflare / human-verification interstitials."""
-    if markdown is None: return True
+    if markdown is None:
+        return True
 
     lowered = markdown.lower()
     return (
@@ -120,6 +116,57 @@ def is_challenge_page(markdown: str) -> bool:
         or "ray id" in lowered and "cloudflare" in lowered
         or "please enable javascript" in lowered and "security check" in lowered
     )
+
+async def scrape_and_convert_to_markdown(url: str, timeout: int = 15000) -> str:
+    """scrapes page and converts the result into markdown and returns it."""
+    async with async_playwright() as p:
+        browser = await p.chromium.launch(headless=True)
+        context = await browser.new_context()
+        page = await context.new_page()
+        await page.goto(url, timeout=timeout)
+
+        # Wait for content to load by checking for a date in the visible text
+        async def has_date():
+            content = await page.content()
+            soup = BeautifulSoup(content, "html.parser")
+            visible_text = soup.get_text(separator=" ", strip=True)
+            return find_and_format_numeric_date(visible_text) is not None
+
+        # Wait up to 15 seconds for date to appear
+        for _ in range(30):
+            if await has_date():
+                break
+            await asyncio.sleep(0.5)
+
+        # Get final HTML content
+        html = await page.content()
+        await browser.close()
+
+        # Clean HTML with BeautifulSoup
+        soup = BeautifulSoup(html, "html.parser")
+
+        # Remove unwanted tags
+        for tag in soup(["script", "style", "noscript", "iframe"]):
+            tag.decompose()
+
+        # Remove hidden elements
+        for element in soup.select('[style*="display:none"], [style*="visibility:hidden"]'):
+            element.decompose()
+
+        # Optionally strip classes and ids if you want even cleaner HTML
+        for tag in soup.find_all(True):
+            tag.attrs = {key: val for key, val in tag.attrs.items() if key in ("href", "src", "alt", "title")}
+
+        cleaned_html = str(soup)
+
+        # Convert to Markdown
+        h = html2text.HTML2Text()
+        h.ignore_links = False
+        h.ignore_images = True
+        h.body_width = 0
+        markdown = h.handle(cleaned_html)
+
+        return markdown.strip()
 
 async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDatabase|None) -> None:
     """Scrape 50hz news pages."""
@@ -243,16 +290,23 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
                     logger.debug(f"Raw markdown for {link}:\n{raw_md[:1000]}")
                     break  # give up on this link
 
-                article_title = link.rstrip("/").split("/")[-1].replace("-", "_")
                 success = True
 
             # check if at the and the download was successfull
             if not success:
                 logger.error(f"Failed to scrape challenge {link} after {max_attempts} attempts. Last markdown snippet:\n{last_markdown}")
-                await asyncio.sleep(10)
-                continue
+                await asyncio.sleep(5)
+
+            # attempt to scrape avoing using crawl4ai
+            if not success:
+                raw_md = scrape_and_convert_to_markdown(url=link)
+                if raw_md is None:
+                    logger.error(f"Failed to scrape challenge {link} using an alternative method. Skipping url: {link}")
+                    await asyncio.sleep(5)
+                    continue
 
             # add post to the database
+            article_title = link.rstrip("/").split("/")[-1].replace("-", "_")
             if database is not None:
                 database.add_post(
                     table_name=table_name,
@@ -267,6 +321,7 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
 
             await asyncio.sleep(5) # to avoid IP blocking
             gc.collect() # clean memory
+
 
 def main_scrape_50hz_posts(db_path:str, table_name:str, out_dir:str, root_url:str|None=None):
     """Scrape 50hz news articles database."""
