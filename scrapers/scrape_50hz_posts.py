@@ -23,17 +23,17 @@ from playwright.async_api import async_playwright, TimeoutError as PlaywrightTim
 from database import PostsDatabase
 from logger import get_logger
 
+
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from bs4 import BeautifulSoup
+from markdownify import markdownify as md
+
 logger = get_logger(__name__)
-
-
-def fetch_html(url: str, timeout: int = 10, headers: dict = None) -> str:
-    """ Fetch HTML of a page with basic headers and error handling. """
-    headers = headers or {
-        "User-Agent": "Mozilla/5.0 (compatible; news-link-extractor/1.0; +https://example.com)"
-    }
-    resp = requests.get(url, timeout=timeout, headers=headers)
-    resp.raise_for_status()
-    return resp.text
 
 async def fetch_news_links_with_playwright_async(
     url: str = "https://www.50hertz.com/de/Medien/",
@@ -117,65 +117,8 @@ def is_challenge_page(markdown: str) -> bool:
         or "please enable javascript" in lowered and "security check" in lowered
     )
 
-async def scrape_and_convert_to_markdown(url: str, timeout: int = 15000) -> str:
-    """scrapes page and converts the result into markdown and returns it."""
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=True)
-        context = await browser.new_context()
-        page = await context.new_page()
-        await page.goto(url, timeout=timeout)
-
-        # Wait for content to load by checking for a date in the visible text
-        async def has_date():
-            content = await page.content()
-            soup = BeautifulSoup(content, "html.parser")
-            visible_text = soup.get_text(separator=" ", strip=True)
-            return find_and_format_numeric_date(visible_text) is not None
-
-        # Wait up to 15 seconds for date to appear
-        for _ in range(30):
-            if await has_date():
-                break
-            await asyncio.sleep(0.5)
-
-        # Get final HTML content
-        html = await page.content()
-        await browser.close()
-
-        # Clean HTML with BeautifulSoup
-        soup = BeautifulSoup(html, "html.parser")
-
-        # Remove unwanted tags
-        for tag in soup(["script", "style", "noscript", "iframe"]):
-            tag.decompose()
-
-        # Remove hidden elements
-        for element in soup.select('[style*="display:none"], [style*="visibility:hidden"]'):
-            element.decompose()
-
-        # Optionally strip classes and ids if you want even cleaner HTML
-        for tag in soup.find_all(True):
-            tag.attrs = {key: val for key, val in tag.attrs.items() if key in ("href", "src", "alt", "title")}
-
-        cleaned_html = str(soup)
-
-        # Convert to Markdown
-        h = html2text.HTML2Text()
-        h.ignore_links = False
-        h.ignore_images = True
-        h.body_width = 0
-        markdown = h.handle(cleaned_html)
-
-        return markdown.strip()
-
-async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDatabase|None) -> None:
-    """Scrape 50hz news pages."""
-    links = await fetch_news_links_with_playwright_async(url=root_url)
-    for link in links:
-        logger.debug(f"Found: {link}")
-    if len(links) == 0:
-        raise Exception("No links found")
-
+async def scrape_page_with_crawl4ai(link: str) -> str|None:
+    """Scrape page using Crawl4AI."""
     # Shared dispatcher and rate limiter (reuse for all crawls)
     rate_limiter = RateLimiter(
         base_delay=(20.0, 110.0),
@@ -203,14 +146,18 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
         page_timeout=600_000,
     )
 
-    new_articles = []
-
     plausable_user_agents = [
         # A few realistic modern user agents; rotate if challenged.
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
         "Mozilla/5.0 (Macintosh; Intel Mac OS X 13_5) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.5 Safari/605.1.15",
         "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     ]
+
+    # retry logic
+    attempt = 0
+    max_attempts = 3
+    last_markdown = None
+    success = False
 
     # Create a crawler with initial BrowserConfig (will be reused unless we need to rotate UA)
     async with AsyncWebCrawler(
@@ -220,108 +167,162 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
             use_persistent_context=True,  # to keep cookies between requests if beneficial
         )
     ) as crawler:
+        while attempt < max_attempts and not success:
+            # Rotate user-agent on retry
+            user_agent = random.choice(plausable_user_agents) if attempt > 0 else plausable_user_agents[0]
+            if attempt > 0:
+                # Reconfigure crawler's user-agent by rebuilding browser context.
+                # Lightweight since it's only on failure.
+                await crawler.close()  # close previous context
+                crawler = AsyncWebCrawler(
+                    config=BrowserConfig(
+                        user_agent=user_agent,
+                        headless=True,
+                        use_persistent_context=True,
+                    )
+                )
+                await crawler.__aenter__()  # re-enter context manually for retries
 
-        # Process links sequentially with retry/backoff. Could be batched with arun_many for higher throughput.
-        for link in links:
-            logger.info(f"Processing {link}")
+            # Small jitter to reduce fingerprinting
+            await asyncio.sleep(1 + random.random() * 2)
 
-            # check for post in the database before trying to pull it as it is long
-            if database is not None \
-                and database.is_table(table_name=table_name) \
-                and database.is_post(table_name=table_name, post_id=database.create_post_id(post_url=link)):
-                logger.info(f"Post already exists in the database. Skipping: {link}")
+            results = None
+            try:
+                config = copy.deepcopy(base_config)
+                results = await crawler.arun(url=link, config=config, dispatcher=dispatcher)
+            except Exception as e:
+                logger.warning(f"Exception while crawling {link} on attempt {attempt + 1}: {e}")
+                attempt += 1
+                await asyncio.sleep(2**attempt)
                 continue
 
-            attempt = 0
-            max_attempts = 3
-            last_markdown = None
-            success = False
+            if results is None or not results:
+                logger.warning(f"No crawl result for {link} on attempt {attempt + 1}")
+                attempt += 1
+                await asyncio.sleep(2**attempt)
+                continue
 
-            while attempt < max_attempts and not success:
-                # Rotate user-agent on retry
-                user_agent = random.choice(plausable_user_agents) if attempt > 0 else plausable_user_agents[0]
-                if attempt > 0:
-                    # Reconfigure crawler's user-agent by rebuilding browser context.
-                    # Lightweight since it's only on failure.
-                    await crawler.close()  # close previous context
-                    crawler = AsyncWebCrawler(
-                        config=BrowserConfig(
-                            user_agent=user_agent,
-                            headless=True,
-                            use_persistent_context=True,
-                        )
-                    )
-                    await crawler.__aenter__()  # re-enter context manually for retries
+            # accessing the article page (should be only one in the list)
+            result = results[0]
+            raw_md = result.markdown
+            last_markdown = raw_md
 
-                # Small jitter to reduce fingerprinting
-                await asyncio.sleep(1 + random.random() * 2)
+            if is_challenge_page(raw_md):
+                logger.warning(f"Detected challenge page for {link} on attempt {attempt + 1}; retrying with different UA/backoff. Returning raw markdown: {result.markdown}")
+                attempt += 1
+                await asyncio.sleep(2**attempt)
+                continue  # retry
 
-                results = None
-                try:
-                    config = copy.deepcopy(base_config)
-                    results = await crawler.arun(url=link, config=config, dispatcher=dispatcher)
-                except Exception as e:
-                    logger.warning(f"Exception while crawling {link} on attempt {attempt+1}: {e}")
-                    attempt += 1
-                    await asyncio.sleep(2 ** attempt)
-                    continue
+            # Extract date
+            date = find_and_format_numeric_date(raw_md)
+            if date is None:
+                logger.warning(f"Could not locate date. Skipping: {link}")
+                continue
 
-                if results is None or not results:
-                    logger.warning(f"No crawl result for {link} on attempt {attempt+1}")
-                    attempt += 1
-                    await asyncio.sleep(2 ** attempt)
-                    continue
+            success = True
 
-                # accessing the article page (should be only one in the list)
-                result = results[0]
-                raw_md = result.markdown
-                last_markdown = raw_md
+        # check if at the and the download was successfull
+        if not success:
+            logger.warning(f"Failed to scrape challenge {link} after {max_attempts} attempts. Last markdown snippet:\n{last_markdown}")
+            await asyncio.sleep(5)
 
-                if is_challenge_page(raw_md):
-                    logger.warning(f"Detected challenge page for {link} on attempt {attempt+1}; retrying with different UA/backoff. Returning raw markdown: {result.markdown}")
-                    attempt += 1
-                    await asyncio.sleep(2 ** attempt)
-                    continue  # retry
+    if success:
+        return raw_md
+    else:
+        return None
 
-                # Extract date
-                date = find_and_format_numeric_date(raw_md)
-                if date is None:
-                    logger.warning(f"Could not locate date. Skipping: {link}")
-                    logger.debug(f"Raw markdown for {link}:\n{raw_md[:1000]}")
-                    break  # give up on this link
+async def scrape_page_with_playwright(url: str, content_selector: str = ".n-grid.xsp-news-item", timeout: int = 30) -> str:
+    """
+    Scrape the JS-rendered content at `url`, extract the element matching `content_selector`,
+    strip scripts/styles, and convert to Markdown.
 
-                success = True
+    Args:
+        url: The page URL to scrape.
+        content_selector: CSS selector for the main article container.
+        timeout: Seconds to wait for the element to appear.
+        chrome_driver_path: Path to your chromedriver executable.
 
-            # check if at the and the download was successfull
-            if not success:
-                logger.error(f"Failed to scrape challenge {link} after {max_attempts} attempts. Last markdown snippet:\n{last_markdown}")
-                await asyncio.sleep(5)
+    Returns:
+        A Markdown string of the article.
+    """
+    # 1. Launch headless Chrome
+    options = Options()
+    options.add_argument("--headless")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--no-sandbox")
+    driver = webdriver.Chrome( options=options)
 
-            # attempt to scrape avoing using crawl4ai
-            if not success:
-                raw_md = scrape_and_convert_to_markdown(url=link)
-                if raw_md is None:
-                    logger.error(f"Failed to scrape challenge {link} using an alternative method. Skipping url: {link}")
-                    await asyncio.sleep(5)
-                    continue
+    try:
+        # 2. Load page and wait for the article container
+        driver.get(url)
+        WebDriverWait(driver, timeout).until(EC.presence_of_element_located((By.CSS_SELECTOR, content_selector)))
 
-            # add post to the database
-            article_title = link.rstrip("/").split("/")[-1].replace("-", "_")
-            if database is not None:
-                database.add_post(
-                    table_name=table_name,
-                    published_on=date,
-                    title=article_title,
-                    post_url=link,
-                    post=raw_md,
-                )
+        # 3. Grab the outer HTML of that container
+        elem = driver.find_element(By.CSS_SELECTOR, content_selector)
+        raw_html = elem.get_attribute("outerHTML")
+    finally:
+        driver.quit()
 
-            new_articles.append(link)
-            logger.info(f"Saved article {link} (size: {len(raw_md)} chars)")
+    # 4. Clean with BeautifulSoup
+    soup = BeautifulSoup(raw_html, "html.parser")
+    for tag in soup(["script", "style"]):
+        tag.decompose()
 
-            await asyncio.sleep(5) # to avoid IP blocking
-            gc.collect() # clean memory
+    # 5. Convert to Markdown
+    markdown = md(str(soup), heading_style="ATX")
+    return markdown
 
+async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDatabase|None) -> None:
+    """Scrape 50hz news pages."""
+    links = await fetch_news_links_with_playwright_async(url=root_url)
+    for link in links:
+        logger.debug(f"Found: {link}")
+    if len(links) == 0:
+        raise Exception("No links found")
+
+    new_articles = []
+    for link in links:
+        logger.info(f"Processing {link}")
+
+        # check for post in the database before trying to pull it as it is long
+        if database is not None and database.is_table(table_name=table_name) and database.is_post(table_name=table_name, post_id=database.create_post_id(post_url=link)):
+            logger.info(f"Post already exists in the database. Skipping: {link}")
+            continue
+
+        # attempt scraping with crawl4ai
+        raw_md = await scrape_page_with_crawl4ai(link=link)
+
+        if raw_md is None:
+            raw_md = await scrape_page_with_playwright(url=link)
+
+        if raw_md is None:
+            logger.error(f"All attempts to scrape the page failed. Url: {link}")
+            continue
+
+        # locate date
+        date = find_and_format_numeric_date(raw_md)
+        if date is None:
+            logger.warning(f"Could not locate date in {link}\n{raw_md}")
+            continue
+
+        # add post to the database
+        article_title = link.rstrip("/").split("/")[-1].replace("-", "_")
+        if database is not None:
+            database.add_post(
+                table_name=table_name,
+                published_on=date,
+                title=article_title,
+                post_url=link,
+                post=raw_md,
+            )
+
+        new_articles.append(link)
+        logger.info(f"Saved article {link} (size: {len(raw_md)} chars)")
+
+        await asyncio.sleep(5)  # to avoid IP blocking
+        gc.collect()  # clean memory
+
+    logger.info(f"Saving {len(new_articles)} new posts out of {len(links)} total links")
 
 def main_scrape_50hz_posts(db_path:str, table_name:str, out_dir:str, root_url:str|None=None):
     """Scrape 50hz news articles database."""
@@ -341,7 +342,7 @@ def main_scrape_50hz_posts(db_path:str, table_name:str, out_dir:str, root_url:st
             scrape_50hz_news(
                 root_url=root_url,
                 table_name=table_name,
-                database=None
+                database=news_db
             )
         )
     except Exception as e:
