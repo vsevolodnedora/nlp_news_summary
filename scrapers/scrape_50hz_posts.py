@@ -18,7 +18,7 @@ from crawl4ai.deep_crawling import BFSDeepCrawlStrategy
 from crawl4ai.deep_crawling.filters import (
     FilterChain,
 )
-from playwright.async_api import async_playwright
+from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
 
 from database import PostsDatabase
 from logger import get_logger
@@ -26,19 +26,16 @@ from logger import get_logger
 logger = get_logger(__name__)
 
 
-def fetch_html(url, timeout=10, headers=None):
-    """Fetch HTML of a page with basic headers and error handling."""
+def fetch_html(url: str, timeout: int = 10, headers: dict = None) -> str:
+    """
+    Fetch HTML of a page with basic headers and error handling.
+    """
     headers = headers or {
         "User-Agent": "Mozilla/5.0 (compatible; news-link-extractor/1.0; +https://example.com)"
     }
     resp = requests.get(url, timeout=timeout, headers=headers)
     resp.raise_for_status()
     return resp.text
-
-
-class PlaywrightTimeoutError:
-    pass
-
 
 async def fetch_news_links_with_playwright_async(
     url: str = "https://www.50hertz.com/de/Medien/",
@@ -51,51 +48,54 @@ async def fetch_news_links_with_playwright_async(
     'News/Details/' (case-insensitive).
     """
     found = set()
-    async with async_playwright() as p:
-        browser = await p.chromium.launch(headless=headless)
-        context = await browser.new_context(
-            user_agent=(
-                "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                "Chrome/120.0 Safari/537.36"
-            )
+    playwright = await async_playwright().start()
+    browser = await playwright.chromium.launch(headless=headless)
+    context = await browser.new_context(
+        user_agent=(
+            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+            "AppleWebKit/537.36 (KHTML, like Gecko) "
+            "Chrome/120.0 Safari/537.36"
         )
-        page = await context.new_page()
-        try:
-            await page.goto(url, wait_until="networkidle", timeout=timeout_ms)
-        except PlaywrightTimeoutError:
-            # proceed even if networkidle didn't happen in time
-            pass
+    )
+    page = await context.new_page()
+    try:
+        # Try waiting for true network idle; may timeout on slow CI
+        await page.goto(url, wait_until="networkidle", timeout=timeout_ms)
+    except PlaywrightTimeoutError as e:
+        logger.error("PlaywrightTimeoutError raised: {}".format(e))
+        # Fallback: proceed even if networkidle didn’t happen
+        pass
 
-        # allow late-rendered content
-        await page.wait_for_timeout(int(wait_after_network_idle * 1000))
+    # Give any late-rendered JS a moment
+    await page.wait_for_timeout(int(wait_after_network_idle * 1000))
 
-        # best-effort wait for at least one matching link
-        try:
-            await page.wait_for_selector('a[href*="News/Details"]', timeout=5000)
-        except PlaywrightTimeoutError:
-            pass  # continue anyway
+    # Best‐effort: wait for at least one relevant link
+    try:
+        await page.wait_for_selector('a[href*="News/Details"]', timeout=5000)
+    except PlaywrightTimeoutError as e:
+        logger.error("PlaywrightTimeoutError raised: {}".format(e))
+        pass
 
-        anchors = await page.query_selector_all("a[href]")
-        for a in anchors:
-            href = await a.get_attribute("href") or ""
-            href = href.strip()
-            if not href:
-                continue
-            if href.lower().startswith("javascript:") or href.startswith("#") or href.startswith("mailto:"):
-                continue
-            if re.search(r"news/details", href, re.IGNORECASE):
-                full = urljoin(url, href)
-                found.add(full)
+    # Scrape all anchors
+    anchors = await page.query_selector_all("a[href]")
+    for a in anchors:
+        href = (await a.get_attribute("href") or "").strip()
+        if not href or href.lower().startswith(("javascript:", "#", "mailto:")):
+            continue
+        if re.search(r"news/details", href, re.IGNORECASE):
+            found.add(urljoin(url, href))
 
-        # fallback: regex scan of rendered HTML
-        content = await page.content()
-        pattern = re.compile(r"https?://[^\"'\s>]+/News/Details/[^\"'\s>]+", re.IGNORECASE)
-        for match in pattern.findall(content):
-            found.add(match)
+    # Fallback: regex scan of the fully rendered HTML
+    content = await page.content()
+    for m in re.findall(
+        r"https?://[^\s\"'>]+/News/Details/[^\s\"'>]+", content, re.IGNORECASE
+    ):
+        found.add(m)
 
-        await context.close()
-        await browser.close()
+    # Clean up
+    await context.close()
+    await browser.close()
+    await playwright.stop()
 
     return sorted(found)
 
