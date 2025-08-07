@@ -83,6 +83,7 @@ async def scrape_amprion_news(root_url:str, table_name:str, database: PostsDatab
 
                 # Replace hyphens with underscores in the title for readability
                 title = url.split("/")[-1].replace("-", "_")
+                title = title.replace(".html", "")
 
                 # store full article in the database
                 database.add_post(

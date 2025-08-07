@@ -121,8 +121,8 @@ class PostsDatabase:
             return
         # parse published_on
         # if only date, add default time 12:00
-        if re.match(r'^\d{4}-\d{2}-\d{2}$', published_on):
-            published_on = published_on + ' 12:00:00'
+        if re.match(r"^\d{4}-\d{2}-\d{2}$", published_on):
+            published_on = published_on + " 12:00:00"
         try:
             published_dt = datetime.fromisoformat(published_on)
         except ValueError as e:
@@ -137,7 +137,7 @@ class PostsDatabase:
             UPDATE "{table_name}"
                SET published_on = ?, title = ?, added_on = ?, url = ?, post = ?
              WHERE ID = ?;
-            """
+            """  # noqa: S608
             params = (
                 published_dt,
                 title,
@@ -151,7 +151,7 @@ class PostsDatabase:
             INSERT INTO "{table_name}"
                    (ID, published_on, title, added_on, url, post)
             VALUES (?, ?, ?, ?, ?, ?);
-            """
+            """  # noqa: S608
             params = (
                 post_id,
                 published_dt,
@@ -186,13 +186,16 @@ class PostsDatabase:
         compressed = row[0]
         return self.decompress_post_text(post_id, compressed)
 
-    def list_posts(self, table_name: str) -> list[dict]:
+    def list_posts(self, table_name: str, sort_date:bool=False) -> list[dict]:
         """Returns a list of all posts in the given table in a json format."""
-
         if not self.is_table(table_name):
             raise ValueError(f"Table {table_name} does not exist.")
         logger.debug(f"Listing all posts in table: {table_name}")
-        sql = f"SELECT ID, published_on, title, added_on, url, post FROM \"{table_name}\";"
+        sql = f"SELECT ID, published_on, title, added_on, url, post FROM \"{table_name}\""
+        # Add sorting if requested
+        if sort_date:
+            sql += " ORDER BY published_on DESC"
+        sql += ";"  # Finish the SQL statement
         cursor = self.conn.execute(sql)
         posts = []
         for row in cursor.fetchall():
@@ -210,7 +213,6 @@ class PostsDatabase:
 
     def dump_posts_as_markdown(self, table_name: str, out_dir: str) -> None:
         """Saves each post as a markdown file in out_dir."""
-
         if not self.is_table(table_name):
             raise ValueError(f"Table {table_name} does not exist.")
         logger.debug(

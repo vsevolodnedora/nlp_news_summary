@@ -135,7 +135,7 @@ if __name__ == "__main__":
     print("launching run_scrape.py")   # noqa: T201
 
     if len(sys.argv) != 2:
-        source = "all"
+        source = "amprion"
     else:
         source = str(sys.argv[1])
 
