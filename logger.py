@@ -10,7 +10,7 @@ load_dotenv()  # Load environment variables from .env
 GITHUB_ACTIONS = os.getenv("GITHUB_ACTIONS") == "true"
 
 # Get log level from environment variable (default to INFO)
-LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO").upper()
+LOG_LEVEL = os.getenv("LOG_LEVEL", "DEBUG").upper()
 
 # Validate log level (fallback to INFO if invalid)
 VALID_LOG_LEVELS = ["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"]

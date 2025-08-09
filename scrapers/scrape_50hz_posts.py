@@ -19,6 +19,7 @@ from crawl4ai.deep_crawling.filters import (
 from markdownify import markdownify as md
 from playwright.async_api import TimeoutError as PlaywrightTimeoutError
 from playwright.async_api import async_playwright
+from pydantic.color import ColorType
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -91,7 +92,7 @@ async def fetch_news_links_with_playwright_async(
     await browser.close()
     await playwright.stop()
 
-    return sorted(set(found)) # select unique links
+    return sorted(found) # select unique links
 
 def find_and_format_numeric_date(text:str)->str|None:
     """Extract date from markdown."""
@@ -116,7 +117,7 @@ def is_challenge_page(markdown: str) -> bool:
         or "please enable javascript" in lowered and "security check" in lowered
     )
 
-async def scrape_page_with_crawl4ai(link: str) -> str|None:
+async def scrape_page_with_crawl4ai(link: str, default_date:str) -> str|None:
     """Scrape page using Crawl4AI."""
     # Shared dispatcher and rate limiter (reuse for all crawls)
     rate_limiter = RateLimiter(
@@ -154,7 +155,7 @@ async def scrape_page_with_crawl4ai(link: str) -> str|None:
 
     # retry logic
     attempt = 0
-    max_attempts = 3
+    max_attempts = 4
     last_markdown = None
     success = False
 
@@ -167,9 +168,10 @@ async def scrape_page_with_crawl4ai(link: str) -> str|None:
         )
     ) as crawler:
         while attempt < max_attempts and not success:
+            attempt += 1
             # Rotate user-agent on retry
-            user_agent = random.choice(plausable_user_agents) if attempt > 0 else plausable_user_agents[0]
-            if attempt > 0:
+            user_agent = random.choice(plausable_user_agents) if attempt > 1 else plausable_user_agents[0]
+            if attempt > 1:
                 # Reconfigure crawler's user-agent by rebuilding browser context.
                 # Lightweight since it's only on failure.
                 await crawler.close()  # close previous context
@@ -183,21 +185,18 @@ async def scrape_page_with_crawl4ai(link: str) -> str|None:
                 await crawler.__aenter__()  # re-enter context manually for retries
 
             # Small jitter to reduce fingerprinting
-            await asyncio.sleep(1 + random.random() * 2)
+            await asyncio.sleep(2 + random.random() * 2)
 
-            results = None
             try:
                 config = copy.deepcopy(base_config)
                 results = await crawler.arun(url=link, config=config, dispatcher=dispatcher)
             except Exception as e:
-                logger.warning(f"Exception while crawling {link} on attempt {attempt + 1}: {e}")
-                attempt += 1
+                logger.warning(f"Exception while crawling {link} on attempt {attempt}: {e}")
                 await asyncio.sleep(2**attempt)
                 continue
 
             if results is None or not results:
-                logger.warning(f"No crawl result for {link} on attempt {attempt + 1}")
-                attempt += 1
+                logger.warning(f"No crawl result for {link} on attempt {attempt}")
                 await asyncio.sleep(2**attempt)
                 continue
 
@@ -207,16 +206,15 @@ async def scrape_page_with_crawl4ai(link: str) -> str|None:
             last_markdown = raw_md
 
             if is_challenge_page(raw_md):
-                logger.warning(f"Detected challenge page for {link} on attempt {attempt + 1}; retrying with different UA/backoff. Returning raw markdown: {result.markdown}")
-                attempt += 1
+                logger.warning(f"Detected challenge page for {link} on attempt {attempt}; retrying with different UA/backoff. Returning raw markdown: {result.markdown}")
                 await asyncio.sleep(2**attempt)
                 continue  # retry
 
             # Extract date
             date = find_and_format_numeric_date(raw_md)
             if date is None:
-                logger.warning(f"Could not locate date. Skipping: {link}")
-                continue
+                logger.error(f"Could not locate date in {link}\n{raw_md}")
+                raise Exception(f"Could not locate date")
 
             # stop the retry
             success = True
@@ -282,6 +280,8 @@ async def main_scrape_50hz_posts(root_url: str, table_name: str, database: Posts
     if len(links) == 0:
         raise Exception("No links found")
 
+    default_date = "1990-01-01"
+
     new_articles = []
     for link in links:
         logger.info(f"Processing {link}")
@@ -292,7 +292,7 @@ async def main_scrape_50hz_posts(root_url: str, table_name: str, database: Posts
             continue
 
         # attempt scraping with crawl4ai
-        raw_md = await scrape_page_with_crawl4ai(link=link)
+        raw_md = await scrape_page_with_crawl4ai(link=link, default_date=default_date)
 
         if raw_md is None:
             raw_md = await scrape_page_with_playwright(url=link)
