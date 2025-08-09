@@ -26,11 +26,9 @@ from logger import get_logger
 
 logger = get_logger(__name__)
 
-
 # Playwright globals so we reuse browser across calls in the process
 _playwright = None
 _browser = None
-
 
 async def _get_playwright_browser():
     global _playwright, _browser
@@ -45,7 +43,6 @@ async def _get_playwright_browser():
         args=["--no-sandbox", "--disable-setuid-sandbox"],
     )
     return _browser
-
 
 async def fetch_html(
     url: str,
@@ -138,23 +135,10 @@ def extract_news_links_from_html(html: str, base_url: str) -> list[str]:
             found.add(full)
     return sorted(found)
 
-
 async def get_tennet_news_links_async(url: str = "https://www.tennet.eu/de/news-de") -> list[str]:
     """Async extraction using the async fetch_html."""
     html = await fetch_html(url)
     return extract_news_links_from_html(html, url)
-
-
-# # Optional synchronous wrapper if somewhere you need sync:
-# def get_tennet_news_links(url: str = "https://www.tennet.eu/de/news-de") -> list[str]:
-#     """Blocking wrapper that can be used from sync code (calls async version)."""
-#     return asyncio.run(get_tennet_news_links_async(url))
-#
-#
-# def get_tennet_news_links(url: str = "https://www.tennet.eu/de/news-de", session: requests.Session | None = None) -> list[str]:
-#     """Extract TenneT news links from the TenneT news page."""
-#     html = fetch_html(url, session=session)
-#     return extract_news_links_from_html(html, url)
 
 def find_and_format_numeric_date(text:str)->str|None:
     """Extract date from markdown."""
@@ -178,7 +162,7 @@ def is_challenge_page(markdown: str) -> bool:
         or "please enable javascript" in lowered and "security check" in lowered
     )
 
-async def scrape_tennet_news(root_url: str, table_name: str, database: PostsDatabase|None) -> None:
+async def main_scrape_tennet_posts(root_url: str, table_name: str, database: PostsDatabase|None) -> None:
     """Scrape tennet news pages."""
     html = await fetch_html(url=root_url)
     links = extract_news_links_from_html(html=html, base_url=root_url)
@@ -333,44 +317,3 @@ async def scrape_tennet_news(root_url: str, table_name: str, database: PostsData
             gc.collect() # clean memory
 
         logger.info(f"Finished saving {len(new_articles)} new articles out of {len(results)} articles")
-
-def main_scrape_tennet_posts(db_path:str, table_name:str, out_dir:str, root_url:str|None=None):
-    """Scrape tennet news articles database."""
-    if root_url is None:
-        root_url = "https://www.tennet.eu/de/news-de" # default path to latest news
-
-    # --- initialize / connect to DB ---
-    news_db = PostsDatabase(db_path=db_path)
-
-    # create acer table if it does not exists
-    news_db.check_create_table(table_name)
-
-    # try to scrape articles and add them to the database
-    try:
-        # --- scrape & store ---
-        asyncio.run(
-            scrape_tennet_news(
-                root_url=root_url,
-                table_name=table_name,
-                database=None
-            )
-        )
-    except Exception as e:
-        logger.error(f"Failed to '{table_name}' run scraper. Aborting... Error raised: {e}")
-        news_db.close()
-        return
-
-    # save scraped posts as raw .md files for analysis
-    news_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
-
-    news_db.close()
-
-# Execute the tutorial when run directly
-if __name__ == "__main__":
-
-    main_scrape_tennet_posts(
-        db_path="../database/scraped_posts.db",
-        root_url="https://www.tennet.eu/de/news-de",
-        table_name="tennet",
-        out_dir="../output/posts_raw/tennet/",
-    )

@@ -1,5 +1,7 @@
 import os
 import sys
+import asyncio
+from typing import Callable
 
 from scrapers.scrape_acer_posts import main_scrape_acer_posts
 from scrapers.scrape_agora_posts import main_scrape_agora_posts
@@ -14,9 +16,41 @@ from scrapers.scrape_transnetbw_posts import main_scrape_transnetbw_posts
 from scrapers.scrape_tennet_posts import main_scrape_tennet_posts
 from scrapers.scrape_amprion_posts import main_scrape_amprion_posts
 from scrapers.scrape_50hz_posts import main_scrape_50hz_posts
+from database.news_posts_database import PostsDatabase
 
 from logger import get_logger
 logger = get_logger(__name__)
+
+
+def main_scrape_posts(scraper:Callable, db_path: str, table_name: str, out_dir: str, root_url: str, max_runtime:int) -> None:
+    """Wrapper for scrapping news articles database with async."""
+
+    # --- initialize / connect to DB ---
+    news_db = PostsDatabase(db_path=db_path)
+
+    # create acer table if it does not exist
+    news_db.check_create_table(table_name)
+
+    async def runner():
+        await asyncio.wait_for(
+            scraper(
+                root_url=root_url,
+                table_name=table_name,
+                database=news_db
+            ),
+            timeout=max_runtime
+        )
+
+    try:
+        asyncio.run(runner())
+    except asyncio.TimeoutError:
+        logger.error(f"Scraper for '{table_name}' timed out after {max_runtime} seconds.")
+    except Exception as e:
+        logger.error(f"Failed to run scraper for '{table_name}'. Aborting... Error raised: {e}")
+    finally:
+        # save scraped posts as raw .md files for analysis
+        news_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
+        news_db.close()
 
 def main_scrape(source:str):  # noqa: C901
     """Scrape the news source."""
@@ -104,6 +138,8 @@ def main_scrape(source:str):  # noqa: C901
 
     # # Flattened mapping if needed elsewhere
     # source_url_mapping = {k: v["root_url"] for k, v in SOURCE_CONFIG.items()}
+    # print(list(SOURCE_CONFIG.keys()))
+    # exit(1)
 
     db_path = "./database/scraped_posts.db"
 
@@ -116,16 +152,17 @@ def main_scrape(source:str):  # noqa: C901
 
     for src in targets:
         config = SOURCE_CONFIG[src]
-        scraper = config["scraper_func"]
         out_dir = config["out_dir"]
         os.makedirs(out_dir, exist_ok=True)  # ensure output directory exists
 
         # Call the appropriate scraper
-        scraper(
+        main_scrape_posts(
+            scraper=config["scraper_func"],
             root_url=config["root_url"],
             table_name=config["table_name"],
             db_path=db_path,
             out_dir=out_dir,
+            max_runtime=1800 # maximum time for one scraper in seconds
         )
 
         logger.info(f"Scraping {src} done.")
@@ -135,7 +172,7 @@ if __name__ == "__main__":
     print("launching run_scrape.py")   # noqa: T201
 
     if len(sys.argv) != 2:
-        source = "amprion"
+        source = "all"
     else:
         source = str(sys.argv[1])
 

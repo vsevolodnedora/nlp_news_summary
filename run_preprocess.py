@@ -88,17 +88,33 @@ black_list_line_starts = [
     "Geben Sie der von Ihnen getroffenen",
     "Default-Daten Live-Daten",
     "# Link kopieren",
-
     "  * [Alle Artikel]",
-    "  * [2025]",
-    "  * [2024]",
-    "  * [2023]",
-    "  * [2022]",
-    "  * [2021]",
-    "  * [2020]",
-    "  * [2019]",
-    "  * [2018]",
-    "  * [2017]",
+    "  * [2024](https://www.smard.de/home/",
+    "  * [2023](https://www.smard.de/home/",
+    "  * [2022](https://www.smard.de/home/",
+    "  * [2021](https://www.smard.de/home/",
+    "  * [2020](https://www.smard.de/home/",
+    "  * [2019](https://www.smard.de/home/",
+    "  * [2018](https://www.smard.de/home/",
+    "  * [2017](https://www.smard.de/home/",
+    "  * [2016](https://www.smard.de/home/",
+    "  * [2015](https://www.smard.de/home/",
+    "  * [2014](https://www.smard.de/home/",
+    "  * [2013](https://www.smard.de/home/",
+    "  * [2012](https://www.smard.de/home/",
+    "  * [2011](https://www.smard.de/home/",
+    "  * [2010](https://www.smard.de/home/",
+    "  * [2009](https://www.smard.de/home/",
+    "  * [2008](https://www.smard.de/home/",
+    "  * [2007](https://www.smard.de/home/",
+    "  * [2006](https://www.smard.de/home/",
+    "  * [2005](https://www.smard.de/home/",
+    "  * [2004](https://www.smard.de/home/",
+    "  * [2003](https://www.smard.de/home/",
+    "  * [2002](https://www.smard.de/home/",
+    "  * [2001](https://www.smard.de/home/",
+    "  * [2000](https://www.smard.de/home/",
+    "  * [2025](https://www.smard.de/home/",
     "  * Stromerzeugung",
     "  * Stromverbrauch",
     "  * Markt",
@@ -201,7 +217,7 @@ black_list_single_word_lines = [
 ]
 black_list_blocks=[
     "Created with Highcharts",
-    "Chart Created with Highstock"
+    "Chart Created with Highstock",
 ]
 black_list_starters_energy_wire = [
     "### ",
@@ -333,7 +349,13 @@ def main_preprocess(source:str):  # noqa: C901
         },
         "acer": {
             "table_name": "acer",
-            "preprocessor_config": {"start_marker_constructs": {"date": Preprocessor.date_to_dd_mm_yyyy}, "start_markers": [], "end_markers": ["![acer]"], "max_lines": 30},
+            "preprocessor_config": {
+                "start_marker_constructs": {"date": Preprocessor.date_to_dd_mm_yyyy},
+                "start_markers": [],
+                "end_markers": ["## ↓ Related News", "![acer]"],
+                "custom_black_list_starters":["Share on: [Share]"],
+                "max_lines": 30
+            },
             "out_dir": "./output/posts_cleaned/acer/",
         },
         "ec": {
@@ -353,14 +375,37 @@ def main_preprocess(source:str):  # noqa: C901
         },
         "icis": {
             "table_name": "icis",
-            "preprocessor_config": {"start_markers": ["[Home](https://www.icis.com/explore)"], "end_markers": ["## Related news"], "max_lines": 30},
+            "preprocessor_config": {
+                "start_markers": [
+                    "[Home](https://www.icis.com/explore)"
+                ],
+                "end_markers": [
+                    "## Related news",
+                ],
+                "custom_black_list_starters":[
+                    "[Full story](https://www.icis.com/explore/resources/news",
+                    "[Related news](https://www.icis.com/explore/resources/news",
+                    "[Related content](https://www.icis.com/explore/resources/news",
+                    "[Contact us](https://www.icis.com/explor",
+                    "[Try ICIS](https://www.icis.com/explore/contact",
+                ],
+                "black_list_single_word_lines":[
+                    "Jump to",
+                ],
+                "max_lines": 30
+            },
             "out_dir": "./output/posts_cleaned/icis/",
         },
         "bnetza": {
             "table_name": "bnetza",
             "preprocessor_config": {
-                "start_markers": ["[Pressemitteilungen](https://www.bundesnetzagentur.de/SharedDocs"],
-                "end_markers": ["[](javascript:void\(0\);) **Inhalte teilen**"],
+                "start_markers": [
+                    "[Pressemitteilungen](https://www.bundesnetzagentur.de/SharedDocs"
+                ],
+                "end_markers": [
+                    "[](javascript:void\(0\);) **Inhalte teilen**"
+                ],
+                "skip_start_lines":1,
                 "max_lines": 30,
             },
             "out_dir": "./output/posts_cleaned/bnetza/",
@@ -424,6 +469,28 @@ def main_preprocess(source:str):  # noqa: C901
                 "custom_black_list_starters":[
                     "  * [Impressum]","  * [Datenschutz]","  * [Nutzungsbedingungen]","  * [AEB]","  * [Kontakt]","  * [Netiquette ]",
                     "![](https://www.transnetbw.de/_Resources",
+                    "Andrea JungLeiterin Unternehmenskommunikationa",
+                    "Kathrin EggerPressesprecherink",
+                    "PDF",
+                    "Clemens von WalzelTeamleiter",
+                    "Matthias RuchserPressesprecherm",
+                    "JPG5", "JPG1",
+                    "  * [www.transnetbw.de/de/",
+                    "  * [Starte Download von: ",
+                    "[www.stromgedacht.de]",
+                    "Copyright Bild: ",
+                    "Pressemitteilung:",
+                    "[www.transnetbw.de/de/newsroom",
+                    "[www.powerlaendle.de]",
+                    "[www.sonnen.de]",
+                    "[www.transnetbw.de/de/netzentwicklung",
+                    "![](https://www.transnetbw.de/",
+                    "![](https://www.transnetbw.de/_Resources/",
+                    "/ / / / / / / / ",
+                    "<https://ip.ai/",
+                ],
+                "black_list_single_word_lines":[
+                    "Mathias Bloch","Pressesprecher","m.bloch@sonnen.de","ZurückWeiter",
                 ],
                 "max_lines": 30
             },
@@ -458,6 +525,7 @@ def main_preprocess(source:str):  # noqa: C901
                 ],
                 "custom_black_list_starters":[
                     "![](/DesktopModules/LotesNewsXSP",
+                    "[Download der Pressemitteilung als PDF-Datei]",
                 ],
                 "max_lines": 30
             },
@@ -473,6 +541,14 @@ def main_preprocess(source:str):  # noqa: C901
                     "Seite teilen:"
                 ],
                 "custom_black_list_starters":[
+                    "/Presse%C3%BCbersicht_aktuell.html)",
+                    "  1. [ ](https://www.amprion.net/",
+                    "  2. [ ](https://www.amprion.net/",
+                    "  3. [ ](https://www.amprion.net/",
+                    "  4. [ ](https://www.amprion.net/",
+                    "  * [Presse](https://www.amprion.net",
+                    "    * [ ](https://www.amprion.net",
+                    "[](tel:+",
                 ],
                 "max_lines": 30
             },

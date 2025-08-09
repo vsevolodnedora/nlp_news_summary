@@ -23,6 +23,10 @@ def process_one_article_text(  # noqa: C901
         custom_black_list_starters:List,
         black_list_single_word_lines:List,
         black_list_blocks:List|None,
+        remove_image_links:bool,
+        strip_links:bool,
+        remove_empty_links:bool,
+        strip_generic_page_links:bool,
 ) -> str:
     """Process one article text and return a snippet."""
     # Find start point from which to cut the article
@@ -100,7 +104,6 @@ def process_one_article_text(  # noqa: C901
             selected_lines.append(line)
         snippet = "\n".join(selected_lines)
 
-
     if skip_start_lines > 0:
         lines = snippet.split("\n")
         selected_lines = lines[skip_start_lines:]
@@ -112,10 +115,14 @@ def process_one_article_text(  # noqa: C901
         cleaned_blocks = []
 
         for block in blocks:
+            skip_block = False
             for black_list_block_component in black_list_blocks:
                 if black_list_block_component in block:
                     logger.info(f"removing {black_list_block_component} from block")
+                    skip_block = True
                     continue
+            if skip_block:
+                continue
 
             cleaned_blocks.append(block)
 
@@ -125,6 +132,27 @@ def process_one_article_text(  # noqa: C901
         logger.warning(
             f"Only one line in snippet, nothing to write after skipping first line. Date:{date} title:{title}\n{snippet}"
         )
+
+    # remove links
+    if remove_image_links:
+        pattern = r"!\[.*?\]\(([^)]+?\.(?:png|jpg|jpeg))(?:\?.*?)?\)"
+        snippet = re.sub(pattern, "", snippet, flags=re.IGNORECASE)
+
+    # strip page links
+    if strip_links:
+        pattern = r'\[([^\]]+)\]\(([^)]+?\.(?:html|aspx|pdf|doc)(?:\?.*?)?)\)'
+        snippet = re.sub(pattern, r"\1 ", snippet, flags=re.IGNORECASE)
+
+    if remove_empty_links:
+        pattern = r"\[\]\((https?://[^)]+)\)"
+        snippet = re.sub(pattern, "", snippet, flags=re.IGNORECASE)
+
+    if strip_generic_page_links:
+        pattern = r"\[([^\]]+)\]\(https://www\.[^)]+\)"
+        snippet = re.sub(pattern, r"\1 ", snippet)
+
+        pattern = r'\[([^\]]+)\]\((https?://[^)]+)\)'
+        snippet = re.sub(pattern, r"\1 ", snippet)
 
     return snippet
 
@@ -219,6 +247,10 @@ def preprocess_posts_for_a_table(
             skip_start_lines=skip_start_lines,
             black_list_blocks=black_list_blocks,
             max_lines=max_lines,
+            remove_image_links=True,
+            strip_links=True,
+            remove_empty_links = True,
+            strip_generic_page_links = True,
         )
 
         # 5) Store compressed cleaned text back into target DB

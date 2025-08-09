@@ -37,6 +37,7 @@ async def fetch_news_links_with_playwright_async(
     wait_after_network_idle: float = 5.0,
 ) -> List[str]:
     """ Async: load the page with JS executed and extract absolute links containing 'News/Details/' (case-insensitive)."""
+    logger.info(f"Fetching 50Hertz news links with playwright async for {url}")
     found = set()
     playwright = await async_playwright().start()
     browser = await playwright.chromium.launch(headless=headless)
@@ -57,10 +58,12 @@ async def fetch_news_links_with_playwright_async(
         pass
 
     # Give any late-rendered JS a moment
+    logger.debug(f"Waiting {int(wait_after_network_idle * 1000)} for JS to be loaded for {url}")
     await page.wait_for_timeout(int(wait_after_network_idle * 1000))
 
     # Best‐effort: wait for at least one relevant link
     try:
+        logger.debug(f"Waiting {15000} for" + 'a[href*="News/Details"]' + f" to be loaded for {url}")
         await page.wait_for_selector('a[href*="News/Details"]', timeout=15000)
     except PlaywrightTimeoutError as e:
         logger.error("PlaywrightTimeoutError raised for '{}' with {}".format(url, e))
@@ -76,6 +79,7 @@ async def fetch_news_links_with_playwright_async(
             found.add(urljoin(url, href))
 
     # Fallback: regex scan of the fully rendered HTML
+    logger.debug(f"Processing {len(found)} news articles")
     content = await page.content()
     for m in re.findall(
         r"https?://[^\s\"'>]+/News/Details/[^\s\"'>]+", content, re.IGNORECASE
@@ -87,7 +91,7 @@ async def fetch_news_links_with_playwright_async(
     await browser.close()
     await playwright.stop()
 
-    return sorted(found)
+    return sorted(set(found)) # select unique links
 
 def find_and_format_numeric_date(text:str)->str|None:
     """Extract date from markdown."""
@@ -268,9 +272,11 @@ async def scrape_page_with_playwright(url: str, content_selector: str = ".n-grid
     markdown = md(str(soup), heading_style="ATX")
     return markdown
 
-async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDatabase|None) -> None:
+async def main_scrape_50hz_posts(root_url: str, table_name: str, database: PostsDatabase|None) -> None:
     """Scrape 50hz news pages."""
-    links = await fetch_news_links_with_playwright_async(url=root_url)
+    links = await fetch_news_links_with_playwright_async(url=root_url) # get list of unique links in the page
+    if len(links) > 20:
+        logger.warning(f"Too many links to scrape for {table_name} ({len(links)} links)")
     for link in links:
         logger.debug(f"Found: {link}")
     if len(links) == 0:
@@ -319,44 +325,3 @@ async def scrape_50hz_news(root_url: str, table_name: str, database: PostsDataba
         gc.collect()  # clean memory
 
     logger.info(f"Saving {len(new_articles)} new posts out of {len(links)} total links")
-
-def main_scrape_50hz_posts(db_path:str, table_name:str, out_dir:str, root_url:str|None=None):
-    """Scrape 50hz news articles database."""
-    if root_url is None:
-        root_url = "https://www.50hertz.com/de/Medien/" # default path to latest news
-
-    # --- initialize / connect to DB ---
-    news_db = PostsDatabase(db_path=db_path)
-
-    # create acer table if it does not exists
-    news_db.check_create_table(table_name)
-
-    # try to scrape articles and add them to the database
-    try:
-        # --- scrape & store ---
-        asyncio.run(
-            scrape_50hz_news(
-                root_url=root_url,
-                table_name=table_name,
-                database=news_db
-            )
-        )
-    except Exception as e:
-        logger.error(f"Failed to '{table_name}' run scraper. Aborting... Error raised: {e}")
-        news_db.close()
-        return
-
-    # save scraped posts as raw .md files for analysis
-    news_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
-
-    news_db.close()
-
-# Execute the tutorial when run directly
-if __name__ == "__main__":
-
-    main_scrape_50hz_posts(
-        db_path="../database/scraped_posts.db",
-        root_url="https://www.50hertz.com/de/Medien/",
-        table_name="50hz",
-        out_dir="../output/posts_raw/50hz/",
-    )

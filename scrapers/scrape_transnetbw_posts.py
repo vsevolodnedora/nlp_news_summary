@@ -25,7 +25,7 @@ from logger import get_logger
 
 logger = get_logger(__name__)
 
-async def scrape_transnetbw_news(root_url:str, table_name:str, database: PostsDatabase) -> None:
+async def main_scrape_transnetbw_posts(root_url:str, table_name:str, database: PostsDatabase) -> None:
     """Scrape posts from transnetbw news page."""
     async with AsyncWebCrawler() as crawler:
 
@@ -99,44 +99,3 @@ async def scrape_transnetbw_news(root_url:str, table_name:str, database: PostsDa
         await asyncio.sleep(5) # to avoid hitting IP limits
 
         logger.info(f"Finished saving {len(new_articles)} new articles out of {len(results)} articles")
-
-def main_scrape_transnetbw_posts(db_path:str, table_name:str, out_dir:str, root_url:str|None=None):
-    """Scrape transnetbw news articles database."""
-    if root_url is None:
-        root_url = "https://www.transnetbw.de/de/newsroom/" # default path to latest news
-
-    # --- initialize / connect to DB ---
-    news_db = PostsDatabase(db_path=db_path)
-
-    # create acer table if it does not exists
-    news_db.check_create_table(table_name)
-
-    # try to scrape articles and add them to the database
-    try:
-        # --- scrape & store ---
-        asyncio.run(
-            scrape_transnetbw_news(
-                root_url=root_url,
-                table_name=table_name,
-                database=news_db
-            )
-        )
-    except Exception as e:
-        logger.error(f"Failed to '{table_name}' run scraper. Aborting... Error raised: {e}")
-        news_db.close()
-        return
-
-    # save scraped posts as raw .md files for analysis
-    news_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
-
-    news_db.close()
-
-# Execute the tutorial when run directly
-if __name__ == "__main__":
-
-    main_scrape_transnetbw_posts(
-        db_path="../database/scraped_posts.db",
-        root_url="https://www.transnetbw.de/de/newsroom/",
-        table_name="transnetbw",
-        out_dir="../output/posts_raw/transnetbw/",
-    )

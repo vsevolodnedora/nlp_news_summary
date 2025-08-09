@@ -31,7 +31,7 @@ from logger import get_logger
 
 logger = get_logger(__name__)
 
-async def scrape_acer_news(
+async def main_scrape_acer_posts(
     root_url: str,
     database: PostsDatabase,
     table_name:str
@@ -97,44 +97,3 @@ async def scrape_acer_news(
         logger.info(
             f"Finished: {len(new_articles)} new articles out of {len(results)} crawled."
         )
-
-
-def main_scrape_acer_posts(db_path:str, table_name:str, out_dir:str, root_url:str|None=None):
-    """Scrape acer news posts from acer webpage."""
-    if root_url is None:
-        root_url = "https://www.acer.europa.eu/news-and-events/news"
-
-    # --- initialize / connect to DB ---
-    news_db = PostsDatabase(db_path=db_path)
-
-    # create acer table if it does not exist
-    news_db.check_create_table(table_name=table_name)
-
-    # try to scrape articles and add them to the database
-    try:
-        # --- scrape & store ---
-        asyncio.run(
-            scrape_acer_news(
-                root_url=root_url,
-                database=news_db,
-                table_name=table_name,
-            )
-        )
-    except Exception as e:
-        logger.error(f"Failed to '{table_name}' run scraper. Aborting... Error raised: {e}")
-        news_db.close()
-        return
-
-    # save scraped posts as raw .md files for analysis
-    news_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
-
-    news_db.close()
-
-# Execute the tutorial when run directly
-if __name__ == "__main__":
-    main_scrape_acer_posts(
-        db_path="../database/scraped_posts.db",
-        table_name="acer",
-        out_dir="../output/posts_raw/acer/",
-        root_url = "https://www.acer.europa.eu/news-and-events/news"
-    )

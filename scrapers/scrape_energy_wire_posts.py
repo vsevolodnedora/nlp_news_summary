@@ -63,7 +63,7 @@ async def fetch_articles(page_url: str):
 
     return articles
 
-async def scrape_energy_wire_news(root_url: str, database: PostsDatabase, table_name: str) -> None:
+async def main_scrape_energy_wire_posts(root_url: str, database: PostsDatabase, table_name: str) -> None:
     """Scrape news posts from clean energy wire website one by one to avoid IP blocking."""
     articles = await fetch_articles(page_url=root_url)
     for article_ in articles:
@@ -143,54 +143,3 @@ async def scrape_energy_wire_news(root_url: str, database: PostsDatabase, table_
             gc.collect() # clean memory
 
     logger.info(f"Finished saving {len(new_articles)} new articles out of {len(articles)} links")
-
-def main_scrape_energy_wire_posts(db_path:str, table_name:str, out_dir:str, root_url:str|None=None):
-    """Scrape news posts from energy wire."""
-
-    if root_url is None:
-        root_url = "https://www.cleanenergywire.org/news/" # default path to latest news
-
-    # --- initialize / connect to DB ---
-    news_db = PostsDatabase(db_path=db_path)
-
-    # create acer table if it does not exists
-    news_db.check_create_table(table_name=table_name)
-
-    # try to scrape articles and add them to the database
-    try:
-        # --- scrape & store ---
-        asyncio.run(
-            scrape_energy_wire_news(
-                root_url=root_url,
-                table_name=table_name,
-                database=news_db
-            )
-        )
-    except Exception as e:
-        logger.error(f"Failed to '{table_name}' run scraper. Aborting... Error raised: {e}")
-        news_db.close()
-        return
-
-    # save scraped posts as raw .md files for analysis
-    news_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
-
-    news_db.close()
-
-# Execute the tutorial when run directly
-if __name__ == "__main__":
-
-    # --- Historic backfill ---
-    for i in range(24, 0, -1):
-        main_scrape_energy_wire_posts(
-            db_path="../database/scraped_posts.db",
-            root_url=f"https://www.cleanenergywire.org/news?page={i + 1}",
-            table_name="energy_wire",
-        out_dir="../output/posts_raw/energy_wire/",
-        )
-
-    main_scrape_energy_wire_posts(
-        db_path="../database/scraped_posts.db",
-        root_url="https://www.cleanenergywire.org/news/",
-        table_name="energy_wire",
-        out_dir="../output/posts_raw/energy_wire/",
-    )

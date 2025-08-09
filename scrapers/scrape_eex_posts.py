@@ -48,7 +48,6 @@ def extract_date_from_markdown(markdown_text:str):
     # Rearrange and return in YYYY-MM-DD format
     return f"{year}-{month}-{day}"
 
-
 def invert_date_format(date_str:str):
     """Invert date format."""
 
@@ -57,7 +56,7 @@ def invert_date_format(date_str:str):
     # Rearrange and return in MM-DD-YYYY format
     return f"{month}-{day}-{year}"
 
-async def scrape_eex_news(root_url:str, table_name:str, database: PostsDatabase) -> None:
+async def main_scrape_eex_posts(root_url:str, table_name:str, database: PostsDatabase) -> None:
     """
     Scrape EEX news posts.
 
@@ -129,44 +128,3 @@ async def scrape_eex_news(root_url:str, table_name:str, database: PostsDatabase)
         await asyncio.sleep(5) # to avoid IP blocking
 
         logger.info(f"Finished saving {len(new_articles)} new articles out of {len(results)} articles")
-
-def main_scrape_eex_posts(db_path:str, table_name:str, out_dir:str, root_url:str|None=None) -> None:
-    """Scrape EEX news posts."""
-
-    if root_url is None:
-        root_url = "https://www.eex.com/en/newsroom/"
-
-    # --- initialize / connect to DB ---
-    news_db = PostsDatabase(db_path=db_path)
-
-    # create acer table if it does not exists
-    news_db.check_create_table(table_name=table_name)
-
-    # try to scrape articles and add them to the database
-    try:
-        # --- scrape & store ---
-        asyncio.run(
-            scrape_eex_news(
-                root_url=root_url,
-                table_name=table_name,
-                database=news_db
-            )
-        )
-    except Exception as e:
-        logger.error(f"Failed to '{table_name}' run scraper. Aborting... Error raised: {e}")
-        news_db.close()
-        return
-
-    # save scraped posts as raw .md files for analysis
-    news_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
-
-    news_db.close()
-
-# Execute the tutorial when run directly
-if __name__ == "__main__":
-    main_scrape_eex_posts(
-        db_path="../database/scraped_posts.db",
-        root_url="https://www.eex.com/en/newsroom/",
-        out_dir="../output/posts_raw/eex/",
-        table_name="eex"
-    )

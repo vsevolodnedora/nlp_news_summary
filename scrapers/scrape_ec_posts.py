@@ -24,7 +24,7 @@ from logger import get_logger
 
 logger = get_logger(__name__)
 
-async def scrape_ec_news(root_url:str, table_name:str, database: PostsDatabase) -> None:
+async def main_scrape_ec_posts(root_url:str, table_name:str, database: PostsDatabase) -> None:
     """Scrape posts from ec news page."""
     async with AsyncWebCrawler() as crawler:
 
@@ -88,54 +88,3 @@ async def scrape_ec_news(root_url:str, table_name:str, database: PostsDatabase) 
         await asyncio.sleep(5) # to avoid IP blocking
 
         logger.info(f"Finished saving {len(new_articles)} new articles out of {len(results)} articles")
-
-def main_scrape_ec_posts(db_path:str, table_name:str, out_dir:str, root_url:str|None=None):
-    """Scrape ec news articles database."""
-
-    if root_url is None:
-        root_url = "https://energy.ec.europa.eu/news_en" # default path to latest news
-
-    # --- initialize / connect to DB ---
-    news_db = PostsDatabase(db_path=db_path)
-
-    # create acer table if it does not exists
-    news_db.check_create_table(table_name)
-
-    # try to scrape articles and add them to the database
-    try:
-        # --- scrape & store ---
-        asyncio.run(
-            scrape_ec_news(
-                root_url=root_url,
-                table_name=table_name,
-                database=news_db
-            )
-        )
-    except Exception as e:
-        logger.error(f"Failed to '{table_name}' run scraper. Aborting... Error raised: {e}")
-        news_db.close()
-        return
-
-    # save scraped posts as raw .md files for analysis
-    news_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
-
-    news_db.close()
-
-# Execute the tutorial when run directly
-if __name__ == "__main__":
-
-    #historic backfill
-    for i in range(10, 0,-1):
-        main_scrape_ec_posts(
-            db_path="../database/scraped_posts.db",
-            root_url=f"https://energy.ec.europa.eu/news_en?page={i + 1}",
-            table_name="ec",
-            out_dir="../output/posts_raw/ec/",
-        )
-
-    main_scrape_ec_posts(
-        db_path="../database/scraped_posts.db",
-        root_url="https://energy.ec.europa.eu/news_en",
-        table_name="ec",
-        out_dir="../output/posts_raw/ec/",
-    )

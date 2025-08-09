@@ -166,6 +166,22 @@ class PostsDatabase:
             f"Post {'updated' if exists else 'added'} in {table_name}: id={post_id}, title={title}"
         )
 
+    def get_all_post_dates(self, table_name: str) -> list[datetime]:
+        """Returns a list of all post dates in the given table."""
+
+        if not self.is_table(table_name):
+            raise ValueError(f"Table {table_name} does not exist.")
+
+        # Query to retrieve all the published_on dates
+        cursor = self.conn.execute(f'SELECT published_on FROM "{table_name}";')
+
+        # The values are already datetime objects due to detect_types
+        dates = [row[0] for row in cursor.fetchall()]
+
+        logger.info(f"Retrieved {len(dates)} post dates from table {table_name}")
+
+        return dates
+
     def get_post(self, table_name: str, post_id: str) -> str:
         """Returns decompressed post text from the given table."""
 
