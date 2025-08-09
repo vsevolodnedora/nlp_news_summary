@@ -206,14 +206,15 @@ async def scrape_page_with_crawl4ai(link: str, default_date:str) -> str|None:
             last_markdown = raw_md
 
             if is_challenge_page(raw_md):
-                logger.warning(f"Detected challenge page for {link} on attempt {attempt}; retrying with different UA/backoff. Returning raw markdown: {result.markdown}")
+                logger.warning(f"Detected challenge page for {link} on attempt {attempt}; retrying with different UA/backoff")
                 await asyncio.sleep(2**attempt)
                 continue  # retry
 
             # Extract date
             date = find_and_format_numeric_date(raw_md)
             if date is None:
-                logger.info(f"Could not locate date in {link}")
+                logger.warning(f"Could not locate date in the page scraped with Crawl4AI after {attempt} attempts. Link: {link}")
+                logger.debug(last_markdown)
                 continue
 
             # stop the retry
@@ -221,7 +222,8 @@ async def scrape_page_with_crawl4ai(link: str, default_date:str) -> str|None:
 
         # check if at the and the download was successfull
         if not success:
-            logger.warning(f"Failed to scrape challenge {link} after {max_attempts} attempts. Last markdown snippet:\n{last_markdown}")
+            logger.warning(f"Failed to scrape challenge {link} after {attempt} attempts.")
+            logger.debug(last_markdown)
             await asyncio.sleep(5)
 
     if success:
@@ -299,13 +301,15 @@ async def main_scrape_50hz_posts(root_url: str, table_name: str, database: Posts
             raw_md = await scrape_page_with_playwright(url=link)
 
         if raw_md is None:
-            logger.error(f"All attempts to scrape the page failed. Url: {link}\n{raw_md}")
+            logger.error(f"All attempts to scrape the page failed. Url: {link}")
+            logger.debug(raw_md)
             continue
 
         # locate date
         date = find_and_format_numeric_date(raw_md)
         if date is None:
-            logger.error(f"Could not locate date in {link}\n{raw_md}")
+            logger.error(f"After scraping the page, could not locate date in {link}")
+            logger.debug(raw_md)
             continue
 
         # add post to the database
