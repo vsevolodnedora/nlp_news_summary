@@ -167,7 +167,7 @@ async def scrape_page_with_crawl4ai(link: str, default_date:str) -> str|None:
             use_persistent_context=True,  # to keep cookies between requests if beneficial
         )
     ) as crawler:
-        while attempt < max_attempts and not success:
+        while (attempt < max_attempts) and not success:
             attempt += 1
             # Rotate user-agent on retry
             user_agent = random.choice(plausable_user_agents) if attempt > 1 else plausable_user_agents[0]
@@ -213,8 +213,8 @@ async def scrape_page_with_crawl4ai(link: str, default_date:str) -> str|None:
             # Extract date
             date = find_and_format_numeric_date(raw_md)
             if date is None:
-                logger.error(f"Could not locate date in {link}\n{raw_md}")
-                raise Exception(f"Could not locate date")
+                logger.info(f"Could not locate date in {link}")
+                continue
 
             # stop the retry
             success = True
@@ -243,6 +243,7 @@ async def scrape_page_with_playwright(url: str, content_selector: str = ".n-grid
     Returns:
         A Markdown string of the article.
     """
+    logger.info(f"Scraping with secondary (playwrite) scraper since main (crawl4a) has failed for {url}")
     # 1. Launch headless Chrome
     options = Options()
     options.add_argument("--headless")
@@ -298,13 +299,13 @@ async def main_scrape_50hz_posts(root_url: str, table_name: str, database: Posts
             raw_md = await scrape_page_with_playwright(url=link)
 
         if raw_md is None:
-            logger.error(f"All attempts to scrape the page failed. Url: {link}")
+            logger.error(f"All attempts to scrape the page failed. Url: {link}\n{raw_md}")
             continue
 
         # locate date
         date = find_and_format_numeric_date(raw_md)
         if date is None:
-            logger.warning(f"Could not locate date in {link}\n{raw_md}")
+            logger.error(f"Could not locate date in {link}\n{raw_md}")
             continue
 
         # add post to the database
