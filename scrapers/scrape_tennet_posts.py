@@ -169,6 +169,7 @@ async def main_scrape_tennet_posts(root_url: str, table_name: str, database: Pos
 
     # links that are know to fail due to language/other issues
     known_exceptions = [
+        "https://www.tennet.eu/de/news-de/",
         "https://www.tennet.eu/de/news/tennet-holding-kuendigt-neue-finanzierungsstruktur-mit-niederlaendischer-staatsgarantie-und-startet-den-prozess-zur-zustimmung-der",
     ]
 
@@ -316,4 +317,4 @@ async def main_scrape_tennet_posts(root_url: str, table_name: str, database: Pos
             await asyncio.sleep(5) # to avoid IP blocking
             gc.collect() # clean memory
 
-        logger.info(f"Finished saving {len(new_articles)} new articles out of {len(results)} articles")
+        logger.info(f"Finished saving {len(new_articles)} new articles out of {len(selected_links)} articles")

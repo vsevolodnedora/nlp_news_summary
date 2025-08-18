@@ -75,7 +75,7 @@ def process_one_article_text(  # noqa: C901
             raise ValueError("Snippet is empty, skipping.")
     else:
         snippet = copy.deepcopy(text)
-        logger.info(f"No start or end marker provided for {title}, Processing the entire text.")
+        logger.debug(f"No start or end marker provided for {title}, Processing the entire text.")
 
     # check fot file that might be too big
     num_lines = snippet.count("\n") + 1  # Count lines in the markdown
@@ -118,7 +118,7 @@ def process_one_article_text(  # noqa: C901
             skip_block = False
             for black_list_block_component in black_list_blocks:
                 if black_list_block_component in block:
-                    logger.info(f"removing {black_list_block_component} from block")
+                    logger.debug(f"removing {black_list_block_component} from block")
                     skip_block = True
                     continue
             if skip_block:
@@ -128,7 +128,7 @@ def process_one_article_text(  # noqa: C901
 
         snippet = "".join(cleaned_blocks)
 
-    if len(snippet.split('\n')) <= 1:
+    if len(snippet.split("\n")) <= 1:
         logger.warning(
             f"Only one line in snippet, nothing to write after skipping first line. Date:{date} title:{title}\n{snippet}"
         )
@@ -140,7 +140,7 @@ def process_one_article_text(  # noqa: C901
 
     # strip page links
     if strip_links:
-        pattern = r'\[([^\]]+)\]\(([^)]+?\.(?:html|aspx|pdf|doc)(?:\?.*?)?)\)'
+        pattern = r"\[([^\]]+)\]\(([^)]+?\.(?:html|aspx|pdf|doc)(?:\?.*?)?)\)"
         snippet = re.sub(pattern, r"\1 ", snippet, flags=re.IGNORECASE)
 
     if remove_empty_links:
@@ -151,7 +151,7 @@ def process_one_article_text(  # noqa: C901
         pattern = r"\[([^\]]+)\]\(https://www\.[^)]+\)"
         snippet = re.sub(pattern, r"\1 ", snippet)
 
-        pattern = r'\[([^\]]+)\]\((https?://[^)]+)\)'
+        pattern = r"\[([^\]]+)\]\((https?://[^)]+)\)"
         snippet = re.sub(pattern, r"\1 ", snippet)
 
     return snippet
@@ -166,6 +166,7 @@ def filter_german_posts(posts: List[Dict]) -> List[Dict]:
     :return: List of dicts that are in German and share their published_on date
              with at least one other post
     """
+
     # Group posts by published_on
     groups: Dict[str, List[Dict]] = defaultdict(list)
     for article in posts:
@@ -212,6 +213,7 @@ def preprocess_posts_for_a_table(
     `process_one_article_text()`, and store the result (compressed) into `clean_post`
     via the `add_clean_post()` method.
     """
+
     # 1) Get all article metadata (ID, date, title, url)
     articles = source_db.list_posts(table_name=table_name,sort_date=True)
     logger.info(f"Found {len(articles)} articles in table '{table_name}'.")
@@ -268,6 +270,7 @@ def preprocess_posts_for_a_table(
 
 class Preprocessor:
     """Process raw posts and remove markdown bloat: links, HTML leftovers."""
+
     def __init__(self, config: dict) -> None:
         """Initialize the Preprocessor."""
         self.config = config
