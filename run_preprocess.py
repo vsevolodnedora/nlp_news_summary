@@ -1,10 +1,9 @@
 import os
 import sys
 
+from logger import get_logger
 from preprocessing.preprocess_raw_posts import Preprocessor
 
-
-from logger import get_logger
 logger = get_logger(__name__)
 
 black_list_line_starts = [
@@ -318,6 +317,7 @@ black_list_starters_energy_wire = [
     "[Society](https://www.cleanenergywire.org/topics/Society)",
     "[International](https://www.cleanenergywire.org/topics/International)",
 ]
+
 def main_preprocess(source:str):  # noqa: C901
     """Scrape the news source."""
     # Configuration for all sources
