@@ -7,30 +7,20 @@ references to "Highcharts"
 """
 
 import asyncio
-import time
 import fnmatch
-import re, os
-import langid # to detect english articles
+import re
 from datetime import datetime
-from collections import defaultdict
 
 from crawl4ai import CrawlerRunConfig, AsyncWebCrawler, CacheMode
 from crawl4ai.content_scraping_strategy import LXMLWebScrapingStrategy
-from crawl4ai.deep_crawling import BFSDeepCrawlStrategy, BestFirstCrawlingStrategy
+from crawl4ai.deep_crawling import BFSDeepCrawlStrategy
 from crawl4ai.deep_crawling.filters import (
     FilterChain,
     URLPatternFilter,
-    DomainFilter,
-    ContentTypeFilter,
-    ContentRelevanceFilter,
-    SEOFilter,
-)
-from crawl4ai.deep_crawling.scorers import (
-    KeywordRelevanceScorer,
 )
 
-from database import PostsDatabase
-from logger import get_logger
+from src.database import PostsDatabase
+from src.logger import get_logger
 logger = get_logger(__name__)
 
 async def main_scrape_smard_posts(root_url:str, database: PostsDatabase, table_name:str) -> None:

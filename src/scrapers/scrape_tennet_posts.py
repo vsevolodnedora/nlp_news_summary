@@ -5,11 +5,8 @@ import re
 from datetime import datetime
 from typing import Optional
 
-import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
 import httpx  # async HTTP client
 
 from crawl4ai import AsyncWebCrawler, CacheMode, CrawlerRunConfig, MemoryAdaptiveDispatcher, RateLimiter
@@ -21,8 +18,8 @@ from crawl4ai.deep_crawling.filters import (
     FilterChain,
 )
 
-from database import PostsDatabase
-from logger import get_logger
+from src.database import PostsDatabase
+from src.logger import get_logger
 
 logger = get_logger(__name__)
 

@@ -1,10 +1,5 @@
 import asyncio
-import fnmatch
 import gc
-import os
-import re
-import shutil  # for file copying/renaming
-import time
 import urllib.parse
 from datetime import datetime
 
@@ -13,21 +8,13 @@ from bs4 import BeautifulSoup
 from crawl4ai import AsyncWebCrawler, CacheMode, CrawlerRunConfig, MemoryAdaptiveDispatcher, RateLimiter
 from crawl4ai.components.crawler_monitor import CrawlerMonitor
 from crawl4ai.content_scraping_strategy import LXMLWebScrapingStrategy
-from crawl4ai.deep_crawling import BestFirstCrawlingStrategy, BFSDeepCrawlStrategy
+from crawl4ai.deep_crawling import BFSDeepCrawlStrategy
 from crawl4ai.deep_crawling.filters import (
-    ContentRelevanceFilter,
-    ContentTypeFilter,
-    DomainFilter,
     FilterChain,
-    SEOFilter,
-    URLPatternFilter,
-)
-from crawl4ai.deep_crawling.scorers import (
-    KeywordRelevanceScorer,
 )
 
-from database import PostsDatabase
-from logger import get_logger
+from src.database import PostsDatabase
+from src.logger import get_logger
 
 logger = get_logger(__name__)
 

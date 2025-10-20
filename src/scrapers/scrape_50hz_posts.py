@@ -7,9 +7,8 @@ from datetime import datetime
 from typing import List
 from urllib.parse import urljoin
 
-import requests
 from bs4 import BeautifulSoup
-from crawl4ai import AsyncWebCrawler, BrowserConfig, CacheMode, CrawlerRunConfig, MemoryAdaptiveDispatcher, RateLimiter, html2text
+from crawl4ai import AsyncWebCrawler, BrowserConfig, CacheMode, CrawlerRunConfig, MemoryAdaptiveDispatcher, RateLimiter
 from crawl4ai.components.crawler_monitor import CrawlerMonitor
 from crawl4ai.content_scraping_strategy import LXMLWebScrapingStrategy
 from crawl4ai.deep_crawling import BFSDeepCrawlStrategy
@@ -19,15 +18,14 @@ from crawl4ai.deep_crawling.filters import (
 from markdownify import markdownify as md
 from playwright.async_api import TimeoutError as PlaywrightTimeoutError
 from playwright.async_api import async_playwright
-from pydantic.color import ColorType
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-from database import PostsDatabase
-from logger import get_logger
+from src.database import PostsDatabase
+from src.logger import get_logger
 
 logger = get_logger(__name__)
 

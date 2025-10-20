@@ -11,9 +11,9 @@ from crawl4ai.deep_crawling.filters import (
     FilterChain,
 )
 
-from database import PostsDatabase
+from src.database import PostsDatabase
 
-from logger import get_logger
+from src.logger import get_logger
 logger = get_logger(__name__)
 
 async def main_scrape_bnetza_posts(

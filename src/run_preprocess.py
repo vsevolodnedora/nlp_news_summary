@@ -1,8 +1,8 @@
 import os
 import sys
 
-from logger import get_logger
-from preprocessing.preprocess_raw_posts import Preprocessor
+from src.logger import get_logger
+from src.preprocessing.preprocess_raw_posts import Preprocessor
 
 logger = get_logger(__name__)
 
@@ -321,7 +321,7 @@ black_list_starters_energy_wire = [
 def main_preprocess(source:str):  # noqa: C901
     """Scrape the news source."""
     # Configuration for all sources
-    SOURCE_CONFIG = {
+    source_config = {
         "entsoe": {
             "table_name": "entsoe",
             "preprocessor_config": {
@@ -330,9 +330,64 @@ def main_preprocess(source:str):  # noqa: C901
                     "#  news ",
                 ],
                 "end_markers": [
+                    "❗**Disclaimer** ❗",
+                    "❗Disclaimer❗ ",
+                    "#### About ENTSO-E",
+                    "**About ENTSO-E**",
                     "Share this article",
-                    "Sign up for press updates"
+                    "Sign up for press updates",
+                    "Read the complete report here",
+                    "_About ENTSO-E_w",
+                    "#### About ENTSO-E",
                 ],
+                "custom_black_list_starters": [
+                    "Share this article",
+                    "For more information",
+                    "You can register to the Public Webinar",
+                    "Read the complete report here ",
+                    "**_R﻿ead the full report",
+                    "Visit the ENTSO-E Technopedia here .",
+                    "Read the full report",
+                    "[Access the ERAA",
+                    "No registration is needed",
+                    "More about the Bidding Zone Review",
+                    "Contact:",
+                    "Read more and submit your feedback",
+                    "The Webinar Recording is uploaded",
+                    "The Webinar Slides are ",
+                    "Register for the VAS webinar",
+                    "For media enquiries, please contact",
+                    "**Read the Summer Outlook",
+                    "Media requests: ",
+                    "More information about the ",
+                    "_Media contacts:_",
+                    " _**ENTSO-E:**",
+                    "**_DSO Entity:_**",
+                    "**Read the full Roadmap",
+                    "**To access the webpage",
+                    "**For media inquiries",
+                    "R﻿ead more here",
+                    "_More on this",
+                    "**R﻿ead the reports",
+                    "**2019** Transmission Tariffs",
+                    "**2020** Transmission Tariffs",
+                    "**2021** Transmission Tariffs",
+                    "**2022** Transmission Tariffs",
+                    "**2023** Transmission Tariffs",
+                    "**2024** Transmission Tariffs",
+                    "**2025** Transmission Tariffs",
+                    "**2026** Transmission Tariffs",
+                    "F﻿or more information visit",
+                    "Press contact: ",
+                    "**Related links:**",
+                    "Download Consultation Package",
+                    "👉 Read more about the consultation here",
+                    "🔗 Homepage: ",
+                    "📩 For questions, please contact ",
+                    "Read more here",
+                    "Read ENTSO-E’s full response and storyline here",
+                ],
+                "black_list_single_word_lines": ["**GET THE MOST POWERFUL NEWSLETTER IN BRUSSELS**", "Read the complete report here ", "Visit the ENTSO-E Technopedia here .", "* * *"],
                 "max_lines": 30,
             },
             "out_dir": "./output/posts_cleaned/entsoe/",
@@ -342,7 +397,7 @@ def main_preprocess(source:str):  # noqa: C901
             "preprocessor_config": {
                 "start_markers": ["# EEX Press Release -"],
                 "start_marker_constructs": {"date": Preprocessor.date_to_yyyy_mm_dd},
-                "end_markers": ["**CONTACT**", "**_Contacts:_**", "**Contact**", "**KONTAKT**"],
+                "end_markers": ["**CONTACT**", "**_Contacts:_**", "**Contact**", "**KONTAKT**", "**Pressekontakt:**", "Please find the full volume report","**Kontakt:**","Related Files"],
                 "max_lines": 30,
             },
             "out_dir": "./output/posts_cleaned/eex/",
@@ -353,8 +408,9 @@ def main_preprocess(source:str):  # noqa: C901
                 "start_marker_constructs": {"date": Preprocessor.date_to_dd_mm_yyyy},
                 "start_markers": [],
                 "end_markers": ["## ↓ Related News", "![acer]"],
-                "custom_black_list_starters":["Share on: [Share]"],
-                "max_lines": 30
+                "custom_black_list_starters": ["Share on: [Share]"],
+                "black_list_single_word_lines": ["Image", "ACER Report"],
+                "max_lines": 30,
             },
             "out_dir": "./output/posts_cleaned/acer/",
         },
@@ -376,36 +432,30 @@ def main_preprocess(source:str):  # noqa: C901
         "icis": {
             "table_name": "icis",
             "preprocessor_config": {
-                "start_markers": [
-                    "[Home](https://www.icis.com/explore)"
-                ],
+                "start_markers": ["[Home](https://www.icis.com/explore)"],
                 "end_markers": [
                     "## Related news",
                 ],
-                "custom_black_list_starters":[
+                "custom_black_list_starters": [
                     "[Full story](https://www.icis.com/explore/resources/news",
                     "[Related news](https://www.icis.com/explore/resources/news",
                     "[Related content](https://www.icis.com/explore/resources/news",
                     "[Contact us](https://www.icis.com/explor",
                     "[Try ICIS](https://www.icis.com/explore/contact",
                 ],
-                "black_list_single_word_lines":[
+                "black_list_single_word_lines": [
                     "Jump to",
                 ],
-                "max_lines": 30
+                "max_lines": 30,
             },
             "out_dir": "./output/posts_cleaned/icis/",
         },
         "bnetza": {
             "table_name": "bnetza",
             "preprocessor_config": {
-                "start_markers": [
-                    "[Pressemitteilungen](https://www.bundesnetzagentur.de/SharedDocs"
-                ],
-                "end_markers": [
-                    "[](javascript:void\(0\);) **Inhalte teilen**"
-                ],
-                "skip_start_lines":1,
+                "start_markers": ["[Pressemitteilungen](https://www.bundesnetzagentur.de/SharedDocs"],
+                "end_markers": ["[](javascript:void\(0\);) **Inhalte teilen**"],
+                "skip_start_lines": 1,
                 "max_lines": 30,
             },
             "out_dir": "./output/posts_cleaned/bnetza/",
@@ -426,34 +476,25 @@ def main_preprocess(source:str):  # noqa: C901
         "agora": {
             "table_name": "agora",
             "preprocessor_config": {
-                "start_markers": [
-                    "  * Print"
+                "start_markers": ["  * Print"],
+                "end_markers": ["##  Stay informed", "## Impressions", "##  Event details", "##  Further reading"],
+                "max_lines": 30,
+                "title_blacklist": [
+                    "harvesting_policy_recipes_for_aseans_coal_to_clean_transition" # event announcment with no info
                 ],
-                "end_markers": [
-                    "##  Stay informed",
-                    "## Impressions",
-                    "##  Event details",
-                    "##  Further reading"
-                ],
-                "max_lines": 30
             },
             "out_dir": "./output/posts_cleaned/agora/",
         },
         "energy_wire": {
             "table_name": "energy_wire",
             "preprocessor_config": {
-                "start_markers": [
-                    "Clean Energy Wire / Handelsblatt",
-                    "Tagesspiegel / Clean Energy Wire ",
-                    "# In brief ",
-                    "[](javascript:window.print\(\))"
-                ],
+                "start_markers": ["Clean Energy Wire / Handelsblatt", "Tagesspiegel / Clean Energy Wire ", "# In brief ", "[](javascript:window.print\(\))"],
                 "end_markers": [
                     "#### Further Reading",
                     "### Ask CLEW",
                 ],
                 "custom_black_list_starters": black_list_starters_energy_wire,
-                "max_lines": 30
+                "max_lines": 30,
             },
             "out_dir": "./output/posts_cleaned/energy_wire/",
         },
@@ -463,18 +504,22 @@ def main_preprocess(source:str):  # noqa: C901
                 "start_markers": [
                     "Nach oben scrollen",
                 ],
-                "end_markers": [
-                    "https://de.linkedin.com/company/transnetbw-gmbh"
-                ],
-                "custom_black_list_starters":[
-                    "  * [Impressum]","  * [Datenschutz]","  * [Nutzungsbedingungen]","  * [AEB]","  * [Kontakt]","  * [Netiquette ]",
+                "end_markers": ["https://de.linkedin.com/company/transnetbw-gmbh"],
+                "custom_black_list_starters": [
+                    "  * [Impressum]",
+                    "  * [Datenschutz]",
+                    "  * [Nutzungsbedingungen]",
+                    "  * [AEB]",
+                    "  * [Kontakt]",
+                    "  * [Netiquette ]",
                     "![](https://www.transnetbw.de/_Resources",
                     "Andrea JungLeiterin Unternehmenskommunikationa",
                     "Kathrin EggerPressesprecherink",
                     "PDF",
                     "Clemens von WalzelTeamleiter",
                     "Matthias RuchserPressesprecherm",
-                    "JPG5", "JPG1",
+                    "JPG5",
+                    "JPG1",
                     "  * [www.transnetbw.de/de/",
                     "  * [Starte Download von: ",
                     "[www.stromgedacht.de]",
@@ -489,10 +534,13 @@ def main_preprocess(source:str):  # noqa: C901
                     "/ / / / / / / / ",
                     "<https://ip.ai/",
                 ],
-                "black_list_single_word_lines":[
-                    "Mathias Bloch","Pressesprecher","m.bloch@sonnen.de","ZurückWeiter",
+                "black_list_single_word_lines": [
+                    "Mathias Bloch",
+                    "Pressesprecher",
+                    "m.bloch@sonnen.de",
+                    "ZurückWeiter",
                 ],
-                "max_lines": 30
+                "max_lines": 30,
             },
             "out_dir": "./output/posts_cleaned/transnetbw/",
         },
@@ -506,10 +554,10 @@ def main_preprocess(source:str):  # noqa: C901
                     "## Downloads",
                     "Notwendige Cookies akzeptieren",
                 ],
-                "custom_black_list_starters":[
+                "custom_black_list_starters": [
                     "[Cookies](https://www.tennet.eu/de/datenschutz)",
                 ],
-                "max_lines": 30
+                "max_lines": 30,
             },
             "out_dir": "./output/posts_cleaned/tennet/",
         },
@@ -523,11 +571,11 @@ def main_preprocess(source:str):  # noqa: C901
                 "end_markers": [
                     "Artikel teilen:",
                 ],
-                "custom_black_list_starters":[
+                "custom_black_list_starters": [
                     "![](/DesktopModules/LotesNewsXSP",
                     "[Download der Pressemitteilung als PDF-Datei]",
                 ],
-                "max_lines": 30
+                "max_lines": 30,
             },
             "out_dir": "./output/posts_cleaned/50hz/",
         },
@@ -537,10 +585,8 @@ def main_preprocess(source:str):  # noqa: C901
                 "start_markers": [
                     "  2. [ ](https://www.amprion.net/Presse/Pressemitteilungen",
                 ],
-                "end_markers": [
-                    "Seite teilen:"
-                ],
-                "custom_black_list_starters":[
+                "end_markers": ["Seite teilen:"],
+                "custom_black_list_starters": [
                     "/Presse%C3%BCbersicht_aktuell.html)",
                     "  1. [ ](https://www.amprion.net/",
                     "  2. [ ](https://www.amprion.net/",
@@ -550,24 +596,24 @@ def main_preprocess(source:str):  # noqa: C901
                     "    * [ ](https://www.amprion.net",
                     "[](tel:+",
                 ],
-                "max_lines": 30
+                "max_lines": 30,
             },
             "out_dir": "./output/posts_cleaned/amprion/",
         },
     }
 
-    source_db_path = "./database/scraped_posts.db"
-    target_db_path = "./database/preprocessed_posts.db"
+    source_db_path = "database/scraped_posts.db"
+    target_db_path = "database/preprocessed_posts.db"
 
     if source == "all":
-        targets = list(SOURCE_CONFIG.keys())
+        targets = list(source_config.keys())
     else:
-        if source not in SOURCE_CONFIG:
-            raise ValueError(f"Unknown source '{source}'. Valid options: {', '.join(SOURCE_CONFIG.keys())} or 'all'.")
+        if source not in source_config:
+            raise ValueError(f"Unknown source '{source}'. Valid options: {', '.join(source_config.keys())} or 'all'.")
         targets = [source]
 
     for src in targets:
-        config = SOURCE_CONFIG[src]
+        config = source_config[src].copy()
         preprocessor_config = config["preprocessor_config"]
         out_dir = config["out_dir"]
         os.makedirs(out_dir, exist_ok=True)  # ensure output directory exists

@@ -1,41 +1,36 @@
 import asyncio
 import fnmatch
-import os
 import re
-import time
 
-from crawl4ai import AsyncWebCrawler, CacheMode, CrawlerRunConfig
+from crawl4ai import CrawlerRunConfig, AsyncWebCrawler, CacheMode
 from crawl4ai.content_scraping_strategy import LXMLWebScrapingStrategy
-from crawl4ai.deep_crawling import BestFirstCrawlingStrategy, BFSDeepCrawlStrategy
+from crawl4ai.deep_crawling import BFSDeepCrawlStrategy
 from crawl4ai.deep_crawling.filters import (
-    ContentRelevanceFilter,
-    ContentTypeFilter,
-    DomainFilter,
     FilterChain,
-    SEOFilter,
     URLPatternFilter,
 )
-from crawl4ai.deep_crawling.scorers import (
-    KeywordRelevanceScorer,
-)
 
-from database import PostsDatabase
-from logger import get_logger
+from src.database import PostsDatabase
 
+from src.logger import get_logger
 logger = get_logger(__name__)
 
-async def main_scrape_entsoe_posts(root_url: str, database: PostsDatabase,table_name:str) -> None:
-    """Get news articles from ENTSO-E."""
+async def main_scrape_icis_posts(root_url:str, database: PostsDatabase, table_name:str) -> None:
+    """Scrape ICIS news posts from webpage."""
     async with AsyncWebCrawler() as crawler:
 
-        # Create a filter that only allows URLs with 'guide' in them
-        url_filter = URLPatternFilter(patterns=["*news*"])
+        url_filter_news = URLPatternFilter(patterns=["*/news/*"])
+
+        # Chain them so all must pass (AND logic)
+        filter_chain = FilterChain([
+            url_filter_news,
+        ])
 
         config = CrawlerRunConfig(
             deep_crawl_strategy=BFSDeepCrawlStrategy(
-                max_depth=2,
+                max_depth=3,
                 include_external=False,
-                filter_chain=FilterChain([url_filter]),  # Single filter
+                filter_chain=filter_chain,  # Single filter
             ),
             scraping_strategy=LXMLWebScrapingStrategy(),
             cache_mode=CacheMode.BYPASS,
@@ -47,25 +42,26 @@ async def main_scrape_entsoe_posts(root_url: str, database: PostsDatabase,table_
         if len(results) == 1:
             logger.warning(f"Only one result found for {root_url}. Suspected limit.")
 
+        # date_pattern = re.compile(r"https?://[^ ]*/\d{4}-\d{2}-\d{2}[^ ]*") # to remove non-articles entries
+
+        year = 2025
+
         logger.info(f"Crawled {len(results)} pages matching '*news*'")
         new_articles = []
-        for result in results:  # Show first 3 results\
+        for result in results:  # Show first 3 results
             url = result.url
-            if fnmatch.fnmatch(result.url, "*news/2025/*"):
-                prefix = "https://www.entsoe.eu/news/"
-                if url.startswith(prefix):
-                    url_ = url[len(prefix) :]
-                else:
-                    url_ = url
+            if fnmatch.fnmatch(result.url, "*news*") and str(year) in result.url and "news_id" not in result.url:
 
-                # Extract the date and article title
-                match = re.match(r"(\d{4}/\d{2}/\d{2})/(.+)", url_)
+                # Extract the title and date from the URL
+                match = re.match(r".*/news/(\d{4})/(\d{2})/(\d{2})/\d+/([\w-]+)", url)
                 if not match:
                     raise ValueError("URL format is unexpected.")
-                date_iso = match.group(1).replace("/", "-")  # Format: YYYY-MM-DD
 
-                title_part = match.group(2)
+                year, month, day = match.group(1), match.group(2), match.group(3)
+                date_iso = f"{year}-{month}-{day}"  # e.g., 2025-07-07
+
                 # Replace hyphens with underscores in the title for readability
+                title_part = url.split("/")[-1]
                 title = title_part.replace("-", "_")
 
                 if database.is_table(table_name=table_name) and database.is_post(table_name=table_name, post_id=database.create_post_id(post_url=url)):

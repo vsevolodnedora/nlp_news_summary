@@ -1,27 +1,17 @@
 import asyncio
-import time
 import fnmatch
-import re, os
-from math import lgamma
-from pathlib import Path
+import re
 from crawl4ai import CrawlerRunConfig, AsyncWebCrawler, CacheMode
 from crawl4ai.content_scraping_strategy import LXMLWebScrapingStrategy
-from crawl4ai.deep_crawling import BFSDeepCrawlStrategy, BestFirstCrawlingStrategy
+from crawl4ai.deep_crawling import BFSDeepCrawlStrategy
 from crawl4ai.deep_crawling.filters import (
     FilterChain,
     URLPatternFilter,
-    DomainFilter,
-    ContentTypeFilter,
-    ContentRelevanceFilter,
-    SEOFilter,
-)
-from crawl4ai.deep_crawling.scorers import (
-    KeywordRelevanceScorer,
 )
 
-from database import PostsDatabase
+from src.database import PostsDatabase
 
-from logger import get_logger
+from src.logger import get_logger
 logger = get_logger(__name__)
 
 def extract_date_from_markdown(markdown_text:str):

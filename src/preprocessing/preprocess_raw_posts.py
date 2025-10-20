@@ -1,23 +1,20 @@
 import copy
 import os
-from calendar import month_name
+import re
 from collections import defaultdict
 from datetime import datetime
-# from .preprocess_utils import Preprocessor
-import re
-
-from typing import List, Dict, Optional, Callable
+from typing import Callable, Dict, List, Optional
 
 from langid import langid
 
-from database import PostsDatabase
+from src.database import PostsDatabase
+from src.logger import get_logger
 
-from logger import get_logger
 logger = get_logger(__name__)
 
 
 def process_one_article_text(  # noqa: C901
-        text:str, date:str, title:str, start_markers: List[str], end_markers: List[str],
+        publisher:str, text:str, date:str, title:str, start_markers: List[str], end_markers: List[str],
         start_marker_constructs:Dict|None,
         skip_start_lines:int|None, max_lines:int|None,
         custom_black_list_starters:List,
@@ -63,7 +60,7 @@ def process_one_article_text(  # noqa: C901
             break
     if len(start_markers)>0 and len(end_markers) > 0:
         if not end_idx or end_idx == -1 or end_idx == len(text)-1:
-            raise ValueError(f"End marker not found in {title}, skipping.")
+            raise ValueError(f"End marker not found in {title}, skipping. Publication from {publisher}: {date} {title} ")
 
         # sanity check
         if start_idx > end_idx:
@@ -207,6 +204,7 @@ def preprocess_posts_for_a_table(
     black_list_single_word_lines: Optional[List[str]] = None,
     black_list_blocks: Optional[List[str]] = None,
     prefer_german: bool = False,
+    title_blacklist: list = [],
 ) -> None:
     """
     For each article in `table_name`, fetch `raw_post` from the DB, run it through
@@ -235,9 +233,17 @@ def preprocess_posts_for_a_table(
             logger.warning(f"No post for url={url}; skipping.")
             continue
 
+        if len(post) < 5:
+            logger.warning(f"Post for url={url}; was not scraped correctly. Got: '{post}' Skipping.")
+            continue
+
+        if title in title_blacklist:
+            logger.warning(f"Post for url={url}; is blacklisted. Skipping.")
+            continue
 
         # 4) Clean/process the text
         cleaned = process_one_article_text(
+            publisher=table_name,
             text=post,
             date=published_on,
             title=title,
@@ -324,7 +330,7 @@ class Preprocessor:
                 skip_start_lines=self.config.get("skip_start_lines", 0),
                 max_lines=self.config.get("max_lines", None),
                 prefer_german=self.config.get("prefer_german", False),
-
+                title_blacklist=self.config.get("title_blacklist", []),
             )
         except Exception as e:
             logger.error(f"Failed preprocessing for {table_name} with exception raised: {e}")

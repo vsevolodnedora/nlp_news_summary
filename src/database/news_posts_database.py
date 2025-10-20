@@ -1,14 +1,11 @@
-import csv
 import hashlib
 import os
 import re
 import sqlite3
 import zlib
-from collections import defaultdict
-from datetime import datetime, timezone
-from typing import Any, Dict, List, Optional, Union
+from datetime import datetime
 
-from logger import get_logger
+from src.logger import get_logger
 
 logger = get_logger(__name__)
 
@@ -17,8 +14,9 @@ class PostsDatabase:
 
     def __init__(self, db_path: str) -> None:
         """Initialize the database connection."""
-
         self.db_path = db_path
+        if not os.path.exists(self.db_path):
+            raise FileNotFoundError(f"Database path does not exist: {self.db_path}")
         # connect and enable parsing of timestamps
         self.conn = sqlite3.connect(
             self.db_path,
@@ -29,14 +27,12 @@ class PostsDatabase:
 
     def close(self) -> None:
         """Close the database connection."""
-
         self.conn.close()
 
     def check_create_table(self, table_name: str) -> None:
-        """Checks if the given table exists in the database."""
-
+        """Check if the given table exists in the database."""
         # Validate table name
-        if not re.match(r'^[A-Za-z0-9_]+$', table_name):
+        if not re.match(r"^[A-Za-z0-9_]+$", table_name):
             raise ValueError(f"Invalid table name: {table_name}")
         sql = f"""
         CREATE TABLE IF NOT EXISTS "{table_name}" (
@@ -243,7 +239,7 @@ class PostsDatabase:
             # sanitize title for filename
             safe_title = re.sub(r"[^A-Za-z0-9_-]", "_", article["title"])
             date_str = pub_dt.strftime("%Y-%m-%d_%H-%M")
-            fname = f"{date_str}__{safe_title}.md"
+            fname = f"{date_str}__{table_name}__{safe_title}.md"
             path = os.path.join(out_dir, fname)
             # write markdown with front matter
             content = article["post"]

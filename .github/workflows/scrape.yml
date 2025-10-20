@@ -38,15 +38,15 @@ jobs:
         run: |
           git clone https://${{ secrets.NLP_NEWS_SUMMARY_DATA }}@github.com/vsevolodnedora/nlp_news_summary_data.git data_repo
           mkdir -p database
-          cp data_repo/database/scraped_posts.db database/scraped_posts.db
+          cp data_repo/database/scraped_posts.db src/database/scraped_posts.db
 
       - name: Scrape Data
-        run: pipenv run python run_scrape.py all
+        run: pipenv run python src/run_scrape.py entsoe
 
       # Copy updated DB back into private repo and push
       - name: Push Updated DB to Private Repo
         run: |
-          cp database/scraped_posts.db data_repo/database/scraped_posts.db
+          cp src/database/scraped_posts.db data_repo/database/scraped_posts.db
           cd data_repo
           git config --global user.name 'Collector'
           git config --global user.email 'noreply@nedora.digital'
