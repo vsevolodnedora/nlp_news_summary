@@ -14,6 +14,8 @@ from crawl4ai.deep_crawling.filters import (
 from src.database import PostsDatabase
 
 from src.logger import get_logger
+from src.scrapers.utils_scrape import format_date_to_datetime
+
 logger = get_logger(__name__)
 
 def extract_and_format_date(markdown: str) -> str | None:
@@ -84,10 +86,13 @@ async def main_scrape_agora_posts(root_url:str, database: PostsDatabase, table_n
                 url = url.split("?")[0]
                 title_part = url.split("/")[-1].replace("-", "_")
 
+                # convert date "YYYY-MM-DD" to datetime as "YYYY-MM-DD:12:00:00" for uniformity
+                published_on = format_date_to_datetime(date_iso)
+
                 # store full article in the database
                 database.add_post(
                     table_name="agora",
-                    published_on=date_iso,
+                    published_on=published_on,
                     title=title_part,
                     post_url=url,
                     post=result.markdown.raw_markdown,

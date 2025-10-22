@@ -20,6 +20,7 @@ from crawl4ai.deep_crawling.filters import (
 
 from src.database import PostsDatabase
 from src.logger import get_logger
+from src.scrapers.utils_scrape import format_date_to_datetime
 
 logger = get_logger(__name__)
 
@@ -298,11 +299,14 @@ async def main_scrape_tennet_posts(root_url: str, table_name: str, database: Pos
                 await asyncio.sleep(10)
                 continue
 
+            # convert date "YYYY-MM-DD" to datetime as "YYYY-MM-DD:12:00:00" for uniformity
+            published_on = format_date_to_datetime(date)
+
             # addd to the database
-            if not database is None:
+            if database is not None:
                 database.add_post(
                     table_name=table_name,
-                    published_on=date,
+                    published_on=published_on,
                     title=article_title,
                     post_url=link,
                     post=raw_md,

@@ -3,18 +3,18 @@ import os
 import re
 from collections import defaultdict
 from datetime import datetime
-from typing import Callable, Dict, List, Optional
+from typing import Callable, Dict, List, Optional, Tuple
 
 from langid import langid
 
-from src.database import PostsDatabase
+from src.database import PostsDatabase, Publication
 from src.logger import get_logger
 
 logger = get_logger(__name__)
 
 
 def process_one_article_text(  # noqa: C901
-        publisher:str, text:str, date:str, title:str, start_markers: List[str], end_markers: List[str],
+        publisher:str, text:str, date:datetime, title:str, start_markers: List[str], end_markers: List[str],
         start_marker_constructs:Dict|None,
         skip_start_lines:int|None, max_lines:int|None,
         custom_black_list_starters:List,
@@ -46,7 +46,7 @@ def process_one_article_text(  # noqa: C901
 
     if len(start_markers)>0 and len(end_markers) > 0:
         if not start_idx or start_idx == -1 or start_idx == len(text)-1:
-            raise ValueError(f"Start marker not found in {title}, skipping.")
+            raise ValueError(f"Start marker {start_markers} not found in {title}, skipping.")
 
 
     # find end point up to which to cut the article
@@ -153,43 +153,72 @@ def process_one_article_text(  # noqa: C901
 
     return snippet
 
-def filter_german_posts(posts: List[Dict]) -> List[Dict]:
+def filter_german_posts(publications: List[Publication]) -> List[Publication]:
     """
-    From a list of post-dicts, find dates with multiple posts, detect
-    German articles among them, log the results, and return only those
-    German articles.
+    From a list of publications, group by calendar date (publication.published_on.date()). If a date has exactly two posts and one of them is German ("de"), keep the German one.
 
-    :param posts: List of dicts with keys including "published_on" and "post"
-    :return: List of dicts that are in German and share their published_on date
-             with at least one other post
+    Otherwise (no German counterpart), keep the English ("en") ones.
+
+    Returns a list of selected Publication objects.
     """
+    if not publications:
+        return []
 
-    # Group posts by published_on
-    groups: Dict[str, List[Dict]] = defaultdict(list)
-    for article in posts:
-        date = article["published_on"]
-        groups[date].append(article)
+    # Classify languages once and cache results
+    lang_by_id: Dict[str, Tuple[str, float]] = {}
+    for p in publications:
+        try:
+            lang_by_id[p.id] = langid.classify(p.text)  # (lang, confidence)
+        except Exception as e:
+            logger.warning("Language detection failed for ID %s (%s). Assuming English.", p.id, e)
+            lang_by_id[p.id] = ("en", 0.0)
 
-    german_posts: List[Dict] = []
+    # Group by calendar date
+    groups: Dict[str, List[Publication]] = defaultdict(list)
+    for p in publications:
+        date_key = p.published_on.date().isoformat()
+        groups[date_key].append(p)
 
-    # Inspect only dates where there are multiple posts
-    for date, articles in groups.items():
-        if len(articles) <= 1:
-            continue
+    selected: List[Publication] = []
 
-        found_german = False
-        for article in articles:
-            lang, _ = langid.classify(article["post"])
-            if lang == "de":
-                found_german = True
-                german_posts.append(article)
+    for date_key, items in groups.items():
+        # Sort items deterministically (e.g., by time then id) for stable output
+        items.sort(key=lambda x: (x.published_on, x.id))
 
-        if found_german:
-            logger.debug(f"German article found with date={date}")
+        if len(items) == 2:
+            # Check for a German counterpart
+            german_items = [p for p in items if lang_by_id[p.id][0] == "de"]
+            english_items = [p for p in items if lang_by_id[p.id][0] == "en"]
+
+            if german_items:
+                # Prefer (first) German item when a pair exists
+                chosen = german_items[0]
+                logger.info(
+                    "Date %s: Found EN/DE pair; selecting German post ID %s (conf=%.3f).",
+                    date_key, chosen.id, lang_by_id[chosen.id][1]
+                )
+                selected.append(chosen)
+            else:
+                # No German in the pair -> keep all English ones (usually both or one)
+                ids = ", ".join(p.id for p in english_items) or "none"
+                logger.info(
+                    "Date %s: No German counterpart; keeping English post(s): %s.",
+                    date_key, ids
+                )
+                selected.extend(english_items)
         else:
-            logger.debug(f"No German article found with date={date}")
+            # Not a pair -> keep English-only items
+            english_items = [p for p in items if lang_by_id[p.id][0] == "en"]
+            ids = ", ".join(p.id for p in english_items) or "none"
+            logger.info(
+                "Date %s: %d post(s) (not a pair). Keeping English post(s): %s.",
+                date_key, len(items), ids
+            )
+            selected.extend(english_items)
 
-    return german_posts
+    # Sort chronological ascending for reproducibility.
+    selected.sort(key=lambda x: (x.published_on, x.id))
+    return selected
 
 def preprocess_posts_for_a_table(
     source_db: PostsDatabase,
@@ -213,21 +242,21 @@ def preprocess_posts_for_a_table(
     """
 
     # 1) Get all article metadata (ID, date, title, url)
-    articles = source_db.list_posts(table_name=table_name,sort_date=True)
-    logger.info(f"Found {len(articles)} articles in table '{table_name}'.")
+    publications:List[Publication] = source_db.list_publications(table_name=table_name, sort_date=True)
+    logger.info(f"Found {len(publications)} publications in table '{table_name}'.")
 
     # check if the table exists in the target database
     target_db.check_create_table(table_name=table_name)
 
     if prefer_german:
-        articles = filter_german_posts(posts=articles)
+        publications = filter_german_posts(publications=publications)
 
     # 2) Iterate and process
-    for meta in articles:
-        published_on= meta["published_on"]
-        title       = meta["title"]
-        url         = meta["url"]
-        post        = meta["post"]
+    for publication in publications:
+        published_on= publication.published_on
+        title       = publication.title
+        url         = publication.url
+        post        = publication.text
 
         if not post:
             logger.warning(f"No post for url={url}; skipping.")
@@ -282,23 +311,22 @@ class Preprocessor:
         self.config = config
 
     @staticmethod
-    def date_to_dd_mm_yyyy(datetime_str: datetime.date) -> str:
-        """Convert datetime to DD-MM-YYYY format."""
-        # Split the string by the dash
-        date_part = datetime_str.split("T")[0]  # '2025-07-15'
-        year, month, day = date_part.split("-")  # ['2025', '07', '15']
-        # Rearrange and return in MM-DD-YYYY format
+    def date_to_dd_mm_yyyy(input_datetime: datetime) -> str:
+        """Convert datetime to DD.MM.YYYY format."""
+        day = input_datetime.day
+        month = input_datetime.month
+        year = input_datetime.year
+        # Format with zero-padding for day and month
         return f"{int(day)}.{int(month)}.{year}"
 
     @staticmethod
-    def date_to_yyyy_mm_dd(datetime_str: datetime.date) -> str:
-        """Convert datetime to DD-MM-YYYY format."""
-        date_part = datetime_str.split("T")[0]  #  e.g., '2025-07-15'
-        # Split the string by the dash
-        year, month, day = date_part.split("-") # e.g., ['2025', '07', '15']
-        # Rearrange and return in MM-DD-YYYY format
-        date_part = f"{month}-{day}-{year}"
-        formatted_date = date_part.replace("-", "/")  # 'YYYY/MM/DD'
+    def date_to_yyyy_mm_dd(input_datetime: datetime) -> str:
+        """Convert datetime to DD-MM-YYYY format (without using string splitting)."""
+        year = input_datetime.year
+        month = input_datetime.month
+        day = input_datetime.day
+        # Format as MM/DD/YYYY to match original intent
+        formatted_date = f"{month:02d}/{day:02d}/{year}"
         return formatted_date
 
     def __call__(self, source_db_path: str, target_db_path: str, table_name:str, out_dir:str) -> None:
@@ -339,7 +367,7 @@ class Preprocessor:
             raise e
 
         # save scraped posts as raw .md files for analysis
-        target_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
+        target_db.dump_publications_as_markdown(table_name=table_name, out_dir=out_dir)
 
         source_db.close()
         target_db.close()

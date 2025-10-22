@@ -49,7 +49,7 @@ def main_scrape_posts(scraper:Callable, db_path: str, table_name: str, out_dir: 
         logger.error(f"Failed to run scraper for '{table_name}'. Aborting... Error raised: {e}")
     finally:
         # save scraped posts as raw .md files for analysis
-        news_db.dump_posts_as_markdown(table_name=table_name, out_dir=out_dir)
+        news_db.dump_publications_as_markdown(table_name=table_name, out_dir=out_dir)
         news_db.close()
 
 def main_scrape(source:str):  # noqa: C901

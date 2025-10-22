@@ -15,6 +15,7 @@ from crawl4ai.deep_crawling.filters import (
 
 from src.database import PostsDatabase
 from src.logger import get_logger
+from src.scrapers.utils_scrape import format_date_to_datetime
 
 logger = get_logger(__name__)
 
@@ -115,9 +116,12 @@ async def main_scrape_energy_wire_posts(root_url: str, database: PostsDatabase, 
             result = results[0]
             raw_md = result.markdown.raw_markdown
 
+            # convert date "YYYY-MM-DD:HH:MM:SS" to datetime
+            published_on = format_date_to_datetime(formatted_datetime)
+
             database.add_post(
                 table_name=table_name,
-                published_on=formatted_datetime,
+                published_on=published_on,
                 title=article_title,
                 post_url=article_url,
                 post=raw_md,

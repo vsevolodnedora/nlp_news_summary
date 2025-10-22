@@ -26,6 +26,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 
 from src.database import PostsDatabase
 from src.logger import get_logger
+from src.scrapers.utils_scrape import format_date_to_datetime
 
 logger = get_logger(__name__)
 
@@ -310,12 +311,15 @@ async def main_scrape_50hz_posts(root_url: str, table_name: str, database: Posts
             logger.debug(raw_md)
             continue
 
+        # convert date "YYYY-MM-DD" to datetime as "YYYY-MM-DD:12:00:00" for uniformity
+        published_on = format_date_to_datetime(date)
+
         # add post to the database
         article_title = link.rstrip("/").split("/")[-1].replace("-", "_")
         if database is not None:
             database.add_post(
                 table_name=table_name,
-                published_on=date,
+                published_on=published_on,
                 title=article_title,
                 post_url=link,
                 post=raw_md,

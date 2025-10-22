@@ -13,6 +13,8 @@ from crawl4ai.deep_crawling.filters import (
 from src.database import PostsDatabase
 
 from src.logger import get_logger
+from src.scrapers.utils_scrape import format_date_to_datetime
+
 logger = get_logger(__name__)
 
 async def main_scrape_icis_posts(root_url:str, database: PostsDatabase, table_name:str) -> None:
@@ -68,10 +70,13 @@ async def main_scrape_icis_posts(root_url:str, database: PostsDatabase, table_na
                     logger.info(f"Post already exists in the database. Skipping: {url}")
                     continue
 
+                # convert date "YYYY-MM-DD" to datetime as "YYYY-MM-DD:12:00:00" for uniformity
+                published_on = format_date_to_datetime(date_iso)
+
                 # store full article in the database
                 database.add_post(
                     table_name=table_name,
-                    published_on=date_iso,
+                    published_on=published_on,
                     title=title,
                     post_url=url,
                     post=result.markdown.raw_markdown,

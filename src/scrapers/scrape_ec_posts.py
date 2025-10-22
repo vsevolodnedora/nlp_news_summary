@@ -12,6 +12,7 @@ from crawl4ai.deep_crawling.filters import (
 
 from src.database import PostsDatabase
 from src.logger import get_logger
+from src.scrapers.utils_scrape import format_date_to_datetime
 
 logger = get_logger(__name__)
 
@@ -64,13 +65,16 @@ async def main_scrape_ec_posts(root_url:str, table_name:str, database: PostsData
                 title = match.group(1)
                 date_iso = match.group(2)
 
+                # convert date "YYYY-MM-DD" to datetime as "YYYY-MM-DD:12:00:00" for uniformity
+                published_on = format_date_to_datetime(date_iso)
+
                 # Replace hyphens with underscores in the title for readability
                 title = title.replace("-", "_")
 
                 # store full article in the database
                 database.add_post(
                     table_name=table_name,
-                    published_on=date_iso,
+                    published_on=published_on,
                     title=title,
                     post_url=url,
                     post=result.markdown.raw_markdown,
